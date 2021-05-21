@@ -14,7 +14,6 @@ jobs:
       - uses: actions/setup-node@v2.1.5
         with:
           node-version: '16'
+      - run: node --version && npm --version
       - run: npm ci
-      - run: node --version
-      - run: npm --version
       - run: npm run lint
