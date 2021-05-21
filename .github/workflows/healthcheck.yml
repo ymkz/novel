@@ -1,0 +1,20 @@
+name: healthcheck
+on:
+  push:
+    branches:
+      - main
+env:
+  CI: true
+  TZ: Asia/Tokyo
+jobs:
+  all:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.1.5
+        with:
+          node-version: '14'
+      - run: npm ci
+      - run: node --version
+      - run: npm --version
+      - run: npm run lint
