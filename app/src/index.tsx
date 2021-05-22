@@ -21,7 +21,8 @@ const App = () => {
 const Root = () => {
   return (
     <StrictMode>
-      {location.hostname.includes("pages.dev") ? null : <App />}
+      <App />
+      {/* {location.hostname.includes("pages.dev") ? null : <App />} */}
     </StrictMode>
   )
 }
