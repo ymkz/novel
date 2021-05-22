@@ -2,7 +2,11 @@ import { animated, useSpring } from "@react-spring/web"
 import { useDrag } from "@use-gesture/react"
 import "./style.css"
 
-export const Item = () => {
+type Props = {
+  item: number
+}
+
+export const Item = ({ item }: Props) => {
   const [{ x }, api] = useSpring(() => ({ x: 0 }))
 
   const bind = useDrag(
@@ -16,7 +20,7 @@ export const Item = () => {
   return (
     <li className="item-container">
       <animated.div className="item-facade" {...bind()} style={{ x }}>
-        item
+        {item}
       </animated.div>
     </li>
   )
