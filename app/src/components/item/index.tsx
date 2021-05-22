@@ -11,7 +11,6 @@ export const Item = ({ item }: Props) => {
 
   const bind = useDrag(
     ({ down, movement: [mx], ...rest }) => {
-      console.log(rest)
       return api.start({ x: down ? mx : 0 })
     },
     { axis: "x", threshold: 10 }

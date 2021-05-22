@@ -8,7 +8,7 @@ export const Body = () => {
     <main className="body">
       <ul className="list">
         {items.map((item) => (
-          <Item item={item} />
+          <Item key={item} item={item} />
         ))}
       </ul>
     </main>
