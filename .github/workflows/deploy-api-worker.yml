@@ -1,4 +1,4 @@
-name: deploy-worker
+name: deploy-api-worker
 on:
   push:
     branches:

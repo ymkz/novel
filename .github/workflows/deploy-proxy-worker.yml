@@ -1,4 +1,4 @@
-name: deploy-worker
+name: deploy-proxy-worker
 on:
   push:
     branches:
