@@ -1,30 +1,60 @@
 {
-  "name": "root",
-  "private": true,
-  "workspaces": [
-    "api",
-    "app"
-  ],
+  "name": "narou",
+  "version": "0.0.0",
   "scripts": {
-    "lint": "lerna run lint"
+    "prepare": "run-s ready:hooks ready:install:*",
+    "ready:hooks": "git config --local core.hooksPath .githooks || echo 'CI'",
+    "ready:install:api": "npm install -C api",
+    "ready:install:view": "npm install -C view",
+    "ready:install:proxy": "npm install -C proxy",
+    "reset": "run-p reset:*",
+    "reset:root": "rm -rf node_modules package-lock.json",
+    "reset:api": "npm run reset -C api",
+    "reset:view": "npm run reset -C view",
+    "reset:proxy": "npm run reset -C proxy",
+    "dev": "run-p dev:*",
+    "dev:api": "npm run dev -C api",
+    "dev:view": "wait-on tcp:3001 && npm run dev -C view",
+    "dev:proxy": "npm run dev -C proxy",
+    "build": "run-p build:*",
+    "build:api": "npm run build -C api",
+    "build:view": "npm run build -C view",
+    "build:proxy": "npm run build -C proxy",
+    "publish:api": "npm run publish -C api",
+    "publish:proxy": "npm run publish -C proxy",
+    "lint": "run-p lint:*",
+    "lint:api": "npm run lint -C api",
+    "lint:view": "npm run lint -C view",
+    "lint:proxy": "npm run lint -C proxy",
+    "format": "run-p format:*",
+    "format:api": "npm run format -C api",
+    "format:view": "npm run format -C view",
+    "format:proxy": "npm run format -C proxy"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,css,yml,json,html,md}": [
+      "prettier --write"
+    ]
   },
   "prettier": {
-    "semi": false
+    "semi": false,
+    "singleQuote": true
   },
   "devDependencies": {
-    "lerna": "^4.0.0",
+    "lint-staged": "^11.0.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.3.0",
+    "prettier": "^2.3.1",
     "prettier-plugin-organize-imports": "^2.1.0",
     "prettier-plugin-packagejson": "^2.2.11",
-    "typescript": "^4.2.4"
+    "typescript": "^4.3.2",
+    "wait-on": "^5.3.0"
   },
   "engines": {
     "node": "16.x",
     "npm": "7.x"
   },
   "volta": {
-    "node": "16.2.0",
-    "npm": "7.14.0"
+    "node": "16.3.0",
+    "npm": "7.17.0"
   }
 }

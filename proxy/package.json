@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "proxy",
   "private": true,
   "scripts": {
     "dev": "wrangler dev",
@@ -11,9 +11,6 @@
     "lint": "npm run typecheck && npm run codecheck",
     "format": "prettier --write .",
     "reset": "rm -rf node_modules package-lock.json"
-  },
-  "dependencies": {
-    "node-html-parser": "^3.3.5"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^2.2.2",

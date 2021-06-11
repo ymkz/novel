@@ -1,0 +1,34 @@
+name: deploy-worker
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'proxy/**'
+env:
+  CI: true
+  TZ: Asia/Tokyo
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.1.5
+        with:
+          node-version: '16'
+      - run: npm ci
+      - run: npm run lint
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.1.5
+        with:
+          node-version: '16'
+      - run: npm ci
+      - run: npm run build:proxy
+      - uses: cloudflare/wrangler-action@1.3.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          environment: 'production'
+          workingDirectory: 'proxy'
