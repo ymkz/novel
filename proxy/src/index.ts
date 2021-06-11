@@ -7,7 +7,7 @@ async function handleRequest(req: Request, env: Env, ctx: FetchEvent) {
   const url = new URL(req.url)
   const userAgent = req.headers.get('user-agent') ?? ''
 
-  if (req.method === 'GET') {
+  if (req.method === 'GET' && url.pathname.startsWith('/n')) {
     const updateTask = async () => {
       const [, ncode, currentPage] = url.pathname.split('/')
       const [content] = await getContent(ncode)
