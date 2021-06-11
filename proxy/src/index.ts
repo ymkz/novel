@@ -5,10 +5,9 @@ import { NotFound } from './utils/response'
 
 async function handleRequest(req: Request, env: Env, ctx: FetchEvent) {
   const url = new URL(req.url)
+  const userAgent = req.headers.get('user-agent') ?? ''
 
   if (req.method === 'GET') {
-    const USER_AGENT =
-      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'
     const updateTask = async () => {
       const [, ncode, currentPage] = url.pathname.split('/')
       const [content] = await getContent(ncode)
@@ -17,7 +16,7 @@ async function handleRequest(req: Request, env: Env, ctx: FetchEvent) {
     }
     ctx.waitUntil(updateTask())
     return await fetch(`https://ncode.syosetu.com${url.pathname}`, {
-      headers: { 'user-agent': USER_AGENT },
+      headers: { 'user-agent': userAgent },
     })
   }
 
