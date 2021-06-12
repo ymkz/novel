@@ -1,11 +1,7 @@
 import { NovelInfo } from '../types'
 
 export async function getData(db: KVNamespace): Promise<NovelInfo[]> {
-  const data = await db.get<NovelInfo[]>('data', 'json')
-  if (!data) {
-    return []
-  }
-  return data.reverse()
+  return (await db.get<NovelInfo[]>('data', 'json')) ?? []
 }
 
 export async function addData(

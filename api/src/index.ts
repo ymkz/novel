@@ -9,6 +9,7 @@ async function handleRequest(req: Request, env: Env, ctx: FetchEvent) {
 
   if (req.method === 'GET' && url.pathname === '/api/get') {
     const data = await getData(env.DB)
+    data.sort((x, y) => y.updatedAt - x.updatedAt)
     return OkJson(data)
   }
 
