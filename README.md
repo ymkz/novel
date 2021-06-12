@@ -1,3 +1,3 @@
-# readlater
+# Narou
 
-> A monorepo for Read Later
+> A monorepo for Narou
