@@ -4,9 +4,10 @@ import { IconSend } from './icon-send'
 
 type Props = {
   requestAdd: (url: string) => void
+  requestUpdateAll: () => void
 }
 
-export const Header = ({ requestAdd }: Props) => {
+export const Header = ({ requestAdd, requestUpdateAll }: Props) => {
   const { register, handleSubmit, reset } = useForm<{ url: string }>()
 
   const submit = handleSubmit(async ({ url }) => {
@@ -17,7 +18,7 @@ export const Header = ({ requestAdd }: Props) => {
   return (
     <header className="header">
       <div className="facade">
-        <IconLogo width={22} height={22} />
+        <IconLogo width={22} height={22} onClick={requestUpdateAll} />
         <form className="form" onSubmit={submit}>
           <input
             className="input"

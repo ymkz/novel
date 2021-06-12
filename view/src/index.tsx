@@ -35,6 +35,19 @@ const App = () => {
     }
   }
 
+  const requestUpdateAll = async () => {
+    try {
+      const response = await fetch('/api/updateAll', { method: 'PATCH' })
+      if (response.ok) {
+        requestGet()
+      } else {
+        // error handling
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   const requestDelete = async (ncode: NovelInfo['ncode']) => {
     try {
       const response = await fetch('/api/delete', {
@@ -58,7 +71,7 @@ const App = () => {
 
   return (
     <>
-      <Header requestAdd={requestAdd} />
+      <Header requestAdd={requestAdd} requestUpdateAll={requestUpdateAll} />
       <ul className="list">
         {novelData.map((novelInfo) => (
           <Item

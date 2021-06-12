@@ -29,6 +29,13 @@ export async function updateData(
   await db.put('data', JSON.stringify(next))
 }
 
+export async function updateAll(
+  db: KVNamespace,
+  novelData: NovelInfo[]
+): Promise<void> {
+  await db.put('data', JSON.stringify(novelData))
+}
+
 export async function deleteData(
   db: KVNamespace,
   ncode: string

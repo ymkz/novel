@@ -1,5 +1,5 @@
 import { DeleteBody, Env, PatchBody, PostBody } from './types'
-import { addData, deleteData, getData, updateData } from './utils/kv'
+import { addData, deleteData, getData, updateAll, updateData } from './utils/kv'
 import { getContent } from './utils/parse'
 import { BadRequest, NotFound, Ok, OkJson } from './utils/response'
 
@@ -48,14 +48,19 @@ async function handleRequest(req: Request, env: Env, ctx: FetchEvent) {
     return Ok()
   }
 
-  // if (req.method === 'PATCH' && url.pathname === '/api/updateAll') {
-  //   const data = await getData(env.DB)
-  //   const ncodes = data.map((item) => item.ncode).join('-')
-  //   const contents = await getContent(ncodes)
-  //   // const novelData = dataとcontentsをncode軸でマージする
-  //   // await updateDataAll(env.DB, ncode, novelData)
-  //   return Ok()
-  // }
+  if (req.method === 'PATCH' && url.pathname === '/api/updateAll') {
+    const data = await getData(env.DB)
+    const ncodes = data.map((item) => item.ncode).join('-')
+    const contents = await getContent(ncodes)
+    const novelData = data.map((item) => ({
+      ...item,
+      ...contents.find((content) => content.ncode === item.ncode),
+    }))
+
+    await updateAll(env.DB, novelData)
+
+    return Ok()
+  }
 
   if (req.method === 'DELETE' && url.pathname === '/api/delete') {
     const { ncode }: DeleteBody = await req.json()
