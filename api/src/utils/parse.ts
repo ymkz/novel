@@ -14,7 +14,7 @@ export async function getContent(ncode: string): Promise<NovelContent[]> {
     title: item.title,
     author: item.writer,
     totalPage: item.general_all_no,
-    updatedAt: Date.parse(item.novelupdated_at),
+    updatedAt: Date.parse(item.general_lastup),
   }))
   return contents
 }
