@@ -27,7 +27,9 @@ export const Item = ({ novelInfo, requestDelete }: Props) => {
         {`${novelInfo.currentPage}話` || '目次'}／全{novelInfo.totalPage}話
       </div>
       <a
-        href={`${PROXY_URL}/${novelInfo.ncode}/${novelInfo.currentPage}`}
+        href={`${PROXY_URL}/${novelInfo.ncode}/${
+          novelInfo.currentPage === 0 ? '' : novelInfo.currentPage
+        }`}
         target="_blank"
         rel="noreferrer"
         className="anchor"
