@@ -8,7 +8,7 @@ export type NovelContent = {
   title: string
   author: string
   totalPage: number
-  updatedAt: string
+  updatedAt: number
 }
 
 export type NovelInfo = NovelContent & {
