@@ -2,11 +2,13 @@ import { StrictMode, useEffect, useState } from 'react'
 import { render } from 'react-dom'
 import { Header } from './components/header'
 import { Item } from './components/item'
+import { usePageVisibility } from './hooks/page-visibility'
 import './styles/global.css'
 import { NovelInfo } from './types'
 
 const App = () => {
   const [novelData, setNovelData] = useState<NovelInfo[]>([])
+  const isVisible = usePageVisibility()
 
   const getAll = async () => {
     try {
@@ -68,6 +70,10 @@ const App = () => {
   useEffect(() => {
     getAll()
   }, [])
+
+  useEffect(() => {
+    refresh()
+  }, [isVisible])
 
   return (
     <>
