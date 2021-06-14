@@ -8,7 +8,7 @@ import { NovelInfo } from './types'
 const App = () => {
   const [novelData, setNovelData] = useState<NovelInfo[]>([])
 
-  const requestGet = async () => {
+  const getAll = async () => {
     try {
       const response = await fetch('/api/get')
       const data: NovelInfo[] = await response.json()
@@ -18,7 +18,7 @@ const App = () => {
     }
   }
 
-  const requestAdd = async (url: string) => {
+  const addOne = async (url: string) => {
     try {
       const response = await fetch('/api/add', {
         method: 'POST',
@@ -26,7 +26,7 @@ const App = () => {
         body: JSON.stringify({ url }),
       })
       if (response.ok) {
-        requestGet()
+        getAll()
       } else {
         // error handling
       }
@@ -35,11 +35,11 @@ const App = () => {
     }
   }
 
-  const requestUpdateAll = async () => {
+  const refresh = async () => {
     try {
-      const response = await fetch('/api/updateAll', { method: 'PATCH' })
+      const response = await fetch('/api/refresh', { method: 'PATCH' })
       if (response.ok) {
-        requestGet()
+        getAll()
       } else {
         // error handling
       }
@@ -48,15 +48,15 @@ const App = () => {
     }
   }
 
-  const requestDelete = async (ncode: NovelInfo['ncode']) => {
+  const removeOne = async (ncode: NovelInfo['ncode']) => {
     try {
-      const response = await fetch('/api/delete', {
+      const response = await fetch('/api/remove', {
         method: 'DELETE',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ ncode }),
       })
       if (response.ok) {
-        requestGet()
+        getAll()
       } else {
         // error handling
       }
@@ -66,18 +66,18 @@ const App = () => {
   }
 
   useEffect(() => {
-    requestGet()
+    getAll()
   }, [])
 
   return (
     <>
-      <Header requestAdd={requestAdd} requestUpdateAll={requestUpdateAll} />
+      <Header addOne={addOne} refresh={refresh} />
       <ul className="list">
         {novelData.map((novelInfo) => (
           <Item
             key={novelInfo.ncode}
             novelInfo={novelInfo}
-            requestDelete={requestDelete}
+            removeOne={removeOne}
           />
         ))}
       </ul>

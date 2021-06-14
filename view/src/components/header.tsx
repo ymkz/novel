@@ -3,22 +3,22 @@ import { IconLogo } from './icon-logo'
 import { IconSend } from './icon-send'
 
 type Props = {
-  requestAdd: (url: string) => void
-  requestUpdateAll: () => void
+  addOne: (url: string) => void
+  refresh: () => void
 }
 
-export const Header = ({ requestAdd, requestUpdateAll }: Props) => {
+export const Header = ({ addOne, refresh }: Props) => {
   const { register, handleSubmit, reset } = useForm<{ url: string }>()
 
   const submit = handleSubmit(async ({ url }) => {
-    requestAdd(url)
+    addOne(url)
     reset()
   })
 
   return (
     <header className="header">
       <div className="facade">
-        <IconLogo width={22} height={22} onClick={requestUpdateAll} />
+        <IconLogo width={22} height={22} onClick={refresh} />
         <form className="form" onSubmit={submit}>
           <input
             className="input"

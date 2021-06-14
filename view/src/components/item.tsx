@@ -3,16 +3,16 @@ import { IconRemove } from './icon-remove'
 
 type Props = {
   novelInfo: NovelInfo
-  requestDelete: (id: NovelInfo['ncode']) => void
+  removeOne: (id: NovelInfo['ncode']) => void
 }
 
-export const Item = ({ novelInfo, requestDelete }: Props) => {
+export const Item = ({ novelInfo, removeOne }: Props) => {
   const PROXY_URL = import.meta.env.PROD
     ? 'https://proxy.ymkz.app'
     : 'http://localhost:3002'
 
   const handleRemove = () => {
-    requestDelete(novelInfo.ncode)
+    removeOne(novelInfo.ncode)
   }
 
   return (
