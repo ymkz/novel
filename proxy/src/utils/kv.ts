@@ -1,39 +1,12 @@
 import { NovelInfo } from '../types'
 
-export async function getData(db: KVNamespace): Promise<NovelInfo[]> {
-  const data = await db.get<NovelInfo[]>('data', 'json')
-  if (!data) {
-    return []
-  }
-  return data.reverse()
-}
-
-export async function addData(
+export async function updateOne(
   db: KVNamespace,
-  novelInfo: NovelInfo
-): Promise<void> {
-  const prev = await db.get<NovelInfo[]>('data', 'json')
-  const next = prev ? [...prev, novelInfo] : [novelInfo]
-  await db.put('data', JSON.stringify(next))
-}
-
-export async function updateData(
-  db: KVNamespace,
-  ncode: string,
   novelInfo: NovelInfo
 ): Promise<void> {
   const prev = await db.get<NovelInfo[]>('data', 'json')
   const next = prev
-    ? prev.map((item) => (item.ncode === ncode ? novelInfo : item))
+    ? prev.map((item) => (item.ncode === novelInfo.ncode ? novelInfo : item))
     : []
-  await db.put('data', JSON.stringify(next))
-}
-
-export async function deleteData(
-  db: KVNamespace,
-  ncode: string
-): Promise<void> {
-  const prev = await db.get<NovelInfo[]>('data', 'json')
-  const next = prev ? prev.filter((item) => item.ncode !== ncode) : []
   await db.put('data', JSON.stringify(next))
 }

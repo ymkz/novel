@@ -2,13 +2,6 @@ export function Ok(init?: ResponseInit) {
   return new Response(undefined, { ...init })
 }
 
-export function OkJson(body: any, init?: ResponseInit) {
-  return new Response(JSON.stringify(body), {
-    headers: { 'content-type': 'application/json' },
-    ...init,
-  })
-}
-
 export function NotFound() {
   return new Response('Not Found', {
     status: 404,
@@ -23,8 +16,8 @@ export function BadRequest() {
   })
 }
 
-export function InternalError() {
-  return new Response('Internal Error', {
+export function InternalError(message: any = 'Internal Error') {
+  return new Response(message, {
     status: 500,
     statusText: 'Internal Error',
   })

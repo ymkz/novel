@@ -12,6 +12,9 @@
     "format": "prettier --write .",
     "reset": "rm -rf node_modules package-lock.json"
   },
+  "dependencies": {
+    "itty-router": "^2.3.10"
+  },
   "devDependencies": {
     "@cloudflare/workers-types": "^2.2.2",
     "esbuild": "^0.12.8"

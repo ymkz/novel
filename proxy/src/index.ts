@@ -1,37 +1,22 @@
-import { Env } from './types'
-import { updateData } from './utils/kv'
-import { getContent } from './utils/parse'
-import { NotFound } from './utils/response'
+import { Router } from 'itty-router'
+import { proxy } from './controllers/proxy'
+import { Env, WorkerRequest } from './types'
+import { InternalError, NotFound } from './utils/response'
 
-async function handleRequest(req: Request, env: Env, ctx: FetchEvent) {
-  const url = new URL(req.url)
-  const userAgent = req.headers.get('user-agent') ?? ''
+const router = Router()
 
-  if (req.method === 'GET' && url.pathname.startsWith('/n')) {
-    const updateTask = async () => {
-      const [, ncode, currentPage] = url.pathname.split('/')
-      const [content] = await getContent(ncode)
-      const novelInfo = { ...content, currentPage: Number(currentPage) || 0 }
-      await updateData(env.DB, ncode, novelInfo)
-    }
-    ctx.waitUntil(updateTask())
-    return await fetch(`https://ncode.syosetu.com${url.pathname}`, {
-      headers: { 'user-agent': userAgent },
-    })
-  }
-
-  return NotFound()
-}
+router.get('/:ncode/:currentPage?', proxy)
+router.all('*', NotFound)
 
 export default {
-  async fetch(req: Request, env: Env, ctx: FetchEvent) {
+  async fetch(req: WorkerRequest, env: Env, ctx: FetchEvent) {
     try {
-      return await handleRequest(req, env, ctx)
+      return await router.handle(req, env, ctx)
     } catch (error) {
       if (env.ENVIRONMENT === 'production') {
         ctx.waitUntil(console.log('SEND ERROR EVENT TO SENTRY'))
       }
-      return new Response(error.message)
+      return InternalError(error.message)
     }
   },
 }

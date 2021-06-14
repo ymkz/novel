@@ -1,7 +1,11 @@
+import { Request as IttyRequest } from 'itty-router'
+
 export type Env = {
   DB: KVNamespace
   ENVIRONMENT: 'development' | 'production'
 }
+
+export type WorkerRequest = Request & IttyRequest
 
 export type NovelContent = {
   ncode: string
@@ -13,18 +17,6 @@ export type NovelContent = {
 
 export type NovelInfo = NovelContent & {
   currentPage: number
-}
-
-export type PostBody = {
-  url: string
-}
-
-export type PatchBody = {
-  url: string
-}
-
-export type DeleteBody = {
-  ncode: string
 }
 
 type NarouApiResponseAllCount = {
