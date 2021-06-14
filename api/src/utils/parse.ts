@@ -1,6 +1,8 @@
 import { NarouApiResponse, NovelContent } from '../types'
 
-export async function getContent(ncode: string): Promise<NovelContent[]> {
+export async function scrapeNovelContents(
+  ncode: string
+): Promise<NovelContent[]> {
   const USER_AGENT =
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'
   const response = await fetch(

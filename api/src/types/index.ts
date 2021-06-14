@@ -1,7 +1,11 @@
+import { Request as IttyRequest } from 'itty-router'
+
 export type Env = {
   DB: KVNamespace
   ENVIRONMENT: 'development' | 'production'
 }
+
+export type WorkerRequest = Request & IttyRequest
 
 export type NovelContent = {
   ncode: string

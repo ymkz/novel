@@ -13,6 +13,7 @@
     "reset": "rm -rf node_modules package-lock.json"
   },
   "dependencies": {
+    "itty-router": "^2.3.10",
     "node-html-parser": "^3.3.5"
   },
   "devDependencies": {

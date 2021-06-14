@@ -23,8 +23,8 @@ export function BadRequest() {
   })
 }
 
-export function InternalError() {
-  return new Response('Internal Error', {
+export function InternalWorkerError(message: any = 'Internal Error') {
+  return new Response(message, {
     status: 500,
     statusText: 'Internal Error',
   })
