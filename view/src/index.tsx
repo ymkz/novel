@@ -72,7 +72,9 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-    refresh()
+    if (import.meta.env.PROD) {
+      refresh()
+    }
   }, [isVisible])
 
   return (
