@@ -1,7 +1,7 @@
 import { Router } from 'itty-router'
 import { proxy } from './controllers/proxy'
 import { Env, WorkerRequest } from './types'
-import { InternalError, NotFound } from './utils/response'
+import { InternalWorkerError, NotFound } from './utils/response'
 
 const router = Router()
 
@@ -16,7 +16,7 @@ export default {
       if (env.ENVIRONMENT === 'production') {
         ctx.waitUntil(console.log('SEND ERROR EVENT TO SENTRY'))
       }
-      return InternalError(error.message)
+      return InternalWorkerError(error.message)
     }
   },
 }
