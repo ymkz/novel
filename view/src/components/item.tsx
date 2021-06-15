@@ -1,18 +1,20 @@
+import { useRemoveNovelInfo } from '../hooks/novel-info'
 import { NovelInfo } from '../types'
 import { IconRemove } from './icon-remove'
 
 type Props = {
   novelInfo: NovelInfo
-  removeOne: (id: NovelInfo['ncode']) => void
 }
 
-export const Item = ({ novelInfo, removeOne }: Props) => {
+export const Item = ({ novelInfo }: Props) => {
+  const { mutate: removeNovelInfo } = useRemoveNovelInfo()
+
   const PROXY_URL = import.meta.env.PROD
     ? 'https://proxy.ymkz.app'
     : 'http://localhost:3002'
 
-  const handleRemove = () => {
-    removeOne(novelInfo.ncode)
+  const remove = () => {
+    removeNovelInfo(novelInfo.ncode)
   }
 
   return (
@@ -20,7 +22,7 @@ export const Item = ({ novelInfo, removeOne }: Props) => {
       <div className="head">
         <div className="title">{novelInfo.title}</div>
         <button className="remove">
-          <IconRemove width={18} height={18} onClick={handleRemove} />
+          <IconRemove width={18} height={18} onClick={remove} />
         </button>
       </div>
       <div className="episode">

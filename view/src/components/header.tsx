@@ -1,19 +1,21 @@
 import { useForm } from 'react-hook-form'
+import { useAddNovelInfo, useRefreshNovelData } from '../hooks/novel-info'
 import { IconLogo } from './icon-logo'
 import { IconSend } from './icon-send'
 
-type Props = {
-  addOne: (url: string) => void
-  refresh: () => void
-}
-
-export const Header = ({ addOne, refresh }: Props) => {
+export const Header = () => {
   const { register, handleSubmit, reset } = useForm<{ url: string }>()
+  const { mutate: refreshNovelData } = useRefreshNovelData()
+  const { mutate: addNovelInfo } = useAddNovelInfo()
 
   const submit = handleSubmit(async ({ url }) => {
-    addOne(url)
+    addNovelInfo(url)
     reset()
   })
+
+  const refresh = () => {
+    refreshNovelData()
+  }
 
   return (
     <header className="header">
