@@ -91,6 +91,7 @@ button {
 }
 
 .input {
+  font-size: 14px;
   flex-grow: 1;
   background-color: transparent;
   border: 0;
