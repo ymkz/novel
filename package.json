@@ -1,60 +1,42 @@
 {
-  "name": "narou",
-  "version": "0.0.0",
+  "private": true,
+  "main": "./dist/main.js",
   "scripts": {
-    "prepare": "run-s ready:hooks ready:install:*",
-    "ready:hooks": "git config --local core.hooksPath .githooks || echo 'CI'",
-    "ready:install:api": "npm install -C api",
-    "ready:install:view": "npm install -C view",
-    "ready:install:proxy": "npm install -C proxy",
-    "reset": "run-p reset:*",
-    "reset:root": "rm -rf node_modules package-lock.json",
-    "reset:api": "npm run reset -C api",
-    "reset:view": "npm run reset -C view",
-    "reset:proxy": "npm run reset -C proxy",
+    "build": "run-s build:*",
+    "build:remix": "NODE_ENV=production remix build",
+    "build:worker": "esbuild ./src/main.ts --minify --bundle --outfile=./dist/main.js",
     "dev": "run-p dev:*",
-    "dev:api": "npm run dev -C api",
-    "dev:view": "wait-on tcp:3001 && npm run dev -C view",
-    "dev:proxy": "npm run dev -C proxy",
-    "build": "run-p build:*",
-    "build:api": "npm run build -C api",
-    "build:view": "npm run build -C view",
-    "build:proxy": "npm run build -C proxy",
-    "publish:api": "npm run publish -C api",
-    "publish:proxy": "npm run publish -C proxy",
-    "lint": "run-p lint:*",
-    "lint:api": "npm run lint -C api",
-    "lint:view": "npm run lint -C view",
-    "lint:proxy": "npm run lint -C proxy",
-    "format": "run-p format:*",
-    "format:api": "npm run format -C api",
-    "format:view": "npm run format -C view",
-    "format:proxy": "npm run format -C proxy"
-  },
-  "lint-staged": {
-    "*.{js,ts,tsx,css,yml,json,html,md}": [
-      "prettier --write"
-    ]
+    "dev:remix": "remix watch",
+    "dev:worker": "miniflare --watch",
+    "fmt": "prettier --write .",
+    "postinstall": "remix setup cloudflare-workers",
+    "lint": "prettier --check ."
   },
   "prettier": {
-    "semi": false,
-    "singleQuote": true
+    "semi": false
+  },
+  "dependencies": {
+    "@remix-run/cloudflare-workers": "1.1.1",
+    "@remix-run/react": "1.1.1",
+    "dayjs": "1.10.7",
+    "framer-motion": "4.1.17",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-hook-form": "7.24.2",
+    "react-modal-sheet": "1.4.2",
+    "remix": "1.1.1",
+    "tiny-invariant": "1.2.0"
   },
   "devDependencies": {
-    "lint-staged": "^11.1.1",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.3.2",
-    "prettier-plugin-organize-imports": "^2.3.3",
-    "prettier-plugin-packagejson": "^2.2.11",
-    "typescript": "^4.3.5",
-    "wait-on": "^6.0.0"
-  },
-  "engines": {
-    "node": "16.x",
-    "npm": "7.x"
-  },
-  "volta": {
-    "node": "16.3.0",
-    "npm": "7.17.0"
+    "@cloudflare/workers-types": "2.2.2",
+    "@remix-run/dev": "1.1.1",
+    "@types/react": "17.0.38",
+    "@types/react-dom": "17.0.11",
+    "esbuild": "0.14.11",
+    "miniflare": "2.2.0",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.5.1",
+    "prettier-plugin-packagejson": "2.2.15",
+    "typescript": "4.5.4"
   }
 }

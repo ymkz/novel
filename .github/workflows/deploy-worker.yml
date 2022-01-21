@@ -19,7 +19,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
-  build:
+  deploy:
     needs: lint
     runs-on: ubuntu-latest
     steps:
@@ -30,3 +30,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - uses: cloudflare/wrangler-action@1.3.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
