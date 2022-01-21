@@ -8,7 +8,11 @@ export const links: LinksFunction = () => {
     { rel: "stylesheet", href: globalStyle },
     { rel: "icon", href: favicon, type: "image/svg+xml" },
     { rel: "apple-touch-icon", href: appleTouchIcon, sizes: "180x180" },
-    { rel: "manifest", href: "/site.webmanifest" },
+    {
+      rel: "manifest",
+      href: "/site.webmanifest",
+      crossOrigin: "use-credentials",
+    },
   ]
 }
 
