@@ -1,4 +1,11 @@
-import { Links, LinksFunction, Meta, Outlet, Scripts } from "remix"
+import {
+  Links,
+  LinksFunction,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+} from "remix"
 import appleTouchIcon from "~/assets/apple-touch-icon.png"
 import favicon from "~/assets/favicon.svg"
 import globalStyle from "~/styles/global.css"
@@ -36,6 +43,7 @@ export default function App() {
       <body>
         <Outlet />
         <Scripts />
+        <ScrollRestoration />
       </body>
     </html>
   )
