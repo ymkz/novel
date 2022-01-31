@@ -10,7 +10,7 @@
     "dev:worker": "miniflare --watch",
     "fmt": "prettier --write .",
     "postinstall": "remix setup cloudflare-workers",
-    "lint": "prettier --check ."
+    "lint": "tsc --noEmit && prettier --check ."
   },
   "prettier": {
     "semi": false

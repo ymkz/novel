@@ -8,6 +8,7 @@
     "automerge": true
   },
   "ignoreDeps": ["@cloudflare/workers-types", "framer-motion"],
+  "automergeStrategy": "squash",
   "packageRules": [
     {
       "matchDepTypes": ["dependencies"],

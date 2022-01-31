@@ -4,11 +4,6 @@ name = "narou"
 type = "javascript"
 workers_dev = false
 
-# zone_id = ""
-route = "narou.ymkz.app/*"
-zone_id = "ef3d6757406f55d81f25714eeca18076"
-account_id = "b5844f07873a66bd807cbee5aaa57206"
-
 kv_namespaces = [{ binding = "DB", id = "03ca8539982843789a9abb57fdae31c6" }]
 
 [build]
