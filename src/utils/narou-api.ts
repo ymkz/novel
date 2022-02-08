@@ -1,6 +1,4 @@
 import dayjs from "dayjs"
-import { NarouApiResponse } from "~/types/narou-api"
-import { NovelFromNarouApi } from "~/types/novel"
 
 export async function fetchNarouApiResult(
   ncode: string,

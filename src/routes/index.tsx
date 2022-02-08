@@ -3,7 +3,6 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import Sheet from "react-modal-sheet"
 import { LoaderFunction, useLoaderData } from "remix"
-import { NovelForView } from "~/types/novel"
 import { fetchNarouApiResult } from "~/utils/narou-api"
 import { getAll } from "~/utils/narou-kv"
 

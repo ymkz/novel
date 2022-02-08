@@ -1,5 +1,3 @@
-import { NovelFromKv } from "~/types/novel"
-
 export const getAll = async (kv: KVNamespace): Promise<NovelFromKv[]> => {
   const data = await kv.get<NovelFromKv[]>("data", "json")
   return data ?? []
