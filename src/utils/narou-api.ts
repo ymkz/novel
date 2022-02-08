@@ -9,11 +9,13 @@ export async function fetchNarouApiResult(
   const response = await fetch(url, { headers: { "user-agent": userAgent } })
   const [, ...data]: NarouApiResponse = await response.json()
 
-  return data.map<NovelFromNarouApi>((item) => ({
-    ncode: item.ncode.toLocaleLowerCase(),
-    title: item.title,
-    author: item.writer,
-    totalPage: item.general_all_no,
-    lastPublishedAt: dayjs(item.general_lastup).unix(),
-  }))
+  return data
+    .map<NovelFromNarouApi>((item) => ({
+      ncode: item.ncode.toLocaleLowerCase(),
+      title: item.title,
+      author: item.writer,
+      totalPage: item.general_all_no,
+      lastPublishedAt: dayjs(item.general_lastup).unix(),
+    }))
+    .sort((a, b) => a.lastPublishedAt + b.lastPublishedAt)
 }

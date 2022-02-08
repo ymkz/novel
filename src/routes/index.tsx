@@ -15,10 +15,10 @@ export const loader: LoaderFunction = async ({ request }) => {
     currentPage:
       current.find((currentItem) => currentItem.ncode === result.ncode)
         ?.currentPage ?? 0,
+    lastPublishedAt: dayjs
+      .unix(result.lastPublishedAt)
+      .format("YYYY年M月D日H時m分"),
   }))
-
-  novels.sort((a, b) => a.lastPublishedAt + b.lastPublishedAt)
-
   return novels
 }
 
@@ -101,9 +101,7 @@ export default function Index() {
             <div className="page">
               {novel.currentPage}話／全{novel.totalPage}話
             </div>
-            <div className="date">
-              {dayjs.unix(novel.lastPublishedAt).format("YYYY年M月D日H時m分")}
-            </div>
+            <div className="date">{novel.lastPublishedAt}</div>
           </li>
         ))}
       </ul>

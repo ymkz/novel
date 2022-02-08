@@ -3,6 +3,7 @@
 /// <reference types="@cloudflare/workers-types" />
 
 declare const DB: KVNamespace
+declare const ENVIRONMENT: "local" | "production"
 
 type NovelFromKv = {
   ncode: string
@@ -17,8 +18,13 @@ type NovelFromNarouApi = {
   lastPublishedAt: number
 }
 
-type NovelForView = NovelFromNarouApi & {
+type NovelForView = {
+  ncode: string
+  title: string
+  author: string
+  totalPage: number
   currentPage: number
+  lastPublishedAt: string
 }
 
 type NarouApiResponseAllCount = {
