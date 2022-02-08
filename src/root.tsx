@@ -6,15 +6,23 @@ import {
   Scripts,
   ScrollRestoration,
 } from "remix"
-import appleTouchIcon from "~/assets/apple-touch-icon.png"
-import favicon from "~/assets/favicon.svg"
-import globalStyle from "~/styles/global.css"
 
 export const links: LinksFunction = () => {
   return [
-    { rel: "stylesheet", href: globalStyle },
-    { rel: "icon", href: favicon, type: "image/svg+xml" },
-    { rel: "apple-touch-icon", href: appleTouchIcon, sizes: "180x180" },
+    {
+      rel: "stylesheet",
+      href: "/style.css",
+    },
+    {
+      rel: "icon",
+      href: "/favicon.svg",
+      type: "image/svg+xml",
+    },
+    {
+      rel: "apple-touch-icon",
+      href: "/apple-touch-icon.png",
+      sizes: "180x180",
+    },
     {
       rel: "manifest",
       href: "/site.webmanifest",
@@ -28,22 +36,20 @@ export default function App() {
     <html lang="ja">
       <head>
         <meta charSet="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width,initial-scale=1,user-scalable=0"
-        />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-title" content="Narou" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="#000000" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#ffffff" />
+        <meta name="description" content="Narou" />
+        <title>Narou</title>
         <Meta />
         <Links />
-        <title>Narou</title>
       </head>
       <body>
         <Outlet />
-        <Scripts />
         <ScrollRestoration />
+        <Scripts />
       </body>
     </html>
   )
