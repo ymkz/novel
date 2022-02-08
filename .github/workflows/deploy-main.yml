@@ -1,4 +1,4 @@
-name: deploy-worker
+name: deploy-main
 on:
   push:
     branches:
@@ -29,7 +29,9 @@ jobs:
           node-version: "16"
           cache: npm
       - run: npm ci
-      - run: npm run build
       - uses: cloudflare/wrangler-action@1.3.0
+        env:
+          NODE_ENV: production
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
+          environment: production

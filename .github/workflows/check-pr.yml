@@ -1,8 +1,6 @@
-name: main
+name: check-pr
 on:
-  push:
-    branches:
-      - main
+  pull_request:
 permissions:
   contents: read
 env:
