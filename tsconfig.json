@@ -16,7 +16,7 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": ["./src/*"]
     }
   },
   "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"]

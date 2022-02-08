@@ -1,14 +1,20 @@
 compatibility_date = "2022-01-01"
-
-name = "narou"
 type = "javascript"
 workers_dev = false
 
+name = "narou-local"
+vars = { ENVIRONMENT = "local" }
 kv_namespaces = [{ binding = "DB", id = "03ca8539982843789a9abb57fdae31c6" }]
 
+[env.production]
+name = "narou"
+vars = { ENVIRONMENT = "production" }
+kv_namespaces = [{ binding = "DB", id = "5e15a12c6dd04a59a97e2ae440409b34" }]
+
+
 [build]
-command = "npm run build:worker"
-watch_dir = "build/index.js"
+command = "npm run build"
+watch_dir = "src"
 
 [build.upload]
 format = "service-worker"
