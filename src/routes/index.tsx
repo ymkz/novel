@@ -1,8 +1,7 @@
 import dayjs from "dayjs"
 import { useState } from "react"
-import { useForm } from "react-hook-form"
 import Sheet from "react-modal-sheet"
-import { LoaderFunction, useLoaderData } from "remix"
+import { Form, LoaderFunction, useLoaderData } from "remix"
 import { fetchNarouApiResult } from "~/utils/narou-api"
 import { getAll } from "~/utils/narou-kv"
 
@@ -24,16 +23,8 @@ export const loader: LoaderFunction = async ({ request }) => {
 
 export default function Index() {
   const novels: NovelForView[] = useLoaderData()
-  const { register, handleSubmit, resetField } = useForm<{ url: string }>()
   const [isOpen, setOpen] = useState<boolean>(false)
   const [target, setTarget] = useState<NovelForView | null>(null)
-
-  const add = async () => {
-    await fetch("/api/add", {
-      method: "POST",
-      body: JSON.stringify({ url: "https://example.com" }),
-    })
-  }
 
   const del = async () => {
     if (confirm("本当に削除しますか")) {
@@ -59,26 +50,17 @@ export default function Index() {
     location.reload()
   }
 
-  const submit = handleSubmit(async ({ url }) => {
-    await fetch("/api/add", {
-      method: "POST",
-      body: JSON.stringify({ url }),
-    })
-    resetField("url")
-    location.reload()
-  })
-
   return (
     <div id="root">
       <div className="header">
         <div className="facade">
-          <form className="form" onSubmit={submit}>
+          <Form className="form" method="post" action="/api/add" reloadDocument>
             <input
               className="input"
               placeholder="https://ncode.syosetu.com"
-              {...register("url")}
+              name="url"
             />
-            <button className="submit">
+            <button className="submit" type="submit">
               <svg width="18" height="18" viewBox="0 0 256 256">
                 <path
                   d="M219.536 121.02L50.62 26.428a8 8 0 0 0-11.443 9.67l31.861 89.211a8 8 0 0 1 0 5.382L39.178 219.9a8 8 0 0 0 11.443 9.671l168.915-94.592a8 8 0 0 0 0-13.96z"
@@ -91,7 +73,7 @@ export default function Index() {
                 ></path>
               </svg>
             </button>
-          </form>
+          </Form>
         </div>
       </div>
       <ul className="list">
