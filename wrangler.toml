@@ -1,8 +1,8 @@
 compatibility_date = "2022-01-01"
+
 type = "javascript"
 workers_dev = false
 
-name = "narou-local"
 vars = { ENVIRONMENT = "local" }
 kv_namespaces = [{ binding = "DB", id = "" }]
 
@@ -11,16 +11,15 @@ name = "narou"
 vars = { ENVIRONMENT = "production" }
 kv_namespaces = [{ binding = "DB", id = "03ca8539982843789a9abb57fdae31c6" }]
 
-[build]
-command = "npm run build"
-watch_dir = "src"
-
-[build.upload]
-format = "service-worker"
-
 [site]
 bucket = "./public"
 entry-point = "."
+
+[build]
+command = "npm run build"
+
+[build.upload]
+format = "service-worker"
 
 [miniflare]
 host = "localhost"

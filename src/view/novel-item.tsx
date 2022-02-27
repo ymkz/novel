@@ -1,9 +1,11 @@
+import React from 'react'
+
 type Props = {
   novel: NovelForView
   open: (novel: NovelForView) => void
 }
 
-export const NovelItem = ({ novel, open }: Props) => {
+export function NovelItem({ novel, open }: Props) {
   const handleClickToView = () => {
     open(novel)
   }

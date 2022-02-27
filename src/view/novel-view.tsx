@@ -1,4 +1,6 @@
-import Sheet from "react-modal-sheet"
+import React from 'react'
+import Sheet from 'react-modal-sheet'
+import { useNovelRevalidate } from '~/view/novel-hook'
 
 type Props = {
   isOpen: boolean
@@ -7,9 +9,11 @@ type Props = {
   remove: () => void
 }
 
-export const NovelViewer = ({ isOpen, target, close, remove }: Props) => {
+export function NovelView({ isOpen, target, close, remove }: Props) {
+  const { revalidate } = useNovelRevalidate()
+
   const handleCloseEnd = () => {
-    location.reload()
+    revalidate()
   }
 
   return (
@@ -27,7 +31,7 @@ export const NovelViewer = ({ isOpen, target, close, remove }: Props) => {
         </Sheet.Header>
         <Sheet.Content>
           <iframe
-            src={`/narou/${target?.ncode}/${target?.currentPage || ""}`}
+            src={`/narou/${target?.ncode}/${target?.currentPage || ''}`}
             className="sheet-content"
           />
         </Sheet.Content>

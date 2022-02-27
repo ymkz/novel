@@ -1,6 +1,4 @@
+dist
 node_modules
-
-/.cache
-/build
-/dist
-/public/build
+public/render.js
+tsconfig.tsbuildinfo
