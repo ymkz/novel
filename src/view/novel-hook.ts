@@ -21,14 +21,11 @@ export const useNovelAdd = () => {
 }
 
 export const useNovelDelete = () => {
-  const { mutate } = useSWRConfig()
-
   const deleteNovel = async (ncode: string) => {
     await fetch('/api/del', {
       method: 'DELETE',
       body: JSON.stringify({ ncode }),
     })
-    await mutate('/api/get')
   }
 
   return { deleteNovel }

@@ -1,19 +1,26 @@
 import React from 'react'
 import Sheet from 'react-modal-sheet'
-import { useNovelRevalidate } from '~/view/novel-hook'
+import { useNovelDelete, useNovelRevalidate } from '~/view/novel-hook'
 
 type Props = {
   isOpen: boolean
   target: NovelForView | null
   close: () => void
-  remove: () => void
 }
 
-export function NovelView({ isOpen, target, close, remove }: Props) {
+export function NovelView({ isOpen, target, close }: Props) {
   const { revalidate } = useNovelRevalidate()
+  const { deleteNovel } = useNovelDelete()
 
   const handleCloseEnd = () => {
     revalidate()
+  }
+
+  const handleRemove = async () => {
+    if (confirm('本当に削除しますか')) {
+      await deleteNovel(target?.ncode!)
+      close()
+    }
   }
 
   return (
@@ -21,7 +28,7 @@ export function NovelView({ isOpen, target, close, remove }: Props) {
       <Sheet.Container>
         <Sheet.Header>
           <div className="sheet-header">
-            <div onClick={remove} className="delete">
+            <div onClick={handleRemove} className="delete">
               削除
             </div>
             <div onClick={close} className="close">

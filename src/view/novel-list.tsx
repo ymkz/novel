@@ -19,16 +19,6 @@ export function NovelList() {
     setTarget(null)
   }
 
-  const remove = async () => {
-    if (confirm('本当に削除しますか')) {
-      await fetch('/api/del', {
-        method: 'POST',
-        body: JSON.stringify({ ncode: target?.ncode }),
-      })
-      close()
-    }
-  }
-
   return (
     <>
       <NovelForm />
@@ -37,12 +27,7 @@ export function NovelList() {
           <NovelItem key={novel.ncode} novel={novel} open={open} />
         ))}
       </ul>
-      <NovelView
-        isOpen={isOpen}
-        target={target}
-        close={close}
-        remove={remove}
-      />
+      <NovelView isOpen={isOpen} target={target} close={close} />
     </>
   )
 }
