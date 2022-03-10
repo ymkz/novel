@@ -5,10 +5,11 @@ import { useNovelAdd } from '~/view/novel-hook'
 
 export function NovelForm() {
   const { addNovel } = useNovelAdd()
-  const { register, handleSubmit } = useForm<{ url: string }>()
+  const { register, handleSubmit, reset } = useForm<{ url: string }>()
 
-  const submit = handleSubmit((value) => {
-    addNovel(value.url)
+  const submit = handleSubmit(async (value) => {
+    await addNovel(value.url)
+    reset()
   })
 
   return (
