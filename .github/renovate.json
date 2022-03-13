@@ -1,29 +1,29 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", ":timezone(Asia/Tokyo)"],
-  "schedule": ["after 9pm and before 11pm on friday"],
-  "labels": ["dependencies", "renovate"],
-  "automergeStrategy": "squash",
-  "dependencyDashboard": true,
+  "extends": [
+    "config:base",
+    ":dependencyDashboard",
+    ":timezone(Asia/Tokyo)",
+    ":labels(dependencies, renovate)",
+    ":enableVulnerabilityAlertsWithLabel(vulnerabilities)"
+  ],
+  "schedule": ["after 7pm and before 12pm on friday"],
   "platformAutomerge": true,
-  "prConcurrentLimit": 5,
-  "prHourlyLimit": 0,
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true
   },
-  "ignoreDeps": ["@cloudflare/workers-types", "framer-motion"],
   "packageRules": [
     {
       "matchDepTypes": ["dependencies"],
       "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "dependencies (non-major)",
+      "groupName": "non-major-dependencies",
       "automerge": true
     },
     {
       "matchDepTypes": ["devDependencies"],
       "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "dev-dependencies (non-major)",
+      "groupName": "non-major-dev-dependencies",
       "automerge": true
     }
   ]
