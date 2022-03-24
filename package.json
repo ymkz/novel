@@ -12,12 +12,12 @@
     "singleQuote": true
   },
   "dependencies": {
-    "dayjs": "1.10.8",
+    "dayjs": "1.11.0",
     "framer-motion": "4.1.17",
-    "hono": "0.5.4",
+    "hono": "0.5.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-hook-form": "7.28.0",
+    "react-hook-form": "7.28.1",
     "react-modal-sheet": "1.5.1",
     "swr": "1.2.2"
   },
