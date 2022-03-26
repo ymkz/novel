@@ -16,12 +16,8 @@ app.get('/api/get', getNovels)
 app.post('/api/add', addNovel)
 app.delete('/api/del', delNovel)
 
-app.notFound((ctx) => {
-  return ctx.json({ err: { reason: 'not found' } }, 404)
-})
-
-app.onError((err = Error('unexpected error'), ctx) => {
-  console.error(`[ERROR]: ${err}`)
+app.onError((err = Error('UnexpectedError'), ctx) => {
+  console.error({ err: { reason: err.message } })
   return ctx.json({ err: { reason: err.message } }, 500)
 })
 
