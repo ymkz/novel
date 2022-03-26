@@ -2,7 +2,7 @@ import { Context } from 'hono'
 import { removeOne } from '~/api/narou-kv'
 
 export async function delNovel(ctx: Context<never>) {
-  const { ncode } = await ctx.req.json().catch(() => {
+  const { ncode } = await ctx.req.json<{ ncode: string }>().catch(() => {
     throw new Error('ErrRequestBodyParseFailure')
   })
 

@@ -2,7 +2,7 @@ import { Context } from 'hono'
 import { addOne } from '~/api/narou-kv'
 
 export async function addNovel(ctx: Context<never>) {
-  const { url } = await ctx.req.json().catch(() => {
+  const { url } = await ctx.req.json<{ url: string }>().catch(() => {
     throw new Error('ErrRequestBodyParseFailure')
   })
 
