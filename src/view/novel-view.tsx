@@ -9,7 +9,7 @@ const variants: Variants = {
     transform: 'scale(0) rotateX(-360deg)',
   },
   animate: {
-    y: '5vh',
+    y: '5.5vh',
     opacity: 1,
     transition: {
       duration: 0.2,
