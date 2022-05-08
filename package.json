@@ -12,7 +12,7 @@
     "singleQuote": true
   },
   "dependencies": {
-    "dayjs": "1.11.1",
+    "dayjs": "1.11.2",
     "framer-motion": "6.3.3",
     "hono": "1.1.1",
     "react": "18.1.0",
