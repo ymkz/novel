@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useLockedBody } from '../hooks/locked-body'
 import { useNovels } from '../hooks/novel'
 import { NovelInput } from './novel-input'
 import { NovelItem } from './novel-item'
@@ -9,16 +8,13 @@ export function NovelList() {
   const { novels } = useNovels()
   const [isOpen, setOpen] = useState<boolean>(false)
   const [target, setTarget] = useState<NovelForView | null>(null)
-  const [, setLocked] = useLockedBody()
 
   const open = (novel: NovelForView) => {
-    setLocked(true)
     setOpen(true)
     setTarget(novel)
   }
 
   const close = () => {
-    setLocked(false)
     setOpen(false)
     setTarget(null)
   }
