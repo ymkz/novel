@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form'
-import { useNovelAdd } from '../hooks/novel-hooks'
+import { useNovelAdd } from '../hooks/novel'
 import { IconSubmit } from './icon-submit'
 
 export function NovelInput() {

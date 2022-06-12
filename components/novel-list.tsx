@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useLockedBody } from '../hooks/locked-body'
-import { useNovels } from '../hooks/novel-hooks'
+import { useNovels } from '../hooks/novel'
 import { NovelInput } from './novel-input'
 import { NovelItem } from './novel-item'
 import { NovelReader } from './novel-reader'

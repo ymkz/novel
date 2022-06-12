@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, Variants } from 'framer-motion'
-import { useNovelDelete, useNovelRevalidate } from '../hooks/novel-hooks'
+import { useNovelDelete, useNovelRevalidate } from '../hooks/novel'
 
 const variants: Variants = {
   initial: {
