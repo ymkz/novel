@@ -56,6 +56,7 @@ export function NovelReader({ isOpen, target, close }: Props) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          onClick={close}
         >
           <motion.div
             className="sheet-container"
