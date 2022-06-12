@@ -1,9 +1,5 @@
-declare const DB: KVNamespace
-declare const ENVIRONMENT: 'local' | 'production'
-
-type AppErrorType = {
-  reason: string
-  status: number
+type Env = {
+  KV_NAROU_DATA: KVNamespace
 }
 
 type NovelFromKv = {

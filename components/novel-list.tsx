@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { NovelForm } from '~/view/novel-form'
-import { useNovels } from '~/view/novel-hook'
-import { NovelItem } from '~/view/novel-item'
-import { NovelView } from '~/view/novel-view'
+import { useState } from 'react'
+import { useNovels } from '../hooks/novel-hooks'
+import { NovelInput } from './novel-input'
+import { NovelItem } from './novel-item'
+import { NovelReader } from './novel-reader'
 
 export function NovelList() {
   const { novels } = useNovels()
@@ -21,13 +21,13 @@ export function NovelList() {
 
   return (
     <>
-      <NovelForm />
+      <NovelInput />
       <ul className="list">
         {novels?.map((novel) => (
           <NovelItem key={novel.ncode} novel={novel} open={open} />
         ))}
       </ul>
-      <NovelView isOpen={isOpen} target={target} close={close} />
+      <NovelReader isOpen={isOpen} target={target} close={close} />
     </>
   )
 }

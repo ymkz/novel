@@ -1,5 +1,5 @@
 export const getAll = async (kv: KVNamespace): Promise<NovelFromKv[]> => {
-  const data = await kv.get<NovelFromKv[]>('data', 'json')
+  const data = await kv.get<NovelFromKv[]>('narou-data', 'json')
   return data ?? []
 }
 
@@ -9,7 +9,7 @@ export const addOne = async (
 ): Promise<void> => {
   const prev = await getAll(kv)
   const next = [...prev, novel]
-  await kv.put('data', JSON.stringify(next))
+  await kv.put('narou-data', JSON.stringify(next))
 }
 
 export const removeOne = async (
@@ -18,7 +18,7 @@ export const removeOne = async (
 ): Promise<void> => {
   const prev = await getAll(kv)
   const next = prev.filter((item) => item.ncode !== ncode)
-  await kv.put('data', JSON.stringify(next))
+  await kv.put('narou-data', JSON.stringify(next))
 }
 
 export const updateOne = async (
@@ -27,5 +27,5 @@ export const updateOne = async (
 ): Promise<void> => {
   const prev = await getAll(kv)
   const next = prev.map((item) => (item.ncode === novel.ncode ? novel : item))
-  await kv.put('data', JSON.stringify(next))
+  await kv.put('narou-data', JSON.stringify(next))
 }

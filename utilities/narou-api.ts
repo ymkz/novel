@@ -1,12 +1,11 @@
-import dayjs from 'dayjs'
-import { Context } from 'hono'
+import { dayjs } from '../utilities/app-date'
 
 export async function fetchNarouApiResult(
   ncode: string,
-  ctx: Context<never>
+  req: Request
 ): Promise<NovelFromNarouApi[]> {
   const url = `https://api.syosetu.com/novelapi/api?out=json&lim=500&ncode=${ncode}`
-  const userAgent = ctx.req.headers.get('user-agent') ?? ''
+  const userAgent = req.headers.get('user-agent') ?? ''
   const response = await fetch(url, { headers: { 'user-agent': userAgent } })
   const [, ...data]: NarouApiResponse = await response.json()
   return data

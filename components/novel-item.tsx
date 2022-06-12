@@ -1,5 +1,3 @@
-import React from 'react'
-
 type Props = {
   novel: NovelForView
   open: (novel: NovelForView) => void

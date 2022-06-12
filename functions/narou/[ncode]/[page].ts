@@ -1,5 +1,6 @@
-import { Context } from 'hono'
-import { updateOne } from '~/api/narou-kv'
+import { updateOne } from '../../../utilities/kv-repository'
+
+type Params = 'ncode' | 'page'
 
 const rewriter = new HTMLRewriter().on('a', {
   element(element) {
@@ -16,16 +17,22 @@ const rewriter = new HTMLRewriter().on('a', {
   },
 })
 
-export async function fetchNarouPage(ctx: Context<'ncode' | 'page'>) {
-  const ncode = ctx.req.param('ncode')
-  const page = ctx.req.param('page')
+export const onRequestGet: PagesFunction<Env, Params> = async (ctx) => {
+  if (Array.isArray(ctx.params.ncode) || Array.isArray(ctx.params.page)) {
+    throw { reason: 'RequestParamParseFailure', status: 400 }
+  }
 
-  await updateOne(DB, {
+  const ncode = ctx.params.ncode
+  const page = ctx.params.page
+
+  await updateOne(ctx.env.KV_NAROU_DATA, {
     ncode: ncode,
     currentPage: Number(page) || 0,
+  }).catch(() => {
+    throw { reason: 'KVUpdateOneFailure', status: 500 }
   })
 
-  const userAgent = ctx.req.headers.get('user-agent') ?? ''
+  const userAgent = ctx.request.headers.get('user-agent') ?? ''
   const url = `https://ncode.syosetu.com/${ncode}/${Number(page) || ''}`
   const proxied = await fetch(url, { headers: { 'user-agent': userAgent } })
 

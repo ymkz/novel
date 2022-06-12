@@ -1,27 +1,7 @@
-compatibility_date = "2022-01-01"
-
-type = "javascript"
-workers_dev = false
-
-vars = { ENVIRONMENT = "local" }
-kv_namespaces = [{ binding = "DB", id = "" }]
-
-[env.production]
 name = "narou"
-vars = { ENVIRONMENT = "production" }
-kv_namespaces = [{ binding = "DB", id = "03ca8539982843789a9abb57fdae31c6" }]
+compatibility_date = "2022-06-01"
 
-[site]
-bucket = "./public"
-entry-point = "."
-
-[build]
-command = "npm run build"
-
-[build.upload]
-format = "service-worker"
-
-[miniflare]
-host = "localhost"
-port = 3000
-kv_persist = true
+[[kv_namespaces]]
+binding = "KV_NAROU_DATA"
+id = "d488f4f14707444eb935fcce020c9334"         # narou-data
+preview_id = "f5295a93683f4062baa249bb196df937" # test-data

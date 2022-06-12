@@ -1,6 +1,5 @@
 import { AnimatePresence, motion, Variants } from 'framer-motion'
-import React from 'react'
-import { useNovelDelete, useNovelRevalidate } from '~/view/novel-hook'
+import { useNovelDelete, useNovelRevalidate } from '../hooks/novel-hooks'
 
 const variants: Variants = {
   initial: {
@@ -30,7 +29,7 @@ type Props = {
   close: () => void
 }
 
-export function NovelView({ isOpen, target, close }: Props) {
+export function NovelReader({ isOpen, target, close }: Props) {
   const { revalidate } = useNovelRevalidate()
   const { deleteNovel } = useNovelDelete()
 
