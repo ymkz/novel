@@ -7,7 +7,7 @@ export function toUnixTime(
 }
 
 export function toDisplayTime(
-  lastPublishedAt: NovelFromNarouApi['lastPublishedAt']
+  lastPublishedAt: NarouInfo['lastPublishedAt']
 ): string {
   return dayjs.unix(lastPublishedAt).format('YYYY年M月D日H時m分')
 }

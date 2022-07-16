@@ -26,7 +26,7 @@ const variants: Variants = {
 
 type Props = {
   isOpen: boolean
-  target: NovelForView | null
+  target: NarouItem | null
   close: () => void
 }
 

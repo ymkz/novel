@@ -19,7 +19,7 @@ export const apiGet: PagesFunction<Env> = async (ctx) => {
 
   const results = await fetchNarouInfo(ncodes, userAgent)
 
-  const novels = results.map<NovelForView>((result) => ({
+  const novels = results.map<NarouItem>((result) => ({
     ...result,
     currentPage:
       current.find((currentItem) => currentItem.ncode === result.ncode)

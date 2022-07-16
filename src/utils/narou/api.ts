@@ -4,7 +4,7 @@ import { E } from '../error'
 export async function fetchNarouInfo(
   ncode: string,
   userAgent: string
-): Promise<NovelFromNarouApi[]> {
+): Promise<NarouInfo[]> {
   const url = `https://api.syosetu.com/novelapi/api?out=json&lim=500&ncode=${ncode}`
 
   const response = await fetch(url, {
@@ -22,7 +22,7 @@ export async function fetchNarouInfo(
   })
 
   return data
-    .map<NovelFromNarouApi>((item) => ({
+    .map<NarouInfo>((item) => ({
       ncode: item.ncode.toLocaleLowerCase(),
       title: item.title,
       author: item.writer,

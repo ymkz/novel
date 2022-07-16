@@ -1,8 +1,8 @@
 import { FC } from 'react'
 
 type Props = {
-  novel: NovelForView
-  open: (novel: NovelForView) => void
+  novel: NarouItem
+  open: (novel: NarouItem) => void
 }
 
 export const NovelItem: FC<Props> = ({ novel, open }) => {

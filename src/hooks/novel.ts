@@ -1,7 +1,7 @@
 import useSWR, { useSWRConfig } from 'swr'
 
 export const useGetNovelsQuery = () => {
-  const { data: novels } = useSWR<NovelForView[]>('/api/get')
+  const { data: novels } = useSWR<NarouItem[]>('/api/get')
 
   return { novels }
 }

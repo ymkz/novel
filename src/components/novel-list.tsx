@@ -7,9 +7,9 @@ import { NovelReader } from './novel-reader'
 export const NovelList = () => {
   const { novels } = useGetNovelsQuery()
   const [isOpen, setOpen] = useState<boolean>(false)
-  const [target, setTarget] = useState<NovelForView | null>(null)
+  const [target, setTarget] = useState<NarouItem | null>(null)
 
-  const open = (novel: NovelForView) => {
+  const open = (novel: NarouItem) => {
     setOpen(true)
     setTarget(novel)
   }

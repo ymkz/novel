@@ -1,8 +1,8 @@
 import { E } from '../error'
 
-export const getNarouData = async (kv: KVNamespace): Promise<NovelFromKv[]> => {
+export const getNarouData = async (kv: KVNamespace): Promise<KVNarouItem[]> => {
   try {
-    const data = await kv.get<NovelFromKv[]>('narou-data', 'json')
+    const data = await kv.get<KVNarouItem[]>('narou-data', 'json')
     return data ?? []
   } catch {
     throw E.KvGetNarouDataFailure
@@ -11,7 +11,7 @@ export const getNarouData = async (kv: KVNamespace): Promise<NovelFromKv[]> => {
 
 export const addNarouItem = async (
   kv: KVNamespace,
-  data: NovelFromKv
+  data: KVNarouItem
 ): Promise<void> => {
   try {
     const prev = await getNarouData(kv)
@@ -24,7 +24,7 @@ export const addNarouItem = async (
 
 export const deleteNarouItem = async (
   kv: KVNamespace,
-  ncode: NovelFromKv['ncode']
+  ncode: KVNarouItem['ncode']
 ): Promise<void> => {
   try {
     const prev = await getNarouData(kv)
@@ -37,7 +37,7 @@ export const deleteNarouItem = async (
 
 export const updateNarouItem = async (
   kv: KVNamespace,
-  novel: NovelFromKv
+  novel: KVNarouItem
 ): Promise<void> => {
   try {
     const prev = await getNarouData(kv)

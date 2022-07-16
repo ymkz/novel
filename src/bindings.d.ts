@@ -12,12 +12,12 @@ type ApiDelRequestBody = {
   ncode?: string
 }
 
-type NovelFromKv = {
+type KVNarouItem = {
   ncode: string
   currentPage: number
 }
 
-type NovelFromNarouApi = {
+type NarouInfo = {
   ncode: string
   title: string
   author: string
@@ -25,7 +25,7 @@ type NovelFromNarouApi = {
   lastPublishedAt: number
 }
 
-type NovelForView = {
+type NarouItem = {
   ncode: string
   title: string
   author: string
