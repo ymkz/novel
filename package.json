@@ -1,6 +1,5 @@
 {
   "private": true,
-  "packageManager": "pnpm@6.0.2",
   "scripts": {
     "build": "vite build",
     "dev": "wrangler pages dev --local=true --port=3000 --kv=KV_NOVEL_DATA -- vite dev",
