@@ -1,12 +1,12 @@
 import useSWR, { useSWRConfig } from 'swr'
 
-export const useNovels = () => {
+export const useGetNovelsQuery = () => {
   const { data: novels } = useSWR<NovelForView[]>('/api/get')
 
   return { novels }
 }
 
-export const useNovelAdd = () => {
+export const useAddNovelMutation = () => {
   const { mutate } = useSWRConfig()
 
   const addNovel = async (url: string) => {
@@ -20,7 +20,7 @@ export const useNovelAdd = () => {
   return { addNovel }
 }
 
-export const useNovelDelete = () => {
+export const useDeleteNovelMutation = () => {
   const deleteNovel = async (ncode: string) => {
     await fetch('/api/del', {
       method: 'DELETE',
@@ -31,10 +31,10 @@ export const useNovelDelete = () => {
   return { deleteNovel }
 }
 
-export const useNovelRevalidate = () => {
+export const useRefetchNovelMutation = () => {
   const { mutate } = useSWRConfig()
 
-  const revalidate = () => mutate('/api/get')
+  const refetchNovel = () => mutate('/api/get')
 
-  return { revalidate }
+  return { refetchNovel }
 }

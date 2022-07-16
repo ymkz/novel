@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form'
-import { useNovelAdd } from '../hooks/novel'
+import { useAddNovelMutation } from '../hooks/novel'
 import { IconSubmit } from './icon-submit'
 
-export function NovelInput() {
-  const { addNovel } = useNovelAdd()
+export const NovelInput = () => {
+  const { addNovel } = useAddNovelMutation()
   const { register, handleSubmit, reset } = useForm<{ url: string }>()
 
   const submit = handleSubmit(async (value) => {

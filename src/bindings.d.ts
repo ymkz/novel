@@ -1,5 +1,15 @@
 type Env = {
-  KV_NAROU_DATA: KVNamespace
+  KV_NOVEL_DATA: KVNamespace
+}
+
+type NarouIndexParams = 'ncode'
+type NarouPageParams = 'ncode' | 'page'
+
+type ApiAddRequestBody = {
+  url?: string
+}
+type ApiDelRequestBody = {
+  ncode?: string
 }
 
 type NovelFromKv = {

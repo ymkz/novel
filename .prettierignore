@@ -1,6 +1,5 @@
 .mf
 dist
 node_modules
-public/render.js
-package-lock.json
+pnpm-lock.yaml
 tsconfig.tsbuildinfo

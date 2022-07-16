@@ -1,9 +1,11 @@
+import { FC } from 'react'
+
 type Props = {
   novel: NovelForView
   open: (novel: NovelForView) => void
 }
 
-export function NovelItem({ novel, open }: Props) {
+export const NovelItem: FC<Props> = ({ novel, open }) => {
   const handleClickToView = () => {
     open(novel)
   }

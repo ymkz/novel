@@ -1,6 +1,6 @@
-import { SVGProps } from 'react'
+import { FC, SVGProps } from 'react'
 
-export const IconSubmit = (props: SVGProps<SVGSVGElement>) => {
+export const IconSubmit: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg width="18" height="18" viewBox="0 0 256 256" {...props}>
       <path

@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { SWRConfig } from 'swr'
 import { NovelList } from './components/novel-list'
-import './styles/style.css'
+import './index.css'
 
 const container = document.querySelector('#root')
 
