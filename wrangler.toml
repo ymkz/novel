@@ -3,5 +3,5 @@ compatibility_date = "2022-07-01"
 
 [[kv_namespaces]]
 binding = "KV_NOVEL_DATA"
-id = "d488f4f14707444eb935fcce020c9334"         # novel-data
+id = "9d1dd8ce72d04a65808461e8f98a3bc1"         # novel-data
 preview_id = "f5295a93683f4062baa249bb196df937" # test-data
