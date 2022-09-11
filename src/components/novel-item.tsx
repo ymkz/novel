@@ -17,6 +17,7 @@ export const NovelItem: FC<Props> = ({ novel, open }) => {
         {novel.currentPage}話／全{novel.totalPage}話
       </div>
       <div className="date">{novel.lastPublishedAt}</div>
+      <div className="url">{`https://ncode.syosetu.com/${novel.ncode}/${novel.currentPage}`}</div>
     </li>
   )
 }

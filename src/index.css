@@ -120,6 +120,11 @@ h6 {
   color: #6b7280;
 }
 
+.url {
+  font-size: 8px;
+  color: #6b7280;
+}
+
 .sheet-backdrop {
   position: fixed;
   top: 0;
