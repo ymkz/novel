@@ -5,6 +5,10 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/node_modules": true
+  },
   "search.exclude": {
     "**/.mf": true,
     "**/dist": true,
