@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import { useGetNovelsQuery } from '../hooks/novel'
+import { useGetNovelsQuery, useRefetchNovelMutation } from '../hooks/novel'
 import { NovelInput } from './novel-input'
 import { NovelItem } from './novel-item'
 import { NovelReader } from './novel-reader'
 
 export const NovelList = () => {
   const { novels } = useGetNovelsQuery()
+  const { refetchNovel } = useRefetchNovelMutation()
   const [isOpen, setOpen] = useState<boolean>(false)
   const [target, setTarget] = useState<NarouItem | null>(null)
 
@@ -15,6 +16,7 @@ export const NovelList = () => {
   }
 
   const close = () => {
+    refetchNovel()
     setOpen(false)
     setTarget(null)
   }

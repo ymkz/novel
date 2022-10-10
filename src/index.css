@@ -125,20 +125,14 @@ h6 {
   color: #6b7280;
 }
 
-.sheet-backdrop {
+.sheet-container {
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(51, 51, 51, 0.5);
-  padding-top: env(safe-area-inset-top);
-}
-
-.sheet-container {
-  width: 100%;
-  height: 94.5vh;
   background-color: #ffffff;
+  padding-top: env(safe-area-inset-top);
 }
 
 .sheet-header {
