@@ -1,6 +1,10 @@
-name: check
+name: deploy-worker
 
-on: push
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -10,7 +14,7 @@ env:
   TZ: Asia/Tokyo
 
 jobs:
-  check:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -18,5 +22,7 @@ jobs:
         with:
           node-version-file: .node-version
       - run: npm ci
-      - run: npm run lint
-      - run: npm run build
+      - uses: cloudflare/wrangler-action@2.0.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}

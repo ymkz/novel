@@ -1,28 +1,7 @@
 type Env = {
-  KV_NOVEL_DATA: KVNamespace
-}
-
-type NarouIndexParams = 'ncode'
-type NarouPageParams = 'ncode' | 'page'
-
-type ApiAddRequestBody = {
-  url?: string
-}
-type ApiDelRequestBody = {
-  ncode?: string
-}
-
-type KVNarouItem = {
-  ncode: string
-  currentPage: number
-}
-
-type NarouInfo = {
-  ncode: string
-  title: string
-  author: string
-  totalPage: number
-  lastPublishedAt: number
+  Bindings: {
+    KV_NOVEL: KVNamespace<'narou-data'>
+  }
 }
 
 type NarouItem = {
@@ -32,6 +11,14 @@ type NarouItem = {
   totalPage: number
   currentPage: number
   lastPublishedAt: string
+}
+
+type NarouInfo = {
+  ncode: string
+  title: string
+  author: string
+  totalPage: number
+  lastPublishedAt: number
 }
 
 type NarouApiResponseAllCount = {

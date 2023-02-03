@@ -1,7 +1,20 @@
+compatibility_date = "2023-02-01"
+
 name = "novel"
-compatibility_date = "2022-07-01"
+main = "./src/server/index.ts"
+
+workers_dev = false
 
 [[kv_namespaces]]
-binding = "KV_NOVEL_DATA"
+binding = "KV_NOVEL"
 id = "9d1dd8ce72d04a65808461e8f98a3bc1"         # novel-data
-preview_id = "f5295a93683f4062baa249bb196df937" # test-data
+preview_id = "adf3c5007b954bc189c1f0909bbea0ac" # test
+
+[build]
+command = "npm run build"
+
+[site]
+bucket = "./dist"
+
+[dev]
+port = 3000
