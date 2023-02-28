@@ -25,37 +25,33 @@ export const NovelViewer = () => {
     closeNovelViewer()
   }
 
-  if (novelViewer.open) {
-    const src =
-      novelViewer.novel.currentPage === 0
-        ? `/api/narou/${novelViewer.novel.ncode}`
-        : `/api/narou/${novelViewer.novel.ncode}/${novelViewer.novel.currentPage}`
-
-    return (
-      <Drawer
-        open={novelViewer.open}
-        onClose={handleClose}
-        lockBackgroundScroll
-        duration={100}
-        direction="bottom"
-        size="94vh"
-      >
-        <div className="novel-viewer__header">
-          <button
-            className="novel-viewer__button--close"
-            onClick={handleDelete}
-          >
-            削除
-          </button>
-          <button
-            className="novel-viewer__button--delete"
-            onClick={handleClose}
-          >
-            閉じる
-          </button>
-        </div>
-        <iframe className="novel-viewer__iframe" src={src} />
-      </Drawer>
-    )
+  if (!novelViewer.open) {
+    return null
   }
+
+  const src =
+    novelViewer.novel.currentPage === 0
+      ? `/api/narou/${novelViewer.novel.ncode}`
+      : `/api/narou/${novelViewer.novel.ncode}/${novelViewer.novel.currentPage}`
+
+  return (
+    <Drawer
+      open={novelViewer.open}
+      onClose={handleClose}
+      lockBackgroundScroll
+      duration={100}
+      direction="bottom"
+      size="94vh"
+    >
+      <div className="novel-viewer__header">
+        <button className="novel-viewer__button--close" onClick={handleDelete}>
+          削除
+        </button>
+        <button className="novel-viewer__button--delete" onClick={handleClose}>
+          閉じる
+        </button>
+      </div>
+      <iframe className="novel-viewer__iframe" src={src} />
+    </Drawer>
+  )
 }
