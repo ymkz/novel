@@ -28,7 +28,7 @@ export const NovelForm = () => {
   }
 
   return (
-    <Box component="form" paddingX={1} paddingTop={1} onSubmit={handleSubmit}>
+    <Box component="form" paddingX={2} paddingTop={1} onSubmit={handleSubmit}>
       <FilledInput
         size="small"
         name="url"
