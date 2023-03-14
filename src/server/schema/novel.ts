@@ -1,11 +1,5 @@
 import { z } from 'zod'
 
-export const novelSchema = z.object({
-  ncode: z.string(),
-  currentPage: z.number(),
-})
-export type Novel = z.infer<typeof novelSchema>
-
 export const novelAddSchema = z.object({
   url: z.string().url(),
 })

@@ -1,5 +1,4 @@
 import { proxy } from 'valtio'
-import { NarouItem } from '../models/narou'
 
 type NovelViewerState =
   | {
@@ -8,7 +7,7 @@ type NovelViewerState =
     }
   | {
       open: true
-      novel: NarouItem
+      novel: Novel
     }
 
 export const novelViewerState = proxy<NovelViewerState>({
@@ -16,12 +15,12 @@ export const novelViewerState = proxy<NovelViewerState>({
   novel: null,
 })
 
-export const openNovelViewer = (novel: NarouItem) => {
+export const novelViewerToOpen = (novel: Novel) => {
   novelViewerState.open = true
   novelViewerState.novel = novel
 }
 
-export const closeNovelViewer = () => {
+export const novelViewerToClose = () => {
   novelViewerState.open = false
   novelViewerState.novel = null
 }

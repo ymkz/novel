@@ -1,18 +1,15 @@
 import { zValidator } from '@hono/zod-validator'
 import { Hono } from 'hono'
-import { deleteNarouItem } from '../helpers/kv'
-import { AppEnv } from '../models/env'
-import { novelDeleteSchema } from '../models/novel'
+import { deleteNovelItem } from '../helpers/kv'
+import { novelDeleteSchema } from '../schema/novel'
 
-const app = new Hono<AppEnv>()
-
-export const novelDelete = app.delete(
+export const novelDelete = new Hono<AppEnv>().delete(
   '/delete',
   zValidator('json', novelDeleteSchema),
   async (ctx) => {
     const { ncode } = ctx.req.valid('json')
 
-    await deleteNarouItem(ctx.env.KV_NOVEL, ncode)
+    await deleteNovelItem(ctx.env.KV_NOVEL, ncode)
 
     return ctx.jsonT({ result: 'novel deleted' })
   }

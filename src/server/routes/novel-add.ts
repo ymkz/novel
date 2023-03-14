@@ -1,12 +1,9 @@
 import { zValidator } from '@hono/zod-validator'
 import { Hono } from 'hono'
-import { addNarouItem } from '../helpers/kv'
-import { AppEnv } from '../models/env'
-import { novelAddSchema } from '../models/novel'
+import { addNovelItem } from '../helpers/kv'
+import { novelAddSchema } from '../schema/novel'
 
-const app = new Hono<AppEnv>()
-
-export const novelAdd = app.post(
+export const novelAdd = new Hono<AppEnv>().post(
   '/add',
   zValidator('json', novelAddSchema),
   async (ctx) => {
@@ -14,7 +11,7 @@ export const novelAdd = app.post(
 
     const [, ncode, currentPage] = new URL(url).pathname.split('/')
 
-    await addNarouItem(ctx.env.KV_NOVEL, {
+    await addNovelItem(ctx.env.KV_NOVEL, {
       ncode,
       currentPage: Number(currentPage) || 0,
     })

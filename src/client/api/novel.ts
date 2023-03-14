@@ -1,8 +1,12 @@
 import { hc } from 'hono/client'
-import { AppType } from '../../functions/api/[[route]]'
-import { NovelAddInput, NovelDeleteInput } from '../models/novel'
+import { NovelAddRoute } from '../../server/routes/novel-add'
+import { NovelDeleteRoute } from '../../server/routes/novel-delete'
+import { NovelListRoute } from '../../server/routes/novel-list'
+import { NovelAddInput, NovelDeleteInput } from '../../server/schema/novel'
 
-const client = hc<AppType>('/api/novel')
+const client = hc<NovelListRoute | NovelAddRoute | NovelDeleteRoute>(
+  '/api/novel'
+)
 
 export const getNovelList = async () => {
   const response = await client.list.$get().catch((err) => {
