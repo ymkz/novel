@@ -33,10 +33,19 @@ export const NovelViewer = () => {
       {novelViewer.open ? (
         <Box height="94vh" display="flex" flexDirection="column">
           <Box display="flex" justifyContent="space-between">
-            <Button size="small" color="error" onClick={handleDelete}>
+            <Button
+              size="small"
+              color="error"
+              onClick={handleDelete}
+              sx={{ minWidth: 'inherit', paddingLeft: 1 }}
+            >
               削除
             </Button>
-            <Button size="small" onClick={novelViewerToClose}>
+            <Button
+              size="small"
+              onClick={novelViewerToClose}
+              sx={{ minWidth: 'inherit', paddingRight: 1 }}
+            >
               閉じる
             </Button>
           </Box>
