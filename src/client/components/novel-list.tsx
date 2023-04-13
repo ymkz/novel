@@ -4,9 +4,7 @@ import { List } from './mui-material'
 import { NovelItem } from './novel-item'
 
 export const NovelList = () => {
-  // FIXME: 本来は型を明示しなくてもhonoのRPCで型がつく
-  // FIXME: 現状配列の型情報が失われるようなので明示的に型情報のパッチを行う
-  const novelListQuery = useQuery<unknown, unknown, Novel[]>({
+  const novelListQuery = useQuery({
     queryKey: ['NovelList'],
     queryFn: getNovelList,
   })
