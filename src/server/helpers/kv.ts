@@ -17,7 +17,7 @@ export const addNovelItem = async (
   const prev = await getNovelData(kv)
 
   if (prev.find((i) => i.ncode === data.ncode)) {
-    throw new Error(`already exist ${data.ncode}`)
+    throw new Error(`すでに存在する小説です: ${data.ncode}`)
   }
 
   const next = [data, ...prev]

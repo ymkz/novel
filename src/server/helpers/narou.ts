@@ -68,11 +68,11 @@ export async function fetchNarouInfoFromNarouApi(
   const response = await fetch(url, {
     headers: { 'user-agent': userAgent },
   }).catch((err) => {
-    throw new Error('fetch narou info fail on client', { cause: err })
+    throw new Error('なろうAPIとの接続に失敗しました', { cause: err })
   })
 
   if (!response.ok) {
-    throw new Error('fetch narou info fail on server')
+    throw new Error('なろうAPIからエラーがレスポンスされました')
   }
 
   const [, ...data] = await response.json<NarouApiResponse>()

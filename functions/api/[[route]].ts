@@ -5,11 +5,16 @@ import { novelAdd } from '../../src/server/routes/novel-add'
 import { novelDelete } from '../../src/server/routes/novel-delete'
 import { novelList } from '../../src/server/routes/novel-list'
 
-const app = new Hono<AppEnv>()
+const app = new Hono<AppEnv>().basePath('/api')
 
 app.route('/novel', novelList)
 app.route('/novel', novelAdd)
 app.route('/novel', novelDelete)
 app.route('/narou', narouProxy)
 
-export const onRequest = handle(app, '/api')
+app.onError((err, ctx) => {
+  console.error(err)
+  return ctx.text(err.message, 500)
+})
+
+export const onRequest = handle(app)
