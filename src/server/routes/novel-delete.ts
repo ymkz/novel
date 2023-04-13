@@ -1,7 +1,7 @@
 import { zValidator } from '@hono/zod-validator'
 import { Hono } from 'hono'
 import { deleteNovelItem } from '../helpers/kv'
-import { novelDeleteSchema } from '../schema/novel'
+import { novelDeleteSchema } from '../schemas/novel'
 
 export const novelDelete = new Hono<AppEnv>().delete(
   '/delete',

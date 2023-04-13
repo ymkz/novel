@@ -2,7 +2,7 @@ import { hc } from 'hono/client'
 import { NovelAddRoute } from '../../server/routes/novel-add'
 import { NovelDeleteRoute } from '../../server/routes/novel-delete'
 import { NovelListRoute } from '../../server/routes/novel-list'
-import { NovelAddInput, NovelDeleteInput } from '../../server/schema/novel'
+import { NovelAddInput, NovelDeleteInput } from '../../server/schemas/novel'
 
 const client = hc<NovelListRoute | NovelAddRoute | NovelDeleteRoute>(
   '/api/novel'

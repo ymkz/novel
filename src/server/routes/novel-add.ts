@@ -1,7 +1,7 @@
 import { zValidator } from '@hono/zod-validator'
 import { Hono } from 'hono'
 import { addNovelItem } from '../helpers/kv'
-import { novelAddSchema } from '../schema/novel'
+import { novelAddSchema } from '../schemas/novel'
 
 export const novelAdd = new Hono<AppEnv>().post(
   '/add',
