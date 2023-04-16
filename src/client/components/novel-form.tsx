@@ -1,18 +1,16 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { useState } from 'react'
+import { useSnackbar } from 'notistack'
 import { addNovel } from '../api/novel'
 import {
-  Alert,
   Box,
   FilledInput,
   IconButton,
   InputAdornment,
   SendRoundedIcon,
-  Snackbar,
 } from './mui-material'
 
 export const NovelForm = () => {
-  const [error, setError] = useState<Error | null>(null)
+  const { enqueueSnackbar } = useSnackbar()
 
   const queryClient = useQueryClient()
 
@@ -21,8 +19,8 @@ export const NovelForm = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['NovelList'] })
     },
-    onError: (err) => {
-      setError(err as Error)
+    onError: (err: Error) => {
+      enqueueSnackbar(err.message, { variant: 'warning' })
     },
   })
 
@@ -33,10 +31,6 @@ export const NovelForm = () => {
       novelAddMutation.mutate({ url: data.toString() })
       event.currentTarget.reset()
     }
-  }
-
-  const handleClose = () => {
-    setError(null)
   }
 
   return (
@@ -62,21 +56,6 @@ export const NovelForm = () => {
           }
         />
       </Box>
-      <Snackbar
-        open={Boolean(error)}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-        autoHideDuration={5000}
-        onClose={handleClose}
-      >
-        <Alert
-          onClose={handleClose}
-          severity="warning"
-          variant="filled"
-          elevation={6}
-        >
-          {error?.message}
-        </Alert>
-      </Snackbar>
     </>
   )
 }
