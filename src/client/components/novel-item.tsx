@@ -1,9 +1,6 @@
 import { FC } from 'react'
-import { novelViewerToOpen } from '../helpers/client-state'
-import {
-  generateNcodeCaption,
-  generatePageInfo,
-} from '../helpers/client-stringify'
+import { novelViewerToOpen } from '../utils/store'
+import { generateNcodeCaption, generatePageInfo } from '../utils/stringify'
 import {
   ListItem,
   ListItemButton,

@@ -1,8 +1,8 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useSnapshot } from 'valtio/react'
 import { deleteNovel } from '../api/novel'
-import { novelViewerState, novelViewerToClose } from '../helpers/client-state'
-import { generateIframeSrc } from '../helpers/client-stringify'
+import { novelViewerState, novelViewerToClose } from '../utils/store'
+import { generateIframeSrc } from '../utils/stringify'
 import { Box, Button, Drawer } from './mui-material'
 
 export const NovelViewer = () => {
