@@ -2,7 +2,7 @@ import { html } from "hono/html";
 import { jsxRenderer } from "hono/jsx-renderer";
 
 export const renderer = jsxRenderer(({ children }) => {
-	return html`<!DOCTYPE html>
+  return html`<!DOCTYPE html>
     <html lang="ja">
       <head>
         <meta charset="utf-8" />

@@ -1,3 +1,3 @@
 export const NovelEmpty = () => {
-	return <div>Empty</div>;
+  return <div>Empty</div>;
 };
