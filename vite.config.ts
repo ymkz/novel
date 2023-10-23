@@ -1,11 +1,32 @@
-import react from '@vitejs/plugin-react-swc'
-import { defineConfig } from 'vite'
+import { builtinModules } from "module";
+import devServer, { defaultOptions } from "@hono/vite-dev-server";
+import { defineConfig } from "vite";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  clearScreen: false,
-  server: {
-    open: false,
-  },
-})
+	clearScreen: false,
+	server: {
+		open: false,
+		port: 3000,
+	},
+	ssr: {
+		noExternal: true,
+	},
+	build: {
+		rollupOptions: {
+			external: [...builtinModules, /^node:/],
+			input: "_worker.ts",
+			output: {
+				dir: "./dist",
+			},
+		},
+	},
+	plugins: [
+		devServer({
+			entry: "src/index.ts",
+			exclude: ["/static/.+", ...defaultOptions.exclude],
+			cf: {
+				kvNamespaces: ["KV"],
+			},
+		}),
+	],
+});
