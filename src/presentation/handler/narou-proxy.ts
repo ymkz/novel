@@ -35,8 +35,10 @@ export const narouProxy = new Hono<AppEnv>().get(
 			headers: { "user-agent": userAgent },
 		});
 
-		return new HTMLRewriter()
+		const response = new HTMLRewriter()
 			.on("a", narouLinkReplacer)
 			.transform(proxiedResponse);
+
+		return response;
 	},
 );

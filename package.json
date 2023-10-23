@@ -1,11 +1,10 @@
 {
-  "private": true,
   "name": "novel",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build --ssr",
-    "preview": "wrangler pages dev ./dist",
     "check": "tsc && biome check src",
     "check:fix": "tsc && biome check --apply src"
   },
@@ -20,7 +19,6 @@
     "@hono/vite-dev-server": "0.0.11",
     "@types/node": "20.8.7",
     "typescript": "5.2.2",
-    "vite": "4.5.0",
-    "wrangler": "3.14.0"
+    "vite": "4.5.0"
   }
 }

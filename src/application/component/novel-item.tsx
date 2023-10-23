@@ -1,5 +1,9 @@
 import { NarouNovel } from "../../domain/narou";
-import { generateNcodeCaption, generatePageInfo } from "../../domain/stringify";
+import {
+	generateIframeSrc,
+	generateNcodeCaption,
+	generatePageInfo,
+} from "../../domain/stringify";
 
 type Props = {
 	narouNovel: NarouNovel;
@@ -7,7 +11,10 @@ type Props = {
 
 export const NovelItem = ({ narouNovel }: Props) => {
 	return (
-		<li class="item">
+		<li
+			class="item"
+			hx-get={generateIframeSrc(narouNovel.ncode, narouNovel.currentPage)}
+		>
 			<div class="title">{narouNovel.title}</div>
 			<div class="info">
 				<p class="page">

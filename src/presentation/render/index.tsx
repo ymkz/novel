@@ -9,7 +9,9 @@ export const page = async (ctx: Context) => {
 
 	return ctx.render(
 		<>
-			<NovelForm />
+			<header class="header">
+				<NovelForm />
+			</header>
 			<main class="main">
 				<NovelList narouNovelList={narouNovelList} />
 			</main>
