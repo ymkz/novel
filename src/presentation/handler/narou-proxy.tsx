@@ -9,7 +9,7 @@ const narouLinkReplacer: HTMLRewriterElementContentHandlers = {
         const [, ncode, page] = attribute.split("/");
         element.setAttribute(
           "href",
-          attribute.replace(/^\/n.+/, `/api/narou/${ncode}/${page}`),
+          attribute.replace(/^\/n.+/, `/proxy/narou/${ncode}/${page}`),
         );
       }
     }
