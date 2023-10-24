@@ -1,3 +1,4 @@
+import { Hono } from "hono";
 import { html } from "hono/html";
 import { jsxRenderer } from "hono/jsx-renderer";
 

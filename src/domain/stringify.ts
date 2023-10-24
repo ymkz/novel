@@ -14,8 +14,16 @@ export const generateNcodeCaption = (ncode: string) => {
   return `https://ncode.syosetu.com/${ncode}`;
 };
 
-export const generateIframeSrc = (ncode: string, currentPage: number) => {
+export const generateNarouHref = (ncode: string, currentPage: number) => {
   if (currentPage === 0) {
+    return `/narou/${ncode}`;
+  } else {
+    return `/narou/${ncode}/${currentPage}`;
+  }
+};
+
+export const generateIframeSrc = (ncode: string, currentPage?: string) => {
+  if (!currentPage) {
     return `/proxy/narou/${ncode}`;
   } else {
     return `/proxy/narou/${ncode}/${currentPage}`;
