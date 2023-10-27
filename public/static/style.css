@@ -93,16 +93,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 64px;
-  padding: 0 var(--size-3);
+  height: var(--size-7);
+  padding: 0 var(--size-2);
 }
 
 .viewer-button--close {
   color: var(--gray-6);
+  font-size: var(--font-size-0);
 }
 
 .viewer-button--delete {
   color: var(--red-6);
+  font-size: var(--font-size-0);
 }
 
 .viewer-content {

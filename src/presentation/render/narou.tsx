@@ -17,12 +17,12 @@ export const narouPage = new Hono<AppEnv>().get(
     return ctx.render(
       <div class="viewer-container">
         <div class="viewer-header">
-          <button type="button" class="viewer-button--delete">
+          <a href="/" class="viewer-button--delete">
             削除
-          </button>
-          <button type="button" class="viewer-button--close">
+          </a>
+          <a href="/" class="viewer-button--close">
             閉じる
-          </button>
+          </a>
         </div>
         <div class="viewer-content">
           <iframe
