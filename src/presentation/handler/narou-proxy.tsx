@@ -27,7 +27,6 @@ export const narouProxy = new Hono<AppEnv>().get(
     });
 
     const userAgent = ctx.req.header("user-agent") ?? "";
-    console.log({ userAgent });
     const url = page
       ? `https://ncode.syosetu.com/${ncode}/${page}`
       : `https://ncode.syosetu.com/${ncode}`;

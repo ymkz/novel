@@ -82,3 +82,29 @@
   font-size: var(--font-size-0);
   line-height: var(--font-lineheight-1);
 }
+
+.viewer-container {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
+.viewer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  padding: 0 var(--size-3);
+}
+
+.viewer-button--close {
+  color: var(--gray-6);
+}
+
+.viewer-button--delete {
+  color: var(--red-6);
+}
+
+.viewer-content {
+  flex-grow: 1;
+}

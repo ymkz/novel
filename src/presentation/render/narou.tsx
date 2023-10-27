@@ -14,14 +14,23 @@ export const narouPage = new Hono<AppEnv>().get(
   async (ctx) => {
     const { ncode, currentPage } = ctx.req.valid("param");
 
-    return ctx.html(
-      <div>
-        <div>header</div>
-        <iframe
-          title="iframe"
-          style={{ width: "100%", height: "100%", border: 0 }}
-          src={generateIframeSrc(ncode, currentPage)}
-        />
+    return ctx.render(
+      <div class="viewer-container">
+        <div class="viewer-header">
+          <button type="button" class="viewer-button--delete">
+            削除
+          </button>
+          <button type="button" class="viewer-button--close">
+            閉じる
+          </button>
+        </div>
+        <div class="viewer-content">
+          <iframe
+            title="iframe"
+            style={{ width: "100%", height: "100%", border: 0 }}
+            src={generateIframeSrc(ncode, currentPage)}
+          />
+        </div>
       </div>,
     );
   },
