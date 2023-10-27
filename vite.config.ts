@@ -1,5 +1,5 @@
-import { builtinModules } from "module";
-import devServer, { defaultOptions } from "@hono/vite-dev-server";
+import pages from "@hono/vite-cloudflare-pages";
+import devServer from "@hono/vite-dev-server";
 import { defineConfig } from "vite";
 
 export default defineConfig({
@@ -8,25 +8,11 @@ export default defineConfig({
     open: false,
     port: 3000,
   },
-  ssr: {
-    noExternal: true,
-  },
-  build: {
-    rollupOptions: {
-      external: [...builtinModules, /^node:/],
-      input: "_worker.ts",
-      output: {
-        dir: "./dist",
-      },
-    },
-  },
   plugins: [
+    pages(),
     devServer({
       entry: "src/index.ts",
-      exclude: ["/static/.+", ...defaultOptions.exclude],
-      cf: {
-        kvNamespaces: ["KV"],
-      },
+      cf: { kvNamespaces: ["KV"] },
     }),
   ],
 });
