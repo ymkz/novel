@@ -17,5 +17,4 @@ app.route("/proxy/narou", narouProxy);
 app.route("/", indexPage);
 app.route("/narou/:ncode/:currentPage?", narouPage);
 
-export { app };
 export default app;
