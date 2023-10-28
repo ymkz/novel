@@ -19,6 +19,7 @@
 
 .input {
   flex-grow: 1;
+  color: var(--gray-9);
 }
 
 .icon-button {
@@ -27,17 +28,7 @@
   height: var(--size-7);
   display: grid;
   place-items: center;
-}
-
-.icon-send {
-  width: var(--size-5);
-  height: var(--size-5);
-}
-
-.empty {
-  padding: var(--size-3);
-  display: grid;
-  place-items: center;
+  color: var(--gray-7);
 }
 
 .main {
@@ -91,12 +82,12 @@
   padding: 0 var(--size-2);
 }
 
-.viewer-button--close {
+.viewer-close {
   color: var(--gray-6);
   font-size: var(--font-size-0);
 }
 
-.viewer-button--delete {
+.viewer-delete {
   color: var(--red-6);
   font-size: var(--font-size-0);
 }

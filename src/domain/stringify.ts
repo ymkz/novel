@@ -16,9 +16,9 @@ export const generateNcodeCaption = (ncode: string) => {
 
 export const generateNarouHref = (ncode: string, currentPage: number) => {
   if (currentPage === 0) {
-    return `/narou/${ncode}`;
+    return `/viewer/narou/${ncode}`;
   } else {
-    return `/narou/${ncode}/${currentPage}`;
+    return `/viewer/narou/${ncode}/${currentPage}`;
   }
 };
 

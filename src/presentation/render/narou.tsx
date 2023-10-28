@@ -17,15 +17,14 @@ export const narouPage = new Hono<AppEnv>().get(
     return ctx.render(
       <div class="viewer-container">
         <div class="viewer-header">
-          <button
+          <a
             hx-delete={`/api/narou/delete/${ncode}`}
-            hx-target=".main"
-            class="viewer-button--delete"
-            type="button"
+            href="/"
+            class="viewer-delete"
           >
             削除
-          </button>
-          <a href="/" class="viewer-button--close">
+          </a>
+          <a href="/" class="viewer-close">
             閉じる
           </a>
         </div>

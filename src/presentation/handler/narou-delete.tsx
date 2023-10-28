@@ -17,9 +17,9 @@ export const narouDelete = new Hono<AppEnv>().delete(
 
     await deleteNovelItem(ctx.env.KV, ncode);
 
-    const userAgent = ctx.req.header("user-agent") ?? "";
-    const narouNovelList = await getNarouNovelList(ctx.env.KV, userAgent);
-
-    return ctx.html(<NovelList narouNovelList={narouNovelList} />);
+    return ctx.body(null, {
+      status: 204,
+      headers: { "HX-Location": "/" },
+    });
   },
 );

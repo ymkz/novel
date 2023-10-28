@@ -12,7 +12,7 @@ export const NovelForm = () => {
         type="url"
       />
       <button class="icon-button" type="submit">
-        <IconSend class="icon-send" />
+        <IconSend />
       </button>
     </form>
   );

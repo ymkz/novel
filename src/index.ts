@@ -15,6 +15,6 @@ app.route("/api/narou/delete/:ncode", narouDelete);
 app.route("/proxy/narou/:ncode/:page?", narouProxy);
 
 app.route("/", indexPage);
-app.route("/narou/:ncode/:page?", narouPage);
+app.route("/viewer/narou/:ncode/:page?", narouPage);
 
 export default app;

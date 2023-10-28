@@ -19,8 +19,10 @@ export const narouAdd = new Hono<AppEnv>().post(
 
     await addNarouNovel(ctx.env.KV, url);
 
-    const userAgent = ctx.req.header("user-agent") ?? "";
-    const narouNovelList = await getNarouNovelList(ctx.env.KV, userAgent);
+    const narouNovelList = await getNarouNovelList(
+      ctx.env.KV,
+      ctx.req.header("user-agent") ?? "",
+    );
 
     return ctx.html(<NovelList narouNovelList={narouNovelList} />);
   },
