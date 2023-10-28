@@ -11,10 +11,10 @@ const app = new Hono();
 app.get("*", renderer);
 
 app.route("/api/narou/add", narouAdd);
-app.route("/api/narou/delete", narouDelete);
-app.route("/proxy/narou", narouProxy);
+app.route("/api/narou/delete/:ncode", narouDelete);
+app.route("/proxy/narou/:ncode/:page?", narouProxy);
 
 app.route("/", indexPage);
-app.route("/narou/:ncode/:currentPage?", narouPage);
+app.route("/narou/:ncode/:page?", narouPage);
 
 export default app;

@@ -1,4 +1,6 @@
+import { zValidator } from "@hono/zod-validator";
 import { Hono } from "hono";
+import { z } from "zod";
 import { updateNovelItem } from "../../infrastructure/kv";
 
 const narouLinkReplacer: HTMLRewriterElementContentHandlers = {
@@ -17,9 +19,15 @@ const narouLinkReplacer: HTMLRewriterElementContentHandlers = {
 };
 
 export const narouProxy = new Hono<AppEnv>().get(
-  "/:ncode/:page?",
+  zValidator(
+    "param",
+    z.object({
+      ncode: z.string().min(1),
+      page: z.string().optional(),
+    }),
+  ),
   async (ctx) => {
-    const { ncode, page } = ctx.req.param();
+    const { ncode, page } = ctx.req.valid("param");
 
     await updateNovelItem(ctx.env.KV, {
       ncode,
