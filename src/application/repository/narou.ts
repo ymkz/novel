@@ -1,4 +1,4 @@
-import { makeLastPublishedAt } from "../../domain/stringify";
+import { getLastPublishedAt } from "../../domain/stringify";
 import { fetchNarouApi } from "../../infrastructure/narou";
 
 type NarouInfo = {
@@ -70,7 +70,7 @@ export async function getNarouInfo(
       ncode: item.ncode.toLocaleLowerCase(),
       title: item.title,
       totalPage: item.general_all_no,
-      lastPublishedAt: makeLastPublishedAt(item.general_lastup),
+      lastPublishedAt: getLastPublishedAt(item.general_lastup),
     }))
     .sort((a, b) => (a.lastPublishedAt < b.lastPublishedAt ? 1 : -1));
 

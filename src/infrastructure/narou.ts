@@ -1,4 +1,4 @@
-import { generateNarouApiUrl } from "../domain/stringify";
+import { getNarouApiUrl } from "../domain/stringify";
 
 type NarouApiResponseAllCount = {
   allcount: number;
@@ -55,7 +55,7 @@ export const fetchNarouApi = async (
   ncode: string,
   userAgent: string,
 ): Promise<NarouApiResponse> => {
-  const url = generateNarouApiUrl(ncode);
+  const url = getNarouApiUrl(ncode);
 
   const response = await fetch(url, {
     headers: { "user-agent": userAgent },

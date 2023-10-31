@@ -1,7 +1,7 @@
 import { zValidator } from "@hono/zod-validator";
 import { Hono } from "hono";
 import { z } from "zod";
-import { generateIframeSrc } from "../../domain/stringify";
+import { getProxiedNarouUrl } from "../../domain/stringify";
 
 export const narouPage = new Hono<AppEnv>().get(
   zValidator(
@@ -32,7 +32,7 @@ export const narouPage = new Hono<AppEnv>().get(
           <iframe
             title="iframe"
             style={{ width: "100%", height: "100%", border: 0 }}
-            src={generateIframeSrc(ncode, page)}
+            src={getProxiedNarouUrl(ncode, page)}
           />
         </div>
       </div>,

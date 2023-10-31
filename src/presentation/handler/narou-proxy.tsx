@@ -1,6 +1,10 @@
 import { zValidator } from "@hono/zod-validator";
 import { Hono } from "hono";
 import { z } from "zod";
+import {
+  getOriginalNarouUrl,
+  getProxiedNarouUrl,
+} from "../../domain/stringify";
 import { updateNovelItem } from "../../infrastructure/kv";
 
 const narouLinkReplacer: HTMLRewriterElementContentHandlers = {
@@ -11,7 +15,7 @@ const narouLinkReplacer: HTMLRewriterElementContentHandlers = {
         const [, ncode, page] = attribute.split("/");
         element.setAttribute(
           "href",
-          attribute.replace(/^\/n.+/, `/proxy/narou/${ncode}/${page}`),
+          attribute.replace(/^\/n.+/, getProxiedNarouUrl(ncode, page)),
         );
       }
     }
@@ -34,13 +38,10 @@ export const narouProxy = new Hono<AppEnv>().get(
       currentPage: Number(page) || 0,
     });
 
-    const userAgent = ctx.req.header("user-agent") ?? "";
-    const url = page
-      ? `https://ncode.syosetu.com/${ncode}/${page}`
-      : `https://ncode.syosetu.com/${ncode}`;
+    const url = getOriginalNarouUrl(ncode, page);
 
     const proxiedResponse = await fetch(url, {
-      headers: { "user-agent": userAgent },
+      headers: { "user-agent": ctx.req.header("user-agent") ?? "" },
     });
 
     const response = new HTMLRewriter()
