@@ -1,7 +1,7 @@
 import { zValidator } from "@hono/zod-validator";
 import { Hono } from "hono";
 import { z } from "zod";
-import { getProxiedNarouUrl } from "~/domain/stringify";
+import { getProxiedNarouUrl } from "~/domain/string";
 
 export const narouViewer = new Hono<AppEnv>().get(
   zValidator(

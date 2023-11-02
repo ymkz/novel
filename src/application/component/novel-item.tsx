@@ -3,7 +3,7 @@ import {
   getOriginalNarouUrl,
   getPageInfo,
   getViewerNarouUrl,
-} from "~/domain/stringify";
+} from "~/domain/string";
 
 type Props = {
   narouNovel: NarouNovel;
