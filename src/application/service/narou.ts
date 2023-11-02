@@ -1,10 +1,10 @@
-import { NarouNovel } from "../../domain/narou";
+import { getNarouInfo } from "~/application/repository/narou";
+import { NarouNovel } from "~/domain/narou";
 import {
   addNovelItem,
   deleteNovelItem,
   getNovelData,
-} from "../../infrastructure/kv";
-import { getNarouInfo } from "../repository/narou";
+} from "~/infrastructure/kv";
 
 export const getNarouNovelList = async (kv: KVNamespace, userAgent: string) => {
   const kvNovelList = await getNovelData(kv);

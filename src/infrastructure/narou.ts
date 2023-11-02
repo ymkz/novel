@@ -1,4 +1,4 @@
-import { getNarouApiUrl } from "../domain/stringify";
+import { getNarouApiUrl } from "~/domain/stringify";
 
 type NarouApiResponseAllCount = {
   allcount: number;

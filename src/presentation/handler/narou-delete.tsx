@@ -1,9 +1,7 @@
 import { zValidator } from "@hono/zod-validator";
 import { Hono } from "hono";
 import { z } from "zod";
-import { NovelList } from "../../application/component/novel-list";
-import { getNarouNovelList } from "../../application/service/narou";
-import { deleteNovelItem } from "../../infrastructure/kv";
+import { deleteNovelItem } from "~/infrastructure/kv";
 
 export const narouDelete = new Hono<AppEnv>().delete(
   zValidator(

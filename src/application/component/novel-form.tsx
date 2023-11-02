@@ -1,4 +1,4 @@
-import { IconSend } from "./icon-send";
+import { IconSend } from "~/application/component/icon-send";
 
 export const NovelForm = () => {
   return (

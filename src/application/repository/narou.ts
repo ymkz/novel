@@ -1,5 +1,5 @@
-import { getLastPublishedAt } from "../../domain/stringify";
-import { fetchNarouApi } from "../../infrastructure/narou";
+import { getLastPublishedAt } from "~/domain/stringify";
+import { fetchNarouApi } from "~/infrastructure/narou";
 
 type NarouInfo = {
   ncode: string;

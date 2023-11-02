@@ -1,11 +1,8 @@
 import { zValidator } from "@hono/zod-validator";
 import { Hono } from "hono";
 import { z } from "zod";
-import {
-  getOriginalNarouUrl,
-  getProxiedNarouUrl,
-} from "../../domain/stringify";
-import { updateNovelItem } from "../../infrastructure/kv";
+import { getOriginalNarouUrl, getProxiedNarouUrl } from "~/domain/stringify";
+import { updateNovelItem } from "~/infrastructure/kv";
 
 const narouLinkReplacer: HTMLRewriterElementContentHandlers = {
   element: (element) => {

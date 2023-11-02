@@ -1,9 +1,9 @@
-import { NarouNovel } from "../../domain/narou";
+import { NarouNovel } from "~/domain/narou";
 import {
   getOriginalNarouUrl,
   getPageInfo,
   getViewerNarouUrl,
-} from "../../domain/stringify";
+} from "~/domain/stringify";
 
 type Props = {
   narouNovel: NarouNovel;
