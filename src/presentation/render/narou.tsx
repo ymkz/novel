@@ -3,7 +3,7 @@ import { Hono } from "hono";
 import { z } from "zod";
 import { getProxiedNarouUrl } from "~/domain/stringify";
 
-export const narouPage = new Hono<AppEnv>().get(
+export const narouViewer = new Hono<AppEnv>().get(
   zValidator(
     "param",
     z.object({
@@ -17,13 +17,10 @@ export const narouPage = new Hono<AppEnv>().get(
     return ctx.render(
       <div class="viewer-container">
         <div class="viewer-header">
-          <a
-            hx-delete={`/api/narou/delete/${ncode}`}
-            href="/"
-            class="viewer-delete"
-          >
-            削除
-          </a>
+          <form hx-delete="/api/narou" hx-trigger="click">
+            <span class="viewer-delete">削除</span>
+            <input name="ncode" type="hidden" value={ncode} />
+          </form>
           <a href="/" class="viewer-close">
             閉じる
           </a>

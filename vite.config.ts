@@ -18,7 +18,10 @@ export default defineConfig({
     pages(),
     devServer({
       entry: "src/index.ts",
-      cf: { kvNamespaces: ["KV"] },
+      cf: {
+        kvNamespaces: ["KV"],
+        kvPersist: true,
+      },
     }),
   ],
 });

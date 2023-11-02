@@ -5,13 +5,13 @@ import { deleteNovelItem } from "~/infrastructure/kv";
 
 export const narouDelete = new Hono<AppEnv>().delete(
   zValidator(
-    "param",
+    "form",
     z.object({
       ncode: z.string().min(1),
     }),
   ),
   async (ctx) => {
-    const { ncode } = ctx.req.valid("param");
+    const { ncode } = ctx.req.valid("form");
 
     await deleteNovelItem(ctx.env.KV, ncode);
 
