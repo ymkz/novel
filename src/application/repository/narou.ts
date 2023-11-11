@@ -72,7 +72,7 @@ export async function getNarouInfo(
       totalPage: item.general_all_no,
       lastPublishedAt: item.general_lastup,
     }))
-    .sort(
+    .toSorted(
       (a, b) => Date.parse(b.lastPublishedAt) - Date.parse(a.lastPublishedAt),
     )
     .map((item) => ({
