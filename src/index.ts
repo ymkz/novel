@@ -5,8 +5,11 @@ import { narouProxy } from "~/presentation/handler/narou-proxy";
 import { indexPage } from "~/presentation/render/index";
 import { narouViewer } from "~/presentation/render/narou";
 import { renderer } from "~/presentation/render/renderer";
+import { loggingMiddleware } from "./domain/logging";
 
 const app = new Hono();
+
+app.use("*", loggingMiddleware);
 
 app.get("*", renderer);
 

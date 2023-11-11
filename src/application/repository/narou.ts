@@ -70,9 +70,15 @@ export async function getNarouInfo(
       ncode: item.ncode.toLocaleLowerCase(),
       title: item.title,
       totalPage: item.general_all_no,
-      lastPublishedAt: getLastPublishedAt(item.general_lastup),
+      lastPublishedAt: item.general_lastup,
     }))
-    .sort((a, b) => (a.lastPublishedAt < b.lastPublishedAt ? 1 : -1));
+    .sort(
+      (a, b) => Date.parse(b.lastPublishedAt) - Date.parse(a.lastPublishedAt),
+    )
+    .map((item) => ({
+      ...item,
+      lastPublishedAt: getLastPublishedAt(item.lastPublishedAt),
+    }));
 
   return narouInfoList;
 }
