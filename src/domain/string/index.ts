@@ -3,7 +3,9 @@
  */
 export const getLastPublishedAt = (datetime: string) => {
   const date = new Date(datetime);
-  return `${date.getFullYear()}年${date.getMonth()}月${date.getDay()}日${date.getHours()}時${date.getMinutes()}分`;
+  return `${date.getFullYear()}年${
+    date.getMonth() + 1
+  }月${date.getDay()}日${date.getHours()}時${date.getMinutes()}分`;
 };
 
 export const getPageInfo = (currentPage: number, totalPage: number) => {
