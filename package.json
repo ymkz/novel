@@ -9,8 +9,8 @@
     "check:fix": "tsc && biome check --apply src"
   },
   "dependencies": {
-    "@hono/zod-validator": "0.1.10",
-    "hono": "3.9.0",
+    "@hono/zod-validator": "0.1.11",
+    "hono": "3.9.2",
     "zod": "3.22.4"
   },
   "devDependencies": {
