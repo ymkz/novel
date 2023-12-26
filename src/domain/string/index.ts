@@ -16,24 +16,21 @@ export const getOriginalNarouUrl = (ncode: string, page?: string) => {
   if (page) {
     return `https://ncode.syosetu.com/${ncode}/${page}`
   }
-
   return `https://ncode.syosetu.com/${ncode}`
 }
 
 export const getProxiedNarouUrl = (ncode: string, page?: string) => {
   if (page) {
     return `/proxy/narou/${ncode}/${page}`
-  } else {
-    return `/proxy/narou/${ncode}`
   }
+  return `/proxy/narou/${ncode}`
 }
 
 export const getViewerNarouUrl = (ncode: string, page: number) => {
   if (page === 0) {
     return `/viewer/narou/${ncode}`
-  } else {
-    return `/viewer/narou/${ncode}/${page}`
   }
+  return `/viewer/narou/${ncode}/${page}`
 }
 
 export const getNarouApiUrl = (ncode: string) => {
