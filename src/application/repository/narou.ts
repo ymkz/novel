@@ -1,69 +1,63 @@
-import { getLastPublishedAt } from "~/domain/string";
-import { fetchNarouApi } from "~/infrastructure/api/narou";
+import { getLastPublishedAt } from '~/domain/string'
+import { fetchNarouApi } from '~/infrastructure/api/narou'
 
 type NarouInfo = {
-  ncode: string;
-  title: string;
-  totalPage: number;
-  lastPublishedAt: string;
-};
+  ncode: string
+  title: string
+  totalPage: number
+  lastPublishedAt: string
+}
 
 type NarouApiResponseAllCount = {
-  allcount: number;
-};
+  allcount: number
+}
 
 type NarouApiResponseNovelData = {
-  title: string;
-  ncode: string;
-  userid: number;
-  writer: string;
-  story: string;
-  biggenre: number;
-  genre: number;
-  gensaku: string;
-  keyword: string;
-  general_firstup: string;
-  general_lastup: string;
-  novel_type: number;
-  end: number;
-  general_all_no: number;
-  length: number;
-  time: number;
-  isstop: number;
-  isr15: number;
-  isbl: number;
-  isgl: number;
-  iszankoku: number;
-  istensei: number;
-  istenni: number;
-  pc_or_k: number;
-  global_point: number;
-  daily_point: number;
-  weekly_point: number;
-  monthly_point: number;
-  quarter_point: number;
-  yearly_point: number;
-  fav_novel_cnt: number;
-  impression_cnt: number;
-  review_cnt: number;
-  all_point: number;
-  all_hyoka_cnt: number;
-  sasie_cnt: number;
-  kaiwaritu: number;
-  novelupdated_at: string;
-  updated_at: string;
-};
+  title: string
+  ncode: string
+  userid: number
+  writer: string
+  story: string
+  biggenre: number
+  genre: number
+  gensaku: string
+  keyword: string
+  general_firstup: string
+  general_lastup: string
+  novel_type: number
+  end: number
+  general_all_no: number
+  length: number
+  time: number
+  isstop: number
+  isr15: number
+  isbl: number
+  isgl: number
+  iszankoku: number
+  istensei: number
+  istenni: number
+  pc_or_k: number
+  global_point: number
+  daily_point: number
+  weekly_point: number
+  monthly_point: number
+  quarter_point: number
+  yearly_point: number
+  fav_novel_cnt: number
+  impression_cnt: number
+  review_cnt: number
+  all_point: number
+  all_hyoka_cnt: number
+  sasie_cnt: number
+  kaiwaritu: number
+  novelupdated_at: string
+  updated_at: string
+}
 
-export type NarouApiResponse = [
-  NarouApiResponseAllCount,
-  ...NarouApiResponseNovelData[],
-];
+export type NarouApiResponse = [NarouApiResponseAllCount, ...NarouApiResponseNovelData[]]
 
-export async function getNarouInfo(
-  ncode: string,
-  userAgent: string,
-): Promise<NarouInfo[]> {
-  const [, ...data] = await fetchNarouApi(ncode, userAgent);
+export async function getNarouInfo(ncode: string, userAgent: string): Promise<NarouInfo[]> {
+  const [, ...data] = await fetchNarouApi(ncode, userAgent)
 
   const narouInfoList = data
     .map<NarouInfo>((item) => ({
@@ -72,13 +66,11 @@ export async function getNarouInfo(
       totalPage: item.general_all_no,
       lastPublishedAt: item.general_lastup,
     }))
-    .toSorted(
-      (a, b) => Date.parse(b.lastPublishedAt) - Date.parse(a.lastPublishedAt),
-    )
+    .toSorted((a, b) => Date.parse(b.lastPublishedAt) - Date.parse(a.lastPublishedAt))
     .map((item) => ({
       ...item,
       lastPublishedAt: getLastPublishedAt(item.lastPublishedAt),
-    }));
+    }))
 
-  return narouInfoList;
+  return narouInfoList
 }

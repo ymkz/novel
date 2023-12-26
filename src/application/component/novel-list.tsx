@@ -1,9 +1,9 @@
-import { NovelItem } from "~/application/component/novel-item";
-import { NarouNovel } from "~/domain/narou";
+import { NovelItem } from '~/application/component/novel-item'
+import { NarouNovel } from '~/domain/narou'
 
 type Props = {
-  narouNovelList: NarouNovel[];
-};
+  narouNovelList: NarouNovel[]
+}
 
 export const NovelList = ({ narouNovelList }: Props) => {
   return (
@@ -12,5 +12,5 @@ export const NovelList = ({ narouNovelList }: Props) => {
         <NovelItem narouNovel={narouNovel} />
       ))}
     </ul>
-  );
-};
+  )
+}

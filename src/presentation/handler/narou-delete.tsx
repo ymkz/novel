@@ -1,23 +1,23 @@
-import { zValidator } from "@hono/zod-validator";
-import { Hono } from "hono";
-import { z } from "zod";
-import { deleteNovelItem } from "~/infrastructure/kv";
+import { zValidator } from '@hono/zod-validator'
+import { Hono } from 'hono'
+import { z } from 'zod'
+import { deleteNovelItem } from '~/infrastructure/kv'
 
 export const narouDelete = new Hono<AppEnv>().delete(
   zValidator(
-    "form",
+    'form',
     z.object({
       ncode: z.string().min(1),
     }),
   ),
   async (ctx) => {
-    const { ncode } = ctx.req.valid("form");
+    const { ncode } = ctx.req.valid('form')
 
-    await deleteNovelItem(ctx.env.KV, ncode);
+    await deleteNovelItem(ctx.env.KV, ncode)
 
     return ctx.body(null, {
       status: 204,
-      headers: { "HX-Location": "/" },
-    });
+      headers: { 'HX-Location': '/' },
+    })
   },
-);
+)

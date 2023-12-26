@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "check": "tsc && biome check src",
-    "check:fix": "tsc && biome check --apply src"
+    "lint": "tsc && biome check src",
+    "lint:fix": "tsc && biome check --apply src"
   },
   "dependencies": {
     "@hono/zod-validator": "0.1.11",

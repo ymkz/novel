@@ -1,4 +1,4 @@
-import { IconSend } from "~/application/component/icon-send";
+import { IconSend } from '~/application/component/icon-send'
 
 export const NovelForm = () => {
   return (
@@ -15,5 +15,5 @@ export const NovelForm = () => {
         <IconSend />
       </button>
     </form>
-  );
-};
+  )
+}
