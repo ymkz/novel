@@ -15,17 +15,17 @@ export const narouViewer = new Hono<AppEnv>().get(
     const { ncode, page } = ctx.req.valid('param')
 
     return ctx.render(
-      <div class="viewer-container">
-        <div class="viewer-header">
+      <div class="max-w:720px mx:auto flex flex-direction:column height:100dvh">
+        <div class="flex justify-content:space-between align-items:center height:32px px:8px">
           <form hx-delete="/api/narou" hx-trigger="click">
-            <span class="viewer-delete">削除</span>
+            <span class="font-size:11px color:red-50">削除</span>
             <input name="ncode" type="hidden" value={ncode} />
           </form>
-          <a href="/" class="viewer-close">
+          <a href="/" class="font-size:11px color:fade-40">
             閉じる
           </a>
         </div>
-        <div class="viewer-content">
+        <div class="flex-grow:1">
           <iframe
             title="iframe"
             style={{ width: '100%', height: '100%', border: 0 }}

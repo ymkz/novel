@@ -1,5 +1,6 @@
 {
   "recommendations": [
+    "masterco.master-css-language-service",
     "EditorConfig.EditorConfig",
     "esbenp.prettier-vscode",
     "biomejs.biome"

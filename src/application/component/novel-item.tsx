@@ -7,13 +7,22 @@ type Props = {
 
 export const NovelItem = ({ narouNovel }: Props) => {
   return (
-    <li class="item">
-      <a class="link" href={getViewerNarouUrl(narouNovel.ncode, narouNovel.currentPage)}>
-        <div class="title">{narouNovel.title}</div>
-        <div class="info">
-          <p class="page">{getPageInfo(narouNovel.currentPage, narouNovel.totalPage)}</p>
-          <p class="lastPublishedAt">{narouNovel.lastPublishedAt}</p>
-          <p class="url">{getOriginalNarouUrl(narouNovel.ncode)}</p>
+    <li>
+      <a
+        class="flex flex-direction:column gap:8px"
+        href={getViewerNarouUrl(narouNovel.ncode, narouNovel.currentPage)}
+      >
+        <p class="font-weight:700 font-size:17px line-height:1.3 color:fade-4">
+          {narouNovel.title}
+        </p>
+        <div>
+          <p class="font-size:11px line-height:1.3 color:fade-40">
+            {getPageInfo(narouNovel.currentPage, narouNovel.totalPage)}
+          </p>
+          <p class="font-size:11px line-height:1.3 color:fade-40">{narouNovel.lastPublishedAt}</p>
+          <p class="font-size:11px line-height:1.3 color:fade-40">
+            {getOriginalNarouUrl(narouNovel.ncode)}
+          </p>
         </div>
       </a>
     </li>
