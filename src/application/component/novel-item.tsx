@@ -12,7 +12,7 @@ export const NovelItem = ({ narouNovel }: Props) => {
         class="flex flex-direction:column gap:8px"
         href={getViewerNarouUrl(narouNovel.ncode, narouNovel.currentPage)}
       >
-        <p class="font-weight:700 font-size:17px line-height:1.3 color:fade-4">
+        <p class="font-weight:700 font-size:17px line-height:1.3 color:fade-4 font-family:sans">
           {narouNovel.title}
         </p>
         <div>
