@@ -14,7 +14,7 @@ export const renderer = jsxRenderer(
           <link rel="stylesheet" href="https://cdn.master.co/normal.css" />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=M+PLUS+1p:wght@400;700&display=swap"
+            href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:wght@400;700&display=swap"
           />
           <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
           <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />

@@ -18,10 +18,10 @@ export const narouViewer = new Hono<AppEnv>().get(
       <div class="max-w:720px mx:auto flex flex-direction:column height:100dvh">
         <div class="flex justify-content:space-between align-items:center height:32px px:8px">
           <form hx-delete="/api/narou" hx-trigger="click">
-            <span class="font-size:11px color:red-50">削除</span>
+            <span class="font-family:sans font-weight:400 font-size:11px color:red-50">削除</span>
             <input name="ncode" type="hidden" value={ncode} />
           </form>
-          <a href="/" class="font-size:11px color:fade-40">
+          <a href="/" class="font-family:sans font-weight:400 font-size:11px color:fade-40">
             閉じる
           </a>
         </div>
