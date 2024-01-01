@@ -10,11 +10,6 @@ export const getNovelData = async (kv: KVNamespace): Promise<KVNarou[]> => {
 
 export const addNovelItem = async (kv: KVNamespace, data: KVNarou): Promise<void> => {
   const prev = await getNovelData(kv)
-
-  if (prev.find((item) => item.ncode === data.ncode)) {
-    throw new Error(`すでに存在する小説です: ${data.ncode}`)
-  }
-
   const next = [data, ...prev]
   await kv.put('narou', JSON.stringify(next))
 }
