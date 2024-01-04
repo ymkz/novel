@@ -2,7 +2,7 @@ import { zValidator } from '@hono/zod-validator'
 import { Hono } from 'hono'
 import { z } from 'zod'
 import { NovelList } from '~/application/component/novel-list'
-import { addNarouNovel, getNarouNovelList } from '~/application/service/narou'
+import { addNarouNovel, getNarouNovelList } from '~/application/usecase/narou'
 
 export const narouAdd = new Hono<AppEnv>().post(
   zValidator(

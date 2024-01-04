@@ -64,7 +64,14 @@ export const fetchNarouApi = async (
     throw new Error('なろうAPIからエラーがレスポンスされました')
   }
 
-  const json = await response.json()
+  const json = await response.json<NarouApiResponse>().catch((err) => {
+    throw new Error(
+      `なろうAPIからJSONと異なるフォーマットでレスポンスされました content-type=${response.headers.get(
+        'content-type',
+      )}`,
+      { cause: err },
+    )
+  })
 
-  return json as NarouApiResponse
+  return json
 }

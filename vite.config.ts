@@ -1,13 +1,13 @@
-import { resolve } from "node:path";
-import pages from "@hono/vite-cloudflare-pages";
-import devServer from "@hono/vite-dev-server";
-import { defineConfig } from "vite";
+import path from 'node:path'
+import pages from '@hono/vite-cloudflare-pages'
+import devServer from '@hono/vite-dev-server'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   clearScreen: false,
   resolve: {
     alias: {
-      "~": resolve(__dirname, "src"),
+      '~': path.resolve(__dirname, 'src'),
     },
   },
   server: {
@@ -17,11 +17,11 @@ export default defineConfig({
   plugins: [
     pages(),
     devServer({
-      entry: "src/index.ts",
+      entry: 'src/index.ts',
       cf: {
-        kvNamespaces: ["KV"],
+        kvNamespaces: ['KV'],
         kvPersist: true,
       },
     }),
   ],
-});
+})

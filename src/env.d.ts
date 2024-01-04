@@ -1,5 +1,5 @@
 type AppEnv = {
   Bindings: {
-    KV: KVNamespace<'narou'>
+    KV: KVNamespace
   }
 }
