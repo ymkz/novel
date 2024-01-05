@@ -51,25 +51,27 @@ export const addNarouNovel = async (kv: KVNamespace, url: string) => {
   if (exist) {
     // pageが一致する場合は処理をスキップする
     if (exist.currentPage === page) {
-      console.log(`duplicate ncode=${ncode} page=${page}`)
+      console.info(`skip by duplicate : ncode=${ncode} page=${page}`)
       return `duplicate ncode=${ncode} page=${page}`
     }
     // pageが一致しない場合はそのページを現在のページとして更新
     await updateNovelOne(kv, { ncode, currentPage: page })
-    console.log(`update ncode=${ncode} page=${page}`)
+    console.info(`update by add : ncode=${ncode} page=${page}`)
     return `update ncode=${ncode} page=${page}`
   }
 
   // 存在しない小説の場合はKVに追加する
   await addNovelOne(kv, { ncode, currentPage: page })
-  console.log(`add ncode=${ncode} page=${page}`)
+  console.info(`add new : ncode=${ncode} page=${page}`)
   return `add ncode=${ncode} page=${page}`
 }
 
 export const deleteNarouNovel = async (kv: KVNamespace, ncode: string) => {
   await deleteNovelOne(kv, ncode)
+  console.info(`delete : ncode=${ncode} ncode=${ncode}`)
 }
 
 export const updateNarouNovel = async (kv: KVNamespace, ncode: string, page: number) => {
   await updateNovelOne(kv, { ncode, currentPage: page })
+  console.info(`update : ncode=${ncode} page=${page}`)
 }
