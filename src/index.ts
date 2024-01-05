@@ -1,5 +1,5 @@
 import { Hono } from 'hono'
-import { loggingMiddleware } from '~/domain/logging'
+import { loggingMiddleware } from '~/application/middleware/logging'
 import { narouAdd } from '~/presentation/handler/narou-add'
 import { narouDelete } from '~/presentation/handler/narou-delete'
 import { narouProxy } from '~/presentation/handler/narou-proxy'
