@@ -10,33 +10,43 @@ import {
 } from '~/infrastructure/kv'
 
 export const getNarouNovelList = async (kv: KVNamespace, userAgent: string) => {
-  const kvNovelList = await getNovelAll(kv)
+  const novels = await getNovelAll(kv)
 
   // データがない場合は空配列で早期リターンする
-  if (kvNovelList.length === 0) {
+  if (novels.length === 0) {
+    console.info('get novels : empty')
     return []
   }
 
-  const ncodes = kvNovelList.map((novel) => novel.ncode).join('-')
-  const [, ...data] = await fetchNarouApi(ncodes, userAgent)
+  // なろうAPIから一括取得のためncodeをつなげる（フォーマット: `ncode-ncode`）
+  const ncodeChain = novels.map((novel) => novel.ncode).join('-')
+  const [, ...data] = await fetchNarouApi(ncodeChain, userAgent)
+  console.info(`fetch from narou api : ncode=${ncodeChain}`)
+
   const narouNovelList = data
+    // なろうAPIのレスポンスから必要な情報のみ抽出
     .map((item) => ({
       ncode: item.ncode,
       title: item.title,
       totalPage: item.general_all_no,
       lastPublishedAt: item.general_lastup,
     }))
+    // 更新日の新しい順（降順）で並び替え
     .toSorted((a, b) => Date.parse(b.lastPublishedAt) - Date.parse(a.lastPublishedAt))
+    // ncodeのフォーマットを統一し、更新日を表示用に整形
     .map((item) => ({
       ...item,
       ncode: item.ncode.toLowerCase(),
       lastPublishedAt: getLastPublishedAt(item.lastPublishedAt),
     }))
+    // KVにある現在のページ番号をデータにマージ
     .map<NarouNovel>((narouInfo) => ({
       ...narouInfo,
       currentPage:
-        kvNovelList.find((kvNovelItem) => kvNovelItem.ncode === narouInfo.ncode)?.currentPage ?? 0,
+        novels.find((kvNovelItem) => kvNovelItem.ncode === narouInfo.ncode)?.currentPage ?? 0,
     }))
+
+  console.info(`get novels : length=${narouNovelList.length}`)
 
   return narouNovelList
 }

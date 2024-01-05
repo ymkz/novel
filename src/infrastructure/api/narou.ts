@@ -48,6 +48,9 @@ type NarouApiResponseNovelData = {
 
 type NarouApiResponse = [NarouApiResponseAllCount, ...NarouApiResponseNovelData[]]
 
+/**
+ * @see https://dev.syosetu.com/man/api/
+ */
 export const fetchNarouApi = async (
   ncode: string,
   userAgent: string,
