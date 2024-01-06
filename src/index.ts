@@ -15,7 +15,7 @@ app.get('*', renderer)
 
 app.route('/', indexPage)
 app.route('/api/narou', narouAdd)
-app.route('/api/narou', narouDelete)
+app.route('/api/narou/:ncode', narouDelete)
 app.route('/proxy/narou/:ncode/:page?', narouProxy)
 app.route('/viewer/narou/:ncode/:page?', narouViewer)
 

@@ -11,12 +11,12 @@ export const renderer = jsxRenderer(
           <script src="https://unpkg.com/htmx.org" />
           <script src="https://unpkg.com/htmx.org/dist/ext/remove-me.js" />
           <script src="https://cdn.master.co/css" />
-          <link rel="stylesheet" href="/static/global.css" />
-          <link rel="stylesheet" href="https://cdn.master.co/normal.css" />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:wght@400;700&display=swap"
           />
+          <link rel="stylesheet" href="https://cdn.master.co/normal.css" />
+          <link rel="stylesheet" href="/static/global.css" />
           <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
           <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />
           <link rel="manifest" href="/static/manifest.json" crossorigin="use-credentials" />
