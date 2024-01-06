@@ -2,8 +2,8 @@ import { IconSend } from '~/application/component/icon-send'
 
 export const NovelForm = () => {
   return (
-    <header class="p:16px|8px|16px|16px">
-      <form class="flex gap:8px" hx-post="/api/narou" hx-target="#root">
+    <header class="p:16px">
+      <form class="flex gap:12px" hx-post="/api/narou" hx-target="#root">
         <input
           autoComplete="url"
           class="flex-grow:1 r:4px bg:fade-90 p:4px|8px font-family:sans font-weight:400 color:fade-20 color:fade-80::placeholder"
