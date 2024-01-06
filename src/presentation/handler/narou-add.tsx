@@ -1,6 +1,8 @@
 import { zValidator } from '@hono/zod-validator'
 import { Hono } from 'hono'
 import { z } from 'zod'
+import { Message } from '~/application/component/message'
+import { NovelForm } from '~/application/component/novel-form'
 import { NovelList } from '~/application/component/novel-list'
 import { addNarouNovel, getNarouNovelList } from '~/application/usecase/narou'
 
@@ -14,10 +16,15 @@ export const narouAdd = new Hono<AppEnv>().post(
   async (ctx) => {
     const { url } = ctx.req.valid('form')
 
-    await addNarouNovel(ctx.env.KV, url)
+    const message = await addNarouNovel(ctx.env.KV, url)
+    const novels = await getNarouNovelList(ctx.env.KV, ctx.req.header('user-agent') ?? '')
 
-    const narouNovelList = await getNarouNovelList(ctx.env.KV, ctx.req.header('user-agent') ?? '')
-
-    return ctx.html(<NovelList narouNovelList={narouNovelList} />)
+    return ctx.html(
+      <>
+        <NovelForm />
+        <Message message={message} />
+        <NovelList narouNovelList={novels} />
+      </>,
+    )
   },
 )

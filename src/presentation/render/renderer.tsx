@@ -9,6 +9,7 @@ export const renderer = jsxRenderer(
           <meta name="robots" content="noindex" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <script src="https://unpkg.com/htmx.org" />
+          <script src="https://unpkg.com/htmx.org/dist/ext/remove-me.js" />
           <script src="https://cdn.master.co/css" />
           <link rel="stylesheet" href="/static/global.css" />
           <link rel="stylesheet" href="https://cdn.master.co/normal.css" />
@@ -21,7 +22,7 @@ export const renderer = jsxRenderer(
           <link rel="manifest" href="/static/manifest.json" crossorigin="use-credentials" />
           <title>Novel</title>
         </head>
-        <body class="bg:fade-98">{children}</body>
+        <body class="bg:fade-96">{children}</body>
       </html>
     )
   },

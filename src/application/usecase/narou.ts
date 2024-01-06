@@ -46,7 +46,7 @@ export const getNarouNovelList = async (kv: KVNamespace, userAgent: string) => {
         novels.find((kvNovelItem) => kvNovelItem.ncode === narouInfo.ncode)?.currentPage ?? 0,
     }))
 
-  console.info(`get novels : length=${narouNovelList.length}`)
+  console.info(`get novels : count=${narouNovelList.length}`)
 
   return narouNovelList
 }
