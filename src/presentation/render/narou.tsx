@@ -9,7 +9,7 @@ export const narouViewer = new Hono<AppEnv>().get(
     'param',
     z.object({
       ncode: z.string().min(1),
-      page: z.string().optional(),
+      page: z.string().pipe(z.coerce.number().int().positive()).optional(),
     }),
   ),
   async (ctx) => {

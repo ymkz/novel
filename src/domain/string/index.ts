@@ -12,14 +12,14 @@ export const getPageInfo = (currentPage: number, totalPage: number) => {
   return `${currentPage}話／全${totalPage}話`
 }
 
-export const getOriginalNarouUrl = (ncode: string, page?: string) => {
+export const getOriginalNarouUrl = (ncode: string, page?: number) => {
   if (page) {
     return `https://ncode.syosetu.com/${ncode}/${page}`
   }
   return `https://ncode.syosetu.com/${ncode}`
 }
 
-export const getProxiedNarouUrl = (ncode: string, page?: string) => {
+export const getProxyNarouUrl = (ncode: string, page?: number) => {
   if (page) {
     return `/proxy/narou/${ncode}/${page}`
   }

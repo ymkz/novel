@@ -1,8 +1,8 @@
-import { getProxiedNarouUrl } from '~/domain/string'
+import { getProxyNarouUrl } from '~/domain/string'
 
 type Props = {
   ncode: string
-  page?: string
+  page?: number
 }
 
 export const ViewerContent = ({ ncode, page }: Props) => {
@@ -11,7 +11,7 @@ export const ViewerContent = ({ ncode, page }: Props) => {
       <iframe
         title="iframe"
         style={{ width: '100%', height: '100%', border: 0 }}
-        src={getProxiedNarouUrl(ncode, page)}
+        src={getProxyNarouUrl(ncode, page)}
       />
     </div>
   )
