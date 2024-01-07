@@ -7,8 +7,8 @@ type Props = {
 
 export const NovelList = ({ narouNovelList }: Props) => {
   return (
-    <main class="p:8px|16px|32px">
-      <ul class="flex flex-direction:column gap:24px">
+    <main>
+      <ul class="p:8px|16px|32px flex flex-direction:column gap:24px">
         {narouNovelList.map((narouNovel) => (
           <NovelItem narouNovel={narouNovel} />
         ))}
