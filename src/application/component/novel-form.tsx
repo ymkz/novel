@@ -2,17 +2,21 @@ import { IconSend } from '~/application/component/icon-send'
 
 export const NovelForm = () => {
   return (
-    <header>
-      <form class="p:16px flex gap:12px" hx-post="/api/narou" hx-target="#root">
+    <header class="p:16px">
+      <form
+        class="height:40px flex align-items:center gap:12px bg:fade-90 r:4px pl:12px"
+        hx-post="/api/narou"
+        hx-target="#root"
+      >
         <input
           autoComplete="url"
-          class="flex-grow:1 r:4px bg:fade-90 p:4px|8px font-family:sans font-weight:400 color:fade-20 color:fade-80::placeholder"
+          class="flex-grow:1 font-family:sans font-weight:400 color:fade-20 color:fade-80::placeholder outline:0 border:0"
           name="url"
           type="url"
           placeholder="https://ncode.syosetu.com"
           required
         />
-        <button class="w:32px h:32px grid place-items:center color:fade-40" type="submit">
+        <button class="w:40px h:40px grid place-items:center color:fade-40" type="submit">
           <IconSend />
         </button>
       </form>
