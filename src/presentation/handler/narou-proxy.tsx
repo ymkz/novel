@@ -2,6 +2,7 @@ import { zValidator } from '@hono/zod-validator'
 import { Hono } from 'hono'
 import { z } from 'zod'
 import { updateNarouNovel } from '~/application/usecase/narou'
+import { parseNcodeAndPageFromUrlPath } from '~/domain/narou'
 import { getOriginalNarouUrl, getProxyNarouUrl } from '~/domain/string'
 
 const narouLinkReplacer: HTMLRewriterElementContentHandlers = {
@@ -9,12 +10,8 @@ const narouLinkReplacer: HTMLRewriterElementContentHandlers = {
     const attribute = element.getAttribute('href')
     if (attribute) {
       if (attribute.match(/^\/n.+/)) {
-        console.info(`attribute=${attribute}`)
-        const [, ncode, page] = attribute.split('/')
-        element.setAttribute(
-          'href',
-          attribute.replace(/^\/n.+/, getProxyNarouUrl(ncode, Number(page))),
-        )
+        const { ncode, page } = parseNcodeAndPageFromUrlPath(attribute)
+        element.setAttribute('href', attribute.replace(/^\/n.+/, getProxyNarouUrl(ncode, page)))
       }
     }
   },

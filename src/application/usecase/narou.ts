@@ -1,4 +1,4 @@
-import { NarouNovel, parseNcodeAndPageFromUrl } from '~/domain/narou'
+import { NarouNovel, parseNcodeAndPageFromUrlPath } from '~/domain/narou'
 import { getLastPublishedAt } from '~/domain/string'
 import { fetchNarouApi } from '~/infrastructure/api/narou'
 import {
@@ -52,7 +52,7 @@ export const getNarouNovelList = async (kv: KVNamespace, userAgent: string) => {
 }
 
 export const addNarouNovel = async (kv: KVNamespace, url: string) => {
-  const { ncode, page } = parseNcodeAndPageFromUrl(url)
+  const { ncode, page } = parseNcodeAndPageFromUrlPath(new URL(url).pathname)
 
   // ncode引きで存在チェック
   const exist = await getNovelOne(kv, ncode)
