@@ -10,7 +10,7 @@ export const NovelForm = () => {
       >
         <input
           autoComplete="url"
-          class="flex-grow:1 font-family:sans font-weight:400 color:fade-20 color:fade-80::placeholder outline:0 border:0"
+          class="flex-grow:1 font-family:'Meiryo' font-weight:400 color:fade-20 color:fade-80::placeholder outline:0 border:0"
           name="url"
           type="url"
           placeholder="https://ncode.syosetu.com"
