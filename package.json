@@ -6,7 +6,8 @@
     "dev": "vite dev",
     "build": "vite build",
     "lint": "tsc && biome check src",
-    "lint:fix": "tsc && biome check --apply src"
+    "lint:fix": "tsc && biome check --apply src",
+    "test": "echo 'no test yet'"
   },
   "dependencies": {
     "@hono/zod-validator": "0.1.11",
@@ -14,11 +15,11 @@
     "zod": "3.22.4"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.4.1",
+    "@biomejs/biome": "1.5.0",
     "@cloudflare/workers-types": "4.20231218.0",
     "@hono/vite-cloudflare-pages": "0.1.2",
     "@hono/vite-dev-server": "0.3.4",
-    "@types/node": "20.10.6",
+    "@types/node": "20.10.7",
     "typescript": "5.3.3",
     "vite": "5.0.11"
   }
