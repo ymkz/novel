@@ -7,7 +7,7 @@ import { indexPage } from '~/presentation/render/index'
 import { narouViewer } from '~/presentation/render/narou'
 import { renderer } from '~/presentation/render/renderer'
 
-const app = new Hono()
+const app = new Hono<AppEnv>()
 
 app.use('*', loggingMiddleware)
 

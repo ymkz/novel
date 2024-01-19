@@ -1,7 +1,7 @@
 import { zValidator } from '@hono/zod-validator'
 import { Hono } from 'hono'
 import { z } from 'zod'
-import { deleteNarouNovel } from '~/application/usecase/narou'
+import { remove } from '~/application/usecase/narou'
 
 export const narouDelete = new Hono<AppEnv>().post(
   zValidator(
@@ -13,7 +13,7 @@ export const narouDelete = new Hono<AppEnv>().post(
   async (ctx) => {
     const { ncode } = ctx.req.valid('param')
 
-    await deleteNarouNovel(ctx.env.KV, ncode)
+    await remove(ctx.env.D1, ncode)
 
     return ctx.body(null, {
       status: 204,

@@ -2,24 +2,24 @@ import { NarouNovel, parseNcodeAndPageFromUrlPath } from '~/domain/narou'
 import { getLastPublishedAt } from '~/domain/string'
 import { fetchNarouApi } from '~/infrastructure/api/narou'
 import {
-  addNovelOne,
-  deleteNovelOne,
-  getNovelAll,
-  getNovelOne,
-  updateNovelOne,
-} from '~/infrastructure/kv'
+  createNarouNovel,
+  deleteNarouNovel,
+  getNarouNovel,
+  listNarouNovels,
+  updateNarouNovel,
+} from '~/infrastructure/d1/querier'
 
-export const getNarouNovelList = async (kv: KVNamespace, userAgent: string) => {
-  const novels = await getNovelAll(kv)
+export const list = async (d1: D1Database, userAgent: string) => {
+  const novels = await listNarouNovels(d1)
 
   // データがない場合は空配列で早期リターンする
-  if (novels.length === 0) {
+  if (novels.results.length === 0) {
     console.info('get novels : empty')
     return []
   }
 
   // なろうAPIから一括取得のためncodeをつなげる（フォーマット: `ncode-ncode`）
-  const ncodeChain = novels.map((novel) => novel.ncode).join('-')
+  const ncodeChain = novels.results.map((novel) => novel.ncode).join('-')
   const [, ...data] = await fetchNarouApi(ncodeChain, userAgent)
   console.info(`fetch from narou api : ncode=${ncodeChain}`)
 
@@ -39,11 +39,11 @@ export const getNarouNovelList = async (kv: KVNamespace, userAgent: string) => {
       ncode: item.ncode.toLowerCase(),
       lastPublishedAt: getLastPublishedAt(item.lastPublishedAt),
     }))
-    // KVにある現在のページ番号をデータにマージ
+    // DBにある現在のページ番号をデータにマージ
     .map<NarouNovel>((narouInfo) => ({
       ...narouInfo,
       currentPage:
-        novels.find((kvNovelItem) => kvNovelItem.ncode === narouInfo.ncode)?.currentPage ?? 0,
+        novels.results.find((record) => record.ncode === narouInfo.ncode)?.currentPage ?? 0,
     }))
 
   console.info(`get novels : count=${narouNovelList.length}`)
@@ -51,11 +51,11 @@ export const getNarouNovelList = async (kv: KVNamespace, userAgent: string) => {
   return narouNovelList
 }
 
-export const addNarouNovel = async (kv: KVNamespace, url: string) => {
+export const add = async (d1: D1Database, url: string) => {
   const { ncode, page } = parseNcodeAndPageFromUrlPath(new URL(url).pathname)
 
   // ncode引きで存在チェック
-  const exist = await getNovelOne(kv, ncode)
+  const exist = await getNarouNovel(d1, { ncode })
 
   // すでに対象の小説がある場合は更新処理とする
   if (exist) {
@@ -64,24 +64,25 @@ export const addNarouNovel = async (kv: KVNamespace, url: string) => {
       console.info(`skip by duplicate : ncode=${ncode} page=${page}`)
       return `duplicate ncode=${ncode} page=${page}`
     }
+
     // pageが一致しない場合はそのページを現在のページとして更新
-    await updateNovelOne(kv, { ncode, currentPage: page })
+    await updateNarouNovel(d1, { ncode, currentPage: page })
     console.info(`update by add : ncode=${ncode} page=${page}`)
     return `update ncode=${ncode} page=${page}`
   }
 
-  // 存在しない小説の場合はKVに追加する
-  await addNovelOne(kv, { ncode, currentPage: page })
+  // 存在しない小説の場合はDBに追加する
+  await createNarouNovel(d1, { ncode, currentPage: page })
   console.info(`add new : ncode=${ncode} page=${page}`)
   return `add ncode=${ncode} page=${page}`
 }
 
-export const deleteNarouNovel = async (kv: KVNamespace, ncode: string) => {
-  await deleteNovelOne(kv, ncode)
+export const remove = async (d1: D1Database, ncode: string) => {
+  await deleteNarouNovel(d1, { ncode })
   console.info(`delete : ncode=${ncode} ncode=${ncode}`)
 }
 
-export const updateNarouNovel = async (kv: KVNamespace, ncode: string, page: number) => {
-  await updateNovelOne(kv, { ncode, currentPage: page })
+export const update = async (d1: D1Database, ncode: string, page: number) => {
+  await updateNarouNovel(d1, { ncode, currentPage: page })
   console.info(`update : ncode=${ncode} page=${page}`)
 }
