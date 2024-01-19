@@ -6,8 +6,9 @@
     "dev": "vite dev",
     "build": "vite build",
     "lint": "tsc && biome check src",
-    "lint:fix": "tsc && biome check --apply src",
-    "test": "echo 'no test yet'"
+    "lint:fix": "tsc && biome check src --apply",
+    "test": "echo 'no test yet'",
+    "generate": "sqlc generate"
   },
   "dependencies": {
     "@hono/zod-validator": "0.1.11",

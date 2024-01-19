@@ -4,7 +4,7 @@ import { z } from 'zod'
 import { Message } from '~/application/component/message'
 import { NovelForm } from '~/application/component/novel-form'
 import { NovelList } from '~/application/component/novel-list'
-import { addNarouNovel, getNarouNovelList } from '~/application/usecase/narou'
+import { add, list } from '~/application/usecase/narou'
 
 export const narouAdd = new Hono<AppEnv>().post(
   zValidator(
@@ -16,8 +16,8 @@ export const narouAdd = new Hono<AppEnv>().post(
   async (ctx) => {
     const { url } = ctx.req.valid('form')
 
-    const message = await addNarouNovel(ctx.env.KV, url)
-    const novels = await getNarouNovelList(ctx.env.KV, ctx.req.header('user-agent') ?? '')
+    const message = await add(ctx.env.D1, url)
+    const novels = await list(ctx.env.D1, ctx.req.header('user-agent') ?? '')
 
     return ctx.html(
       <>

@@ -1,7 +1,7 @@
 import { zValidator } from '@hono/zod-validator'
 import { Hono } from 'hono'
 import { z } from 'zod'
-import { updateNarouNovel } from '~/application/usecase/narou'
+import { update } from '~/application/usecase/narou'
 import { parseNcodeAndPageFromUrlPath } from '~/domain/narou'
 import { getOriginalNarouUrl, getProxyNarouUrl } from '~/domain/string'
 
@@ -28,7 +28,7 @@ export const narouProxy = new Hono<AppEnv>().get(
   async (ctx) => {
     const { ncode, page } = ctx.req.valid('param')
 
-    await updateNarouNovel(ctx.env.KV, ncode, page ?? 0)
+    await update(ctx.env.D1, ncode, page ?? 0)
 
     const url = getOriginalNarouUrl(ncode, page)
 

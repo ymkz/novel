@@ -1,0 +1,13 @@
+version: "2"
+plugins:
+  - name: typescript-d1
+    wasm:
+      url: https://github.com/orisano/sqlc-gen-ts-d1/releases/download/v0.0.0-a/sqlc-gen-ts-d1.wasm
+      sha256: 5663d287bfb2297a3d62286a1c59e21b42a39884f252829ea86d502fcebe94ef
+sql:
+  - schema: db/schema.sql
+    queries: db/query.sql
+    engine: sqlite
+    codegen:
+      - out: src/infrastructure/d1
+        plugin: typescript-d1
