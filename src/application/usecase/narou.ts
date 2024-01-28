@@ -9,7 +9,7 @@ import {
   updateNarouNovel,
 } from '~/infrastructure/d1/querier'
 
-export const list = async (d1: D1Database, userAgent: string) => {
+export const list = async (d1: D1Database, userAgent = '') => {
   const novels = await listNarouNovels(d1)
 
   // データがない場合は空配列で早期リターンする

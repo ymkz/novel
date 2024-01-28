@@ -17,7 +17,7 @@ export const narouAdd = new Hono<AppEnv>().post(
     const { url } = ctx.req.valid('form')
 
     const message = await add(ctx.env.D1, url)
-    const novels = await list(ctx.env.D1, ctx.req.header('user-agent') ?? '')
+    const novels = await list(ctx.env.D1, ctx.req.header('user-agent'))
 
     return ctx.html(
       <>
