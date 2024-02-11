@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
-    "ignore": ["src/infrastructure/d1"]
+    "ignore": ["app/infrastructures/d1"]
   },
   "organizeImports": {
     "enabled": true

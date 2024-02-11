@@ -1,11 +1,9 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx",
-    "target": "ES2022",
+    "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": ["ESNext", "DOM"],
     "noEmit": true,
     "strict": true,
     "allowJs": true,
@@ -14,10 +12,13 @@
     "esModuleInterop": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
+    "noUncheckedIndexedAccess": true,
     "forceConsistentCasingInFileNames": true,
     "types": ["@cloudflare/workers-types"],
-    "paths": { "~/*": ["./src/*"] }
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx",
+    "paths": { "~/*": ["./app/*"] }
   },
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["app/infrastructures/d1/**/*.ts"]
 }

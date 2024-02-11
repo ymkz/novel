@@ -1,5 +1,7 @@
 .mf
+.hono
 .wrangler
+.dev.vars
 dist
 node_modules
-*.tsbuildinfo
+tsconfig.tsbuildinfo
