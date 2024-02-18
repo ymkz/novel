@@ -1,12 +1,12 @@
 import { zValidator } from '@hono/zod-validator'
-import { Hono } from 'hono'
+import { createRoute } from 'honox/factory'
 import { z } from 'zod'
 import { Message } from '~/application/component/message'
 import { NovelForm } from '~/application/component/novel-form'
 import { NovelList } from '~/application/component/novel-list'
 import { add, list } from '~/application/usecase/narou'
 
-export const narouAdd = new Hono<AppEnv>().post(
+export const POST = createRoute(
   zValidator(
     'form',
     z.object({

@@ -1,6 +1,6 @@
 import { jsxRenderer } from 'hono/jsx-renderer'
 
-export const renderer = jsxRenderer(
+export default jsxRenderer(
   ({ children }) => {
     return (
       <html lang="ja">

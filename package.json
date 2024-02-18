@@ -1,27 +1,29 @@
 {
   "name": "novel",
-  "private": true,
   "type": "module",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "lint": "tsc && biome check src",
-    "lint:fix": "tsc && biome check src --apply",
+    "lint": "tsc && biome check app",
+    "lint:fix": "tsc && biome check app --apply",
     "test": "echo 'no test yet'",
     "generate": "sqlc generate"
   },
   "dependencies": {
     "@hono/zod-validator": "0.1.11",
-    "hono": "3.12.12",
+    "hono": "4.0.4",
+    "honox": "0.1.3",
     "zod": "3.22.4"
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
     "@cloudflare/workers-types": "4.20240129.0",
-    "@hono/vite-cloudflare-pages": "0.2.2",
-    "@hono/vite-dev-server": "0.5.0",
-    "@types/node": "20.11.16",
+    "@hono/vite-cloudflare-pages": "0.2.5",
+    "@hono/vite-dev-server": "0.6.0",
+    "@types/node": "20.11.19",
     "typescript": "5.3.3",
-    "vite": "5.0.12"
+    "vite": "5.1.3"
   }
 }

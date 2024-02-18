@@ -1,5 +1,5 @@
 import { zValidator } from '@hono/zod-validator'
-import { Hono } from 'hono'
+import { createRoute } from 'honox/factory'
 import { z } from 'zod'
 import { update } from '~/application/usecase/narou'
 import { parseNcodeAndPageFromUrlPath } from '~/domain/narou'
@@ -17,7 +17,9 @@ const narouLinkReplacer: HTMLRewriterElementContentHandlers = {
   },
 }
 
-export const narouProxy = new Hono<AppEnv>().get(
+// TODO: honoxのfile base routingにおけるoptional path parameterの表現が不明
+// /proxy/narou/:ncode/:page? になってほしいが /proxy/narou/:ncode/:page になる
+export const GET = createRoute(
   zValidator(
     'param',
     z.object({
@@ -27,17 +29,13 @@ export const narouProxy = new Hono<AppEnv>().get(
   ),
   async (ctx) => {
     const { ncode, page } = ctx.req.valid('param')
-
-    await update(ctx.env.D1, ncode, page ?? 0)
-
     const url = getOriginalNarouUrl(ncode, page)
 
-    const proxiedResponse = await fetch(url, {
-      headers: { 'user-agent': ctx.req.header('user-agent') ?? '' },
-    })
+    const [proxiedResponse] = await Promise.all([
+      fetch(url, { headers: { 'user-agent': ctx.req.header('user-agent') ?? '' } }),
+      update(ctx.env.D1, ncode, page ?? 0),
+    ])
 
-    const response = new HTMLRewriter().on('a', narouLinkReplacer).transform(proxiedResponse)
-
-    return response
+    return new HTMLRewriter().on('a', narouLinkReplacer).transform(proxiedResponse)
   },
 )

@@ -1,10 +1,12 @@
 import { zValidator } from '@hono/zod-validator'
-import { Hono } from 'hono'
+import { createRoute } from 'honox/factory'
 import { z } from 'zod'
 import { ViewerContent } from '~/application/component/viewer-content'
 import { ViewerHeader } from '~/application/component/viewer-header'
 
-export const narouViewer = new Hono<AppEnv>().get(
+// TODO: honoxのfile base routingにおけるoptional path parameterの表現が不明
+// /viewer/narou/:ncode/:page? になってほしいが /viewer/narou/:ncode/:page になる
+export const GET = createRoute(
   zValidator(
     'param',
     z.object({
