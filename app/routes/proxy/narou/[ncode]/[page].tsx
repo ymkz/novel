@@ -17,14 +17,12 @@ const narouLinkReplacer: HTMLRewriterElementContentHandlers = {
   },
 }
 
-// TODO: honoxのfile base routingにおけるoptional path parameterの表現が不明
-// /proxy/narou/:ncode/:page? になってほしいが /proxy/narou/:ncode/:page になる
 export const GET = createRoute(
   zValidator(
     'param',
     z.object({
       ncode: z.string().min(1),
-      page: z.string().pipe(z.coerce.number().int().positive()).optional(),
+      page: z.string().pipe(z.coerce.number().int().nonnegative()),
     }),
   ),
   async (ctx) => {

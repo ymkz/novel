@@ -12,24 +12,17 @@ export const getPageInfo = (currentPage: number, totalPage: number) => {
   return `${currentPage}話／全${totalPage}話`
 }
 
-export const getOriginalNarouUrl = (ncode: string, page?: number) => {
-  if (page) {
-    return `https://ncode.syosetu.com/${ncode}/${page}`
-  }
-  return `https://ncode.syosetu.com/${ncode}`
+export const getOriginalNarouUrl = (ncode: string, page: number) => {
+  // page=0のケースでpageの省略を考慮すべきかも
+  // ncodeのみのURLが表示用にほしい場合もあるので分けてもいいかも
+  return `https://ncode.syosetu.com/${ncode}/${page}`
 }
 
-export const getProxyNarouUrl = (ncode: string, page?: number) => {
-  if (page) {
-    return `/proxy/narou/${ncode}/${page}`
-  }
-  return `/proxy/narou/${ncode}`
+export const getProxyNarouUrl = (ncode: string, page: number) => {
+  return `/proxy/narou/${ncode}/${page}`
 }
 
 export const getViewerNarouUrl = (ncode: string, page: number) => {
-  if (page === 0) {
-    return `/viewer/narou/${ncode}`
-  }
   return `/viewer/narou/${ncode}/${page}`
 }
 

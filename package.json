@@ -14,15 +14,15 @@
   "dependencies": {
     "@hono/zod-validator": "0.1.11",
     "hono": "4.0.5",
-    "honox": "0.1.4",
+    "honox": "0.1.5",
     "zod": "3.22.4"
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
-    "@cloudflare/workers-types": "4.20240208.0",
+    "@cloudflare/workers-types": "4.20240129.0",
     "@hono/vite-cloudflare-pages": "0.2.5",
     "@hono/vite-dev-server": "0.7.1",
-    "@types/node": "20.11.19",
+    "@types/node": "20.11.20",
     "typescript": "5.3.3",
     "vite": "5.1.4"
   }

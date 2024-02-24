@@ -1,18 +1,11 @@
-import { getProxyNarouUrl } from '~/domain/string'
-
 type Props = {
-  ncode: string
-  page?: number
+  src: string
 }
 
-export const ViewerContent = ({ ncode, page }: Props) => {
+export const ViewerContent = ({ src }: Props) => {
   return (
     <div class="flex-grow:1">
-      <iframe
-        title="iframe"
-        style={{ width: '100%', height: '100%', border: 0 }}
-        src={getProxyNarouUrl(ncode, page)}
-      />
+      <iframe title="iframe" style={{ width: '100%', height: '100%', border: 0 }} src={src} />
     </div>
   )
 }
