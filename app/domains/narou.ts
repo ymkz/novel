@@ -6,13 +6,13 @@ export type NarouNovel = {
   lastPublishedAt: string
 }
 
-export const parseNcodeAndPageFromUrl = (
+export const parseNcodeAndPage = (
   url: string,
 ): {
   ncode: string
   page: number
 } => {
-  const regex = /https:\/\/ncode\.syosetu\.com\/(?<ncode>n[a-zA-Z0-9]+)\/?(?<page>\d*).*$/
+  const regex = /\/(?<ncode>n[a-zA-Z0-9]+)\/?(?<page>\d*).*$/
   const matches = regex.exec(url)
   if (!matches) {
     console.error(`invalid url for narou novel : url=${url}`)
