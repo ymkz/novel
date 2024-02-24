@@ -10,10 +10,10 @@ import {
 
 describe('parseNcodeAndPage', () => {
   test.each([
-    { url: 'https://ncode.syosetu.com/n1234/10/', expected: { ncode: 'n1234', page: 10 } },
-    { url: 'https://ncode.syosetu.com/n1234/10', expected: { ncode: 'n1234', page: 10 } },
-    { url: 'https://ncode.syosetu.com/n1234/', expected: { ncode: 'n1234', page: 0 } },
-    { url: 'https://ncode.syosetu.com/n1234', expected: { ncode: 'n1234', page: 0 } },
+    { url: '/n1234/10/', expected: { ncode: 'n1234', page: 10 } },
+    { url: '/n1234/10', expected: { ncode: 'n1234', page: 10 } },
+    { url: '/n1234/', expected: { ncode: 'n1234', page: 0 } },
+    { url: '/n1234', expected: { ncode: 'n1234', page: 0 } },
   ])('parseNcodeAndPage($url) -> $expected', ({ url, expected }) => {
     expect(parseNcodeAndPage(url)).toStrictEqual(expected)
   })
