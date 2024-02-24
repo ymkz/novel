@@ -43,9 +43,9 @@ export const getPageInfo = (currentPage: number, totalPage: number) => {
 
 export const getOriginalNarouUrl = (ncode: string, page: number) => {
   if (page === 0) {
-    return `https://ncode.syosetu.com/${ncode}/${page}`
+    return `https://ncode.syosetu.com/${ncode}`
   }
-  return `https://ncode.syosetu.com/${ncode}`
+  return `https://ncode.syosetu.com/${ncode}/${page}`
 }
 
 export const getProxyNarouUrl = (ncode: string, page: number) => {
