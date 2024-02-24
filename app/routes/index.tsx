@@ -1,7 +1,7 @@
 import { createRoute } from 'honox/factory'
-import { NovelForm } from '~/application/component/novel-form'
-import { NovelList } from '~/application/component/novel-list'
-import { list } from '~/application/usecase/narou'
+import { NovelForm } from '~/components/novel-form'
+import { NovelList } from '~/components/novel-list'
+import { list } from '~/usecases/narou'
 
 export const GET = createRoute(async (ctx) => {
   const narouNovelList = await list(ctx.env.D1, ctx.req.header('user-agent'))

@@ -1,10 +1,10 @@
 import { zValidator } from '@hono/zod-validator'
 import { createRoute } from 'honox/factory'
 import { z } from 'zod'
-import { Message } from '~/application/component/message'
-import { NovelForm } from '~/application/component/novel-form'
-import { NovelList } from '~/application/component/novel-list'
-import { add, list } from '~/application/usecase/narou'
+import { Message } from '~/components/message'
+import { NovelForm } from '~/components/novel-form'
+import { NovelList } from '~/components/novel-list'
+import { add, list } from '~/usecases/narou'
 
 export const POST = createRoute(
   zValidator(

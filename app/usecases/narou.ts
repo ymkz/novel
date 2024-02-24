@@ -1,5 +1,5 @@
-import { NarouNovel, parseNcodeAndPageFromUrlPath } from '~/domain/narou'
-import { getLastPublishedAt } from '~/domain/string'
+import { NarouNovel, parseNcodeAndPageFromUrlPath } from '~/domains/narou'
+import { getLastPublishedAt } from '~/domains/narou'
 import { fetchNarouApi } from '~/infrastructure/api/narou'
 import {
   createNarouNovel,

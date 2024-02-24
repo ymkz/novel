@@ -1,7 +1,7 @@
 import { zValidator } from '@hono/zod-validator'
 import { createRoute } from 'honox/factory'
 import { z } from 'zod'
-import { remove } from '~/application/usecase/narou'
+import { remove } from '~/usecases/narou'
 
 export const POST = createRoute(
   zValidator(

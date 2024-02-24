@@ -1,9 +1,9 @@
 import { zValidator } from '@hono/zod-validator'
 import { createRoute } from 'honox/factory'
 import { z } from 'zod'
-import { ViewerContent } from '~/application/component/viewer-content'
-import { ViewerHeader } from '~/application/component/viewer-header'
-import { getProxyNarouUrl } from '~/domain/string'
+import { ViewerContent } from '~/components/viewer-content'
+import { ViewerHeader } from '~/components/viewer-header'
+import { getProxyNarouUrl } from '~/domains/narou'
 
 export const GET = createRoute(
   zValidator(

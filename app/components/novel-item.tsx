@@ -1,5 +1,5 @@
-import { NarouNovel } from '~/domain/narou'
-import { getOriginalNarouUrl, getPageInfo, getViewerNarouUrl } from '~/domain/string'
+import { NarouNovel } from '~/domains/narou'
+import { getOriginalNarouUrl, getPageInfo, getViewerNarouUrl } from '~/domains/narou'
 
 type Props = {
   narouNovel: NarouNovel

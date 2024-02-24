@@ -1,9 +1,9 @@
 import { zValidator } from '@hono/zod-validator'
 import { createRoute } from 'honox/factory'
 import { z } from 'zod'
-import { update } from '~/application/usecase/narou'
-import { parseNcodeAndPageFromUrlPath } from '~/domain/narou'
-import { getOriginalNarouUrl, getProxyNarouUrl } from '~/domain/string'
+import { parseNcodeAndPageFromUrlPath } from '~/domains/narou'
+import { getOriginalNarouUrl, getProxyNarouUrl } from '~/domains/narou'
+import { update } from '~/usecases/narou'
 
 const narouLinkReplacer: HTMLRewriterElementContentHandlers = {
   element: (element) => {
