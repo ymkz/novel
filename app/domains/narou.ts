@@ -41,12 +41,11 @@ export const getPageInfo = (currentPage: number, totalPage: number) => {
   return `${currentPage}話／全${totalPage}話`
 }
 
-/**
- * page=0のケースでpageの省略を考慮すべきかも
- * ncodeのみのURLが表示用にほしい場合もあるので分けてもいいかも
- */
 export const getOriginalNarouUrl = (ncode: string, page: number) => {
-  return `https://ncode.syosetu.com/${ncode}/${page}`
+  if (page === 0) {
+    return `https://ncode.syosetu.com/${ncode}/${page}`
+  }
+  return `https://ncode.syosetu.com/${ncode}`
 }
 
 export const getProxyNarouUrl = (ncode: string, page: number) => {
