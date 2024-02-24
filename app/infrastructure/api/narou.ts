@@ -1,4 +1,4 @@
-import { getNarouApiUrl } from '~/domain/string'
+import { getNarouApiUrl } from '~/domains/narou'
 
 type NarouApiResponseAllCount = {
   allcount: number

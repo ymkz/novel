@@ -1,5 +1,5 @@
-import { NarouNovel } from '~/domain/narou'
-import { getOriginalNarouUrl, getPageInfo, getViewerNarouUrl } from '~/domain/string'
+import { NarouNovel } from '~/domains/narou'
+import { getOriginalNarouUrl, getPageInfo, getViewerNarouUrl } from '~/domains/narou'
 
 type Props = {
   narouNovel: NarouNovel
@@ -23,7 +23,7 @@ export const NovelItem = ({ narouNovel }: Props) => {
             {narouNovel.lastPublishedAt}
           </p>
           <p class="font-family:sans font-weight:400 font-size:11px color:fade-40">
-            {getOriginalNarouUrl(narouNovel.ncode)}
+            {getOriginalNarouUrl(narouNovel.ncode, narouNovel.currentPage)}
           </p>
         </div>
       </a>

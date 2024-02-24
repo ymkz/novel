@@ -1,9 +1,9 @@
 import { zValidator } from '@hono/zod-validator'
-import { Hono } from 'hono'
+import { createRoute } from 'honox/factory'
 import { z } from 'zod'
-import { remove } from '~/application/usecase/narou'
+import { remove } from '~/usecases/narou'
 
-export const narouDelete = new Hono<AppEnv>().post(
+export const POST = createRoute(
   zValidator(
     'param',
     z.object({

@@ -1,5 +1,5 @@
-import { NovelItem } from '~/application/component/novel-item'
-import { NarouNovel } from '~/domain/narou'
+import { NovelItem } from '~/components/novel-item'
+import { NarouNovel } from '~/domains/narou'
 
 type Props = {
   narouNovelList: NarouNovel[]
