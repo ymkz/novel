@@ -1,13 +1,13 @@
-import { NarouNovel, parseNcodeAndPageFromUrlPath } from '~/domains/narou'
+import { NarouNovel, parseNcodeAndPageFromUrl } from '~/domains/narou'
 import { getLastPublishedAt } from '~/domains/narou'
-import { fetchNarouApi } from '~/infrastructure/api/narou'
+import { fetchNarouApi } from '~/infrastructures/api/narou'
 import {
   createNarouNovel,
   deleteNarouNovel,
   getNarouNovel,
   listNarouNovels,
   updateNarouNovel,
-} from '~/infrastructure/d1/querier'
+} from '~/infrastructures/d1/querier'
 
 export const list = async (d1: D1Database, userAgent = '') => {
   const novels = await listNarouNovels(d1)
@@ -52,7 +52,7 @@ export const list = async (d1: D1Database, userAgent = '') => {
 }
 
 export const add = async (d1: D1Database, url: string) => {
-  const { ncode, page } = parseNcodeAndPageFromUrlPath(new URL(url).pathname)
+  const { ncode, page } = parseNcodeAndPageFromUrl(new URL(url).pathname)
 
   // ncode引きで存在チェック
   const exist = await getNarouNovel(d1, { ncode })

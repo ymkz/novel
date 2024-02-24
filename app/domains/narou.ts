@@ -6,31 +6,29 @@ export type NarouNovel = {
   lastPublishedAt: string
 }
 
-type RegexMatchGroup = {
-  ncode: string
-  page?: string
-}
-
-type NarouPageInfo = {
+export const parseNcodeAndPageFromUrl = (
+  url: string,
+): {
   ncode: string
   page: number
-}
-
-export const parseNcodeAndPageFromUrlPath = (url: string): NarouPageInfo => {
-  const regex = /\/(?<ncode>n[a-zA-Z0-9]+)\/?(?<page>\d*).*$/
+} => {
+  const regex = /https:\/\/ncode\.syosetu\.com\/(?<ncode>n[a-zA-Z0-9]+)\/?(?<page>\d*).*$/
   const matches = regex.exec(url)
   if (!matches) {
     console.error(`invalid url for narou novel : url=${url}`)
     throw new Error(`invalid url for narou novel : url=${url}`)
   }
-  const { ncode, page } = matches.groups as RegexMatchGroup
-  return { ncode, page: Number(page) || 0 }
+  const { ncode, page } = matches.groups as {
+    ncode: string
+    page?: string
+  }
+  return { ncode, page: Number(page) }
 }
 
 /**
  * YYYY-MM-DD HH:mm:ss → YYYY年MM月DD日HH時mm分
  */
-export const getLastPublishedAt = (datetime: string) => {
+export const getLastPublishedAt = (datetime: string): string => {
   const date = new Date(datetime)
   return `${date.getFullYear()}年${
     date.getMonth() + 1
@@ -54,8 +52,4 @@ export const getProxyNarouUrl = (ncode: string, page: number) => {
 
 export const getViewerNarouUrl = (ncode: string, page: number) => {
   return `/viewer/narou/${ncode}/${page}`
-}
-
-export const getNarouApiUrl = (ncode: string) => {
-  return `https://api.syosetu.com/novelapi/api?out=json&lim=500&ncode=${ncode}`
 }

@@ -1,5 +1,3 @@
-import { getNarouApiUrl } from '~/domains/narou'
-
 type NarouApiResponseAllCount = {
   allcount: number
 }
@@ -55,7 +53,7 @@ export const fetchNarouApi = async (
   ncode: string,
   userAgent: string,
 ): Promise<NarouApiResponse> => {
-  const url = getNarouApiUrl(ncode)
+  const url = `https://api.syosetu.com/novelapi/api?out=json&lim=500&ncode=${ncode}`
 
   const response = await fetch(url, {
     headers: { 'user-agent': userAgent },

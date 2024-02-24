@@ -9,5 +9,5 @@ sql:
     queries: db/query.sql
     engine: sqlite
     codegen:
-      - out: app/infrastructure/d1
+      - out: app/infrastructures/d1
         plugin: typescript-d1
