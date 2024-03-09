@@ -12,9 +12,9 @@
     "generate": "sqlc generate"
   },
   "dependencies": {
-    "@hono/zod-validator": "0.1.11",
-    "hono": "4.0.8",
-    "honox": "0.1.5",
+    "@hono/zod-validator": "0.2.0",
+    "hono": "4.0.10",
+    "honox": "0.1.6",
     "zod": "3.22.4"
   },
   "devDependencies": {
