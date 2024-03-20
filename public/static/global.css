@@ -1,3 +1,7 @@
 :root {
   --font-sans: "Noto Sans JP";
 }
+
+body {
+  background-color: #fbfbfb;
+}

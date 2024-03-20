@@ -1,20 +1,16 @@
-import { resolve } from 'node:path'
-import pages from '@hono/vite-cloudflare-pages'
-import { getEnv } from '@hono/vite-dev-server/cloudflare-pages'
-import honox from 'honox/vite'
 import { defineConfig } from 'vite'
 
+import cloudflarePages from '@hono/vite-cloudflare-pages'
+import devServer from '@hono/vite-dev-server'
+import devServerCloudflare from '@hono/vite-dev-server/cloudflare'
+import tsconfigPaths from 'vite-tsconfig-paths'
+
 export default defineConfig({
-  clearScreen: false,
-  resolve: {
-    alias: { '~': resolve(__dirname, 'app') },
-  },
-  server: {
-    open: false,
-    port: 3000,
-  },
   plugins: [
-    honox({ devServer: { env: getEnv({ d1Databases: ['D1'], d1Persist: true }) } }),
-    pages(),
+    tsconfigPaths(),
+    cloudflarePages(),
+    devServer({ adapter: devServerCloudflare, entry: 'app/index.ts' }),
   ],
+  clearScreen: false,
+  server: { port: 3000, open: false },
 })

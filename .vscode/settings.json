@@ -5,12 +5,7 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "editor.quickSuggestions": {
-    "strings": true
-  },
-  "masterCSS.languages": ["typescriptreact"],
   "typescript.preferences.importModuleSpecifier": "non-relative",
-  "vitest.enable": true,
   "[javascript]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
