@@ -1,13 +1,14 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
-    "ignore": ["app/infrastructures/d1"]
+    "ignore": []
   },
   "organizeImports": {
     "enabled": true
   },
   "linter": {
     "enabled": true,
+    "ignore": [],
     "rules": {
       "recommended": true
     }

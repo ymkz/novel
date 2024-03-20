@@ -1,13 +1,10 @@
 # novel
 
-## presetup
+## How to setup local development
 
-```sh
-mkdir -p .mf/d1/DB
-
-sqlite3 .mf/d1/DB/db.sqlite < db/schema.sql
-sqlite3 $(find .mf/d1/miniflare-D1DatabaseObject -name "*.sqlite") < db/schema.sql
-
-sqlite3 .mf/d1/DB/db.sqlite < db/seed.sql
-sqlite3 $(find .mf/d1/miniflare-D1DatabaseObject -name "*.sqlite") < db/seed.sql
-```
+1. clone repository
+1. `npm ci`
+1. `npx drizzle-kit generate:sqlite`
+1. `mkdir -p .wrangler/state/v3/d1/DB`
+1. `sqlite3 .wrangler/state/v3/d1/DB/db.sqlite < db/migration/0000_broken_mystique.sql`
+1. `sqlite3 .wrangler/state/v3/d1/DB/db.sqlite < db/seed/0000_insert_for_local.sql`
