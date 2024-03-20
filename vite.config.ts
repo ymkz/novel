@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [
     tsconfigPaths(),
     cloudflarePages(),
-    devServer({ adapter: devServerCloudflare, entry: 'app/index.ts' }),
+    devServer({ adapter: devServerCloudflare, entry: 'app/server.ts' }),
   ],
   clearScreen: false,
   server: { port: 3000, open: false },
