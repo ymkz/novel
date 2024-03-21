@@ -8,9 +8,7 @@
   --color-danger: #d11a1e;
 }
 
-*:where(
-    :not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)
-  ) {
+*:where(:not(html, iframe, img, svg):not(svg *)) {
   all: unset;
   display: revert;
 }
