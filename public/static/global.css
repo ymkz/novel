@@ -1,7 +1,150 @@
 :root {
-  --font-sans: "Noto Sans JP";
+  --color-background: #ffffff;
+  --color-text: #24262d;
+  --color-text-secondary: #4c515f;
+  --color-text-placeholder: #c3c6cf;
+  --color-neutral: #f3f6f9;
+  --color-info: #00a0e8;
+  --color-danger: #d11a1e;
+}
+
+*:where(:not(html, iframe, img, svg):not(svg *)) {
+  all: unset;
+  display: revert;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 body {
-  background-color: #fbfbfb;
+  min-height: 100dvh;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+a,
+button {
+  cursor: revert;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+#root {
+  max-width: 720px;
+  margin-inline: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.add-form {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--color-neutral);
+  border-radius: 4px;
+  padding-left: 12px;
+}
+
+.add-form-input {
+  flex-grow: 1;
+  outline: 0;
+  border: 0;
+  font-weight: 400;
+  &::placeholder {
+    color: var(--color-text-placeholder);
+  }
+}
+
+.add-form-button {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.message {
+  height: 40px;
+  padding-inline: 16px;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-info);
+  color: var(--color-background);
+  position: fixed;
+  width: 100dvw;
+  bottom: 0;
+  left: 0;
+}
+
+#view {
+  max-width: 720px;
+  height: 100dvh;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.view-content {
+  flex-grow: 1;
+}
+
+.view-action {
+  height: 40px;
+  padding-inline: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--color-neutral);
+}
+
+.view-action--close {
+  font-weight: 400;
+  font-size: 11px;
+}
+
+.view-action--remove {
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--color-danger);
 }

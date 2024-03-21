@@ -1,8 +1,7 @@
 import { zValidator } from '@hono/zod-validator'
-import { css } from 'hono/css'
 import { z } from 'zod'
-import { ViewerContent } from '~/component/viewer-content'
-import { ViewerHeader } from '~/component/viewer-header'
+import { ViewAction } from '~/component/view-action'
+import { ViewContent } from '~/component/view-content'
 import { getProxyNarouUrl } from '~/domain/narou'
 import { factory } from '~/handler/_factory'
 
@@ -18,18 +17,10 @@ export const viewHandlers = factory.createHandlers(
     const { ncode, page } = ctx.req.valid('param')
     const proxyNarouUrl = getProxyNarouUrl(ncode, page)
 
-    const style = css`
-      max-width: 720px;
-      height: 100dvh;
-      margin-inline: auto;
-      display: flex;
-      flex-direction: column;
-    `
-
     return ctx.render(
-      <div class={style}>
-        <ViewerHeader ncode={ncode} />
-        <ViewerContent src={proxyNarouUrl} />
+      <div id="view">
+        <ViewContent src={proxyNarouUrl} />
+        <ViewAction ncode={ncode} />
       </div>,
     )
   },

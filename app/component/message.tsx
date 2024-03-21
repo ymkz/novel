@@ -4,8 +4,8 @@ type Props = {
 
 export const Message = ({ message }: Props) => {
   return (
-    <div hx-ext="remove-me" class="px:16px">
-      <div remove-me="3s">{message}</div>
+    <div hx-ext="remove-me" class="message">
+      <div remove-me="4s">{message}</div>
     </div>
   )
 }
