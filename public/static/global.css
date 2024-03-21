@@ -1,3 +1,13 @@
+:root {
+  --color-background: #ffffff;
+  --color-text: #24262d;
+  --color-gray-base: #f3f6f9;
+  --color-gray-light: #c3c6cf;
+  --color-gray-default: #4c515f;
+  --color-info: #00a0e8;
+  --color-danger: #d11a1e;
+}
+
 *:where(
     :not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)
   ) {
@@ -19,6 +29,9 @@ html {
 
 body {
   min-height: 100dvh;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 a,
@@ -45,7 +58,7 @@ ul {
   display: flex;
   align-items: center;
   gap: 12px;
-  background-color: #f3f6f9;
+  background-color: var(--color-gray-base);
   border-radius: 4px;
   padding-left: 12px;
 }
@@ -56,9 +69,8 @@ ul {
   border: 0;
   font-family: "Meiryo";
   font-weight: 400;
-  color: #24262d;
   &::placeholder {
-    color: #c3c6cf;
+    color: var(--color-gray-light);
   }
 }
 
@@ -67,7 +79,7 @@ ul {
   height: 40px;
   display: grid;
   place-items: center;
-  color: #4c515f;
+  color: var(--color-gray-default);
   cursor: pointer;
 }
 
@@ -88,14 +100,13 @@ ul {
   font-weight: 700;
   font-size: 17px;
   line-height: 1.3;
-  color: #24262d;
 }
 
 .text {
   font-family: sans;
   font-weight: 400;
   font-size: 11px;
-  color: #4c515f;
+  color: var(--color-gray-default);
 }
 
 .message {
@@ -103,15 +114,15 @@ ul {
   padding-inline: 16px;
   display: flex;
   align-items: center;
-  background-color: #00a0e8;
-  color: #ffffff;
+  background-color: var(--color-info);
+  color: var(--color-background);
   position: fixed;
   width: 100dvw;
   bottom: 0;
   left: 0;
 }
 
-.view-container {
+#view {
   max-width: 720px;
   height: 100dvh;
   margin-inline: auto;
@@ -129,19 +140,18 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid #f3f6f9;
+  border-top: 1px solid var(--color-gray-base);
 }
 
 .view-action--close {
   font-family: sans;
   font-weight: 400;
   font-size: 11px;
-  color: #24262d;
 }
 
 .view-action--remove {
   font-family: sans;
   font-weight: 400;
   font-size: 11px;
-  color: #d11a1e;
+  color: var(--color-danger);
 }

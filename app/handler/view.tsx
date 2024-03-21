@@ -18,7 +18,7 @@ export const viewHandlers = factory.createHandlers(
     const proxyNarouUrl = getProxyNarouUrl(ncode, page)
 
     return ctx.render(
-      <div class="view-container">
+      <div id="view">
         <ViewContent src={proxyNarouUrl} />
         <ViewAction ncode={ncode} />
       </div>,
