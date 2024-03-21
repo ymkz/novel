@@ -32,16 +32,6 @@ body {
   color: var(--color-text);
 }
 
-a,
-button {
-  cursor: revert;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
 #root {
   max-width: 720px;
   margin-inline: auto;
@@ -90,6 +80,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  cursor: pointer;
 }
 
 .title {
