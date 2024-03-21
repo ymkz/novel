@@ -36,6 +36,7 @@ body {
   max-width: 720px;
   margin-inline: auto;
   padding: 16px;
+  padding-bottom: env(safe-area-inset-bottom, 16px);
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -111,6 +112,7 @@ body {
 #view {
   max-width: 720px;
   height: 100dvh;
+  padding-bottom: env(safe-area-inset-bottom, 16px);
   margin-inline: auto;
   display: flex;
   flex-direction: column;
