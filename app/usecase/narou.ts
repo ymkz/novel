@@ -44,13 +44,7 @@ export const listNarouNovel = async (d1: D1Database, userAgent = ''): Promise<Na
   return narouNovelList
 }
 
-export const addNarouNovel = async (
-  d1: D1Database,
-  url: string,
-): Promise<{
-  type: 'duplicated' | 'updated' | 'inserted'
-  data: { ncode: string; page: number }
-}> => {
+export const addNarouNovel = async (d1: D1Database, url: string): Promise<string> => {
   const { ncode, page } = parseNcodeAndPage(new URL(url).pathname)
 
   // ncode引きで存在チェック
@@ -61,19 +55,19 @@ export const addNarouNovel = async (
     // pageが一致する場合は処理をスキップする
     if (exist.currentPage === page) {
       console.info(`skip by duplicate : ncode=${ncode} page=${page}`)
-      return { type: 'duplicated', data: { ncode, page } }
+      return `${ncode}/${page}は重複のためスキップしました`
     }
 
     // pageが一致しない場合はそのページを現在のページとして更新
     await narouRepository.update(d1, { ncode, currentPage: page })
     console.info(`update by add : ncode=${ncode} page=${page}`)
-    return { type: 'updated', data: { ncode, page } }
+    return `${ncode}はページを${page}で更新しました`
   }
 
   // 存在しない小説の場合はDBに追加する
   await narouRepository.insert(d1, { ncode, currentPage: page })
   console.info(`insert new : ncode=${ncode} page=${page}`)
-  return { type: 'inserted', data: { ncode, page } }
+  return `${ncode}/${page}が新しく追加されました`
 }
 
 export const removeNarouNovel = async (d1: D1Database, ncode: string): Promise<void> => {

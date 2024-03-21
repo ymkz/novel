@@ -1,7 +1,147 @@
-:root {
-  --font-sans: "Noto Sans JP";
+*:where(
+    :not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)
+  ) {
+  all: unset;
+  display: revert;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 body {
-  background-color: #fbfbfb;
+  min-height: 100dvh;
+}
+
+a,
+button {
+  cursor: revert;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+#root {
+  max-width: 720px;
+  margin-inline: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.add-form {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #f3f6f9;
+  border-radius: 4px;
+  padding-left: 12px;
+}
+
+.add-form-input {
+  flex-grow: 1;
+  outline: 0;
+  border: 0;
+  font-family: "Meiryo";
+  font-weight: 400;
+  color: #24262d;
+  &::placeholder {
+    color: #c3c6cf;
+  }
+}
+
+.add-form-button {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  color: #4c515f;
+  cursor: pointer;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  font-family: sans;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.3;
+  color: #24262d;
+}
+
+.text {
+  font-family: sans;
+  font-weight: 400;
+  font-size: 11px;
+  color: #4c515f;
+}
+
+.message {
+  height: 40px;
+  padding-inline: 16px;
+  display: flex;
+  align-items: center;
+  background-color: #00a0e8;
+  color: #ffffff;
+  position: fixed;
+  width: 100dvw;
+  bottom: 0;
+  left: 0;
+}
+
+.view-container {
+  max-width: 720px;
+  height: 100dvh;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.view-content {
+  flex-grow: 1;
+}
+
+.view-action {
+  height: 40px;
+  padding-inline: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f3f6f9;
+}
+
+.view-action--close {
+  font-family: sans;
+  font-weight: 400;
+  font-size: 11px;
+  color: #24262d;
+}
+
+.view-action--remove {
+  font-family: sans;
+  font-weight: 400;
+  font-size: 11px;
+  color: #d11a1e;
 }
