@@ -7,7 +7,10 @@ export const renderer = jsxRenderer(
         <head>
           <meta charset="utf-8" />
           <meta name="robots" content="noindex" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+          />
           <script src="https://unpkg.com/htmx.org" />
           <script src="https://unpkg.com/htmx.org/dist/ext/remove-me.js" />
           <link rel="stylesheet" href="/static/global.css" />
