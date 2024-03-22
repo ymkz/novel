@@ -6,6 +6,11 @@
   --color-neutral: #f3f6f9;
   --color-info: #00a0e8;
   --color-danger: #d11a1e;
+
+  --container-width: 720px;
+  --space-base: 16px;
+  --space-narrow: 12px;
+  --space-extended: 24px;
 }
 
 *:where(:not(html, iframe, img, svg):not(svg *)) {
@@ -33,23 +38,23 @@ body {
 }
 
 #root {
-  max-width: 720px;
+  max-width: var(--container-width);
   margin-inline: auto;
-  padding: 16px;
-  padding-bottom: calc(env(safe-area-inset-bottom) + 24px);
+  padding: var(--space-base);
+  padding-bottom: env(safe-area-inset-bottom);
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: var(--space-extended);
 }
 
 .add-form {
   height: 40px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-narrow);
   background-color: var(--color-neutral);
   border-radius: 4px;
-  padding-left: 12px;
+  padding-left: var(--space-narrow);
 }
 
 .add-form-input {
@@ -74,7 +79,7 @@ body {
 .list-container {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: var(--space-extended);
 }
 
 .list-item {
@@ -98,7 +103,7 @@ body {
 
 .message {
   height: 40px;
-  padding-inline: 16px;
+  padding-inline: var(--space-base);
   display: flex;
   align-items: center;
   background-color: var(--color-info);
@@ -110,7 +115,7 @@ body {
 }
 
 #view {
-  max-width: 720px;
+  max-width: var(--container-width);
   height: 100dvh;
   padding-bottom: env(safe-area-inset-bottom);
   margin-inline: auto;
@@ -124,7 +129,7 @@ body {
 
 .view-action {
   height: 40px;
-  padding-inline: 12px;
+  padding-inline: var(--space-narrow);
   display: flex;
   align-items: center;
   justify-content: space-between;
