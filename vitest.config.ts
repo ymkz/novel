@@ -4,5 +4,8 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
   plugins: [tsconfigPaths()],
-  test: { restoreMocks: true, silent: true },
+  test: {
+    restoreMocks: true,
+    silent: true,
+  },
 })

@@ -50,7 +50,7 @@ export const addNarouNovel = async (d1: D1Database, url: string): Promise<string
   // ncode引きで存在チェック
   const exist = await narouRepository.getOne(d1, { ncode })
 
-  // すでに対象の小説がある場合は更新処理とする
+  // すでにDBニ対象の小説がある場合は更新処理とする
   if (exist) {
     // pageが一致する場合は処理をスキップする
     if (exist.currentPage === page) {
@@ -64,7 +64,7 @@ export const addNarouNovel = async (d1: D1Database, url: string): Promise<string
     return `${ncode}はページを${page}で更新しました`
   }
 
-  // 存在しない小説の場合はDBに追加する
+  // DBに存在しない小説の場合は新規追加する
   await narouRepository.insert(d1, { ncode, currentPage: page })
   console.info(`insert new : ncode=${ncode} page=${page}`)
   return `${ncode}/${page}が新しく追加されました`

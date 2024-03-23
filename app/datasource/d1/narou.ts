@@ -28,30 +28,30 @@ type CreateNarouNovelParams = {
   ncode: string
   currentPage: number
 }
-export const insert = async (d1: D1Database, params: CreateNarouNovelParams) => {
+export const insert = async (d1: D1Database, params: CreateNarouNovelParams): Promise<void> => {
   const db = drizzle(d1, { schema: { narou }, logger: new D1Logger() })
   const result = await db.insert(narou).values(params)
-  return result
+  console.debug(result)
 }
 
 type DeleteNarouNovelParams = {
   ncode: string
 }
-export const remove = async (d1: D1Database, params: DeleteNarouNovelParams) => {
+export const remove = async (d1: D1Database, params: DeleteNarouNovelParams): Promise<void> => {
   const db = drizzle(d1, { schema: { narou }, logger: new D1Logger() })
   const result = await db.delete(narou).where(eq(narou.ncode, params.ncode))
-  return result
+  console.debug(result)
 }
 
 type UpdateNarouNovelParams = {
   ncode: string
   currentPage: number
 }
-export const update = async (d1: D1Database, params: UpdateNarouNovelParams) => {
+export const update = async (d1: D1Database, params: UpdateNarouNovelParams): Promise<void> => {
   const db = drizzle(d1, { schema: { narou }, logger: new D1Logger() })
   const result = await db
     .update(narou)
     .set({ currentPage: params.currentPage })
     .where(eq(narou.ncode, params.ncode))
-  return result
+  console.debug(result)
 }
