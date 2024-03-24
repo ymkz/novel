@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+import { secureHeaders } from 'hono/secure-headers'
 import { logger } from '~/handler/_logger'
 import { renderer } from '~/handler/_renderer'
 import { addHandlers } from '~/handler/add'
@@ -11,6 +12,7 @@ const app = new Hono<{ Bindings: { DB: D1Database } }>()
 
 app.use(logger)
 app.use(renderer)
+app.use(secureHeaders())
 
 app.get('/', ...indexHandlers)
 app.post('/', ...addHandlers)

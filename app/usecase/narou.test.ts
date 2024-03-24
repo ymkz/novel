@@ -11,7 +11,7 @@ describe.skip('listNarouNovel', () => {
   test('データがない場合、空配列が返されること', async () => {
     const spyRepositoryListAll = vi.spyOn(narouRepository, 'listAll').mockResolvedValue([])
 
-    await expect(listNarouNovel(d1, 'userAgent')).resolves.toStrictEqual([])
+    expect(await listNarouNovel(d1, 'userAgent')).toStrictEqual([])
     expect(spyRepositoryListAll).toHaveBeenCalledTimes(1)
     expect(spyRepositoryListAll).toHaveBeenCalledWith(d1)
   })
@@ -40,7 +40,7 @@ describe.skip('listNarouNovel', () => {
         },
       ])
 
-    await expect(listNarouNovel(d1, 'userAgent')).resolves.toStrictEqual([
+    expect(await listNarouNovel(d1, 'userAgent')).toStrictEqual([
       {
         ncode: 'n0000zz',
         title: 'title0000',
@@ -69,7 +69,7 @@ describe('addNarouNovel', () => {
       .spyOn(narouRepository, 'getOne')
       .mockResolvedValue({ ncode: 'n0000zz', currentPage: 1 })
 
-    await expect(addNarouNovel(d1, 'https://ncode.syosetu.com/n0000zz/1')).resolves.toBe(
+    expect(await addNarouNovel(d1, 'https://ncode.syosetu.com/n0000zz/1')).toBe(
       'n0000zz/1は重複のためスキップしました',
     )
     expect(spyRepositoryGetOne).toHaveBeenCalledTimes(1)
@@ -82,7 +82,7 @@ describe('addNarouNovel', () => {
       .mockResolvedValue({ ncode: 'n0000zz', currentPage: 1 })
     const spyRepositoryUpdate = vi.spyOn(narouRepository, 'update').mockResolvedValue()
 
-    await expect(addNarouNovel(d1, 'https://ncode.syosetu.com/n0000zz/2')).resolves.toBe(
+    expect(await addNarouNovel(d1, 'https://ncode.syosetu.com/n0000zz/2')).toBe(
       'n0000zzはページを2で更新しました',
     )
     expect(spyRepositoryGetOne).toHaveBeenCalledTimes(1)
@@ -95,7 +95,7 @@ describe('addNarouNovel', () => {
     const spyRepositoryGetOne = vi.spyOn(narouRepository, 'getOne').mockResolvedValue(undefined)
     const spyRepositoryInsert = vi.spyOn(narouRepository, 'insert').mockResolvedValue()
 
-    await expect(addNarouNovel(d1, 'https://ncode.syosetu.com/n0000zz/1')).resolves.toBe(
+    expect(await addNarouNovel(d1, 'https://ncode.syosetu.com/n0000zz/1')).toBe(
       'n0000zz/1が新しく追加されました',
     )
     expect(spyRepositoryGetOne).toHaveBeenCalledTimes(1)
@@ -109,7 +109,7 @@ describe('removeNarouNovel', () => {
   test('なろう小説が削除されること', async () => {
     const spyRepositoryRemove = vi.spyOn(narouRepository, 'remove').mockResolvedValue()
 
-    await expect(removeNarouNovel(d1, 'n0000zz')).resolves.toBeUndefined()
+    expect(await removeNarouNovel(d1, 'n0000zz')).toBeUndefined()
     expect(spyRepositoryRemove).toHaveBeenCalledTimes(1)
     expect(spyRepositoryRemove).toHaveBeenCalledWith(d1, { ncode: 'n0000zz' })
   })
@@ -119,7 +119,7 @@ describe('updateNarouNovel', () => {
   test('なろう小説が更新されること', async () => {
     const spyRepositoryUpdate = vi.spyOn(narouRepository, 'update').mockResolvedValue()
 
-    await expect(updateNarouNovel(d1, 'n0000zz', 0)).resolves.toBeUndefined()
+    expect(await updateNarouNovel(d1, 'n0000zz', 0)).toBeUndefined()
     expect(spyRepositoryUpdate).toHaveBeenCalledTimes(1)
     expect(spyRepositoryUpdate).toHaveBeenCalledWith(d1, { ncode: 'n0000zz', currentPage: 0 })
   })

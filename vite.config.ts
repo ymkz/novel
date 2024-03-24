@@ -11,6 +11,9 @@ export default defineConfig({
     cloudflarePages(),
     devServer({ adapter: devServerCloudflare, entry: 'app/server.ts' }),
   ],
+  server: {
+    port: 3000,
+    open: false,
+  },
   clearScreen: false,
-  server: { port: 3000, open: false },
 })
