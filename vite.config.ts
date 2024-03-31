@@ -1,16 +1,19 @@
-import { defineConfig } from 'vite'
-
+import { resolve } from 'node:path'
 import cloudflarePages from '@hono/vite-cloudflare-pages'
 import devServer from '@hono/vite-dev-server'
 import devServerCloudflare from '@hono/vite-dev-server/cloudflare'
-import tsconfigPaths from 'vite-tsconfig-paths'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [
-    tsconfigPaths(),
-    cloudflarePages(),
+    cloudflarePages(), // break line for formater
     devServer({ adapter: devServerCloudflare, entry: 'app/server.ts' }),
   ],
+  resolve: {
+    alias: {
+      '~': resolve(__dirname, 'app'),
+    },
+  },
   server: {
     port: 3000,
     open: false,
