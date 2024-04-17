@@ -31,7 +31,7 @@ export const proxyHandlers = factory.createHandlers(
 
     const [proxiedResponse] = await Promise.all([
       fetch(url, { headers: { 'user-agent': userAgent } }),
-      narouUsecase.updateNarouNovel(ctx.env.DB, ncode, page),
+      narouUsecase.updateNarouNovel(ctx.var.db, ncode, page),
     ])
 
     const response = new HTMLRewriter().on('a', narouLinkReplacer).transform(proxiedResponse)

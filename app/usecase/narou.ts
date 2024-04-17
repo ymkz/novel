@@ -1,10 +1,14 @@
+import type { DrizzleD1Database } from 'drizzle-orm/d1'
 import { fetchNarouApi } from '~/datasource/api/narou'
-import * as narouRepository from '~/datasource/d1/narou'
+import { narouRepository } from '~/datasource/d1/narou'
 import type { NarouNovel } from '~/domain/narou'
 import { getLastPublishedAt, parseNcodeAndPage } from '~/domain/narou'
 
-export const listNarouNovel = async (d1: D1Database, userAgent = ''): Promise<NarouNovel[]> => {
-  const novels = await narouRepository.listAll(d1)
+export const listNarouNovel = async (
+  db: DrizzleD1Database,
+  userAgent = '',
+): Promise<NarouNovel[]> => {
+  const novels = await narouRepository.list(db)
 
   // データがない場合は空配列で早期リターンする
   if (novels.length === 0) {
@@ -42,11 +46,11 @@ export const listNarouNovel = async (d1: D1Database, userAgent = ''): Promise<Na
   return narouNovelList
 }
 
-export const addNarouNovel = async (d1: D1Database, url: string): Promise<string> => {
+export const addNarouNovel = async (db: DrizzleD1Database, url: string): Promise<string> => {
   const { ncode, page } = parseNcodeAndPage(new URL(url).pathname)
 
   // ncode引きで存在チェック
-  const exist = await narouRepository.getOne(d1, { ncode })
+  const exist = await narouRepository.find(db, ncode)
 
   // すでにDBニ対象の小説がある場合は更新処理とする
   if (exist) {
@@ -57,27 +61,27 @@ export const addNarouNovel = async (d1: D1Database, url: string): Promise<string
     }
 
     // pageが一致しない場合はそのページを現在のページとして更新
-    await narouRepository.update(d1, { ncode, currentPage: page })
+    await narouRepository.update(db, ncode, page)
     console.info({ ncode, page, msg: 'update by add' })
     return `${ncode}はページを${page}で更新しました`
   }
 
   // DBに存在しない小説の場合は新規追加する
-  await narouRepository.insert(d1, { ncode, currentPage: page })
+  await narouRepository.create(db, ncode, page)
   console.info({ ncode, page, msg: 'insert new' })
   return `${ncode}/${page}が新しく追加されました`
 }
 
-export const removeNarouNovel = async (d1: D1Database, ncode: string): Promise<void> => {
-  await narouRepository.remove(d1, { ncode })
+export const removeNarouNovel = async (db: DrizzleD1Database, ncode: string): Promise<void> => {
+  await narouRepository.remove(db, ncode)
   console.info({ ncode, msg: 'remove' })
 }
 
 export const updateNarouNovel = async (
-  d1: D1Database,
+  db: DrizzleD1Database,
   ncode: string,
   page: number,
 ): Promise<void> => {
-  await narouRepository.update(d1, { ncode, currentPage: page })
+  await narouRepository.update(db, ncode, page)
   console.info({ ncode, page, msg: 'update' })
 }

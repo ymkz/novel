@@ -13,7 +13,7 @@ export const removeHandlers = factory.createHandlers(
   async (ctx) => {
     const { ncode } = ctx.req.valid('param')
 
-    await narouUsecase.removeNarouNovel(ctx.env.DB, ncode)
+    await narouUsecase.removeNarouNovel(ctx.var.db, ncode)
 
     return ctx.body(null, { status: 204, headers: { 'HX-Location': '/' } })
   },

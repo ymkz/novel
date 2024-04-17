@@ -17,8 +17,8 @@ export const addHandlers = factory.createHandlers(
     const { url } = ctx.req.valid('form')
     const userAgent = ctx.req.header('user-agent')
 
-    const addResult = await narouUsecase.addNarouNovel(ctx.env.DB, url)
-    const narouNovelList = await narouUsecase.listNarouNovel(ctx.env.DB, userAgent)
+    const addResult = await narouUsecase.addNarouNovel(ctx.var.db, url)
+    const narouNovelList = await narouUsecase.listNarouNovel(ctx.var.db, userAgent)
 
     return ctx.html(
       <>

@@ -1,23 +1,23 @@
+import type { DrizzleD1Database } from 'drizzle-orm/d1'
 import { describe, expect, test, vi } from 'vitest'
 import * as narouApi from '~/datasource/api/narou'
-import * as narouRepository from '~/datasource/d1/narou'
+import { narouRepository } from '~/datasource/d1/narou'
 import { addNarouNovel, listNarouNovel, removeNarouNovel, updateNarouNovel } from '~/usecase/narou'
 
 // @ts-ignore
-const d1: D1Database = 'd1_stub'
+const db: DrizzleD1Database = 'drizzle_d1_database'
 
-// FIXME: bunがArray.toSortedを実装していない(?)ため、GHAのtestで落ちてしまう
 describe.skip('listNarouNovel', () => {
   test('データがない場合、空配列が返されること', async () => {
-    const spyRepositoryListAll = vi.spyOn(narouRepository, 'listAll').mockResolvedValue([])
+    const spyRepositoryListAll = vi.spyOn(narouRepository, 'list').mockResolvedValue([])
 
-    expect(await listNarouNovel(d1, 'userAgent')).toStrictEqual([])
+    expect(await listNarouNovel(db, 'userAgent')).toStrictEqual([])
     expect(spyRepositoryListAll).toHaveBeenCalledTimes(1)
-    expect(spyRepositoryListAll).toHaveBeenCalledWith(d1)
+    expect(spyRepositoryListAll).toHaveBeenCalledWith(db)
   })
 
   test('データがある場合、一覧の配列が取得できること', async () => {
-    const spyRepositoryListAll = vi.spyOn(narouRepository, 'listAll').mockResolvedValue([
+    const spyRepositoryListAll = vi.spyOn(narouRepository, 'list').mockResolvedValue([
       { ncode: 'n0000zz', currentPage: 1 },
       { ncode: 'n1111zz', currentPage: 0 },
     ])
@@ -40,7 +40,7 @@ describe.skip('listNarouNovel', () => {
         },
       ])
 
-    expect(await listNarouNovel(d1, 'userAgent')).toStrictEqual([
+    expect(await listNarouNovel(db, 'userAgent')).toStrictEqual([
       {
         ncode: 'n0000zz',
         title: 'title0000',
@@ -57,7 +57,7 @@ describe.skip('listNarouNovel', () => {
       },
     ])
     expect(spyRepositoryListAll).toHaveBeenCalledTimes(1)
-    expect(spyRepositoryListAll).toHaveBeenCalledWith(d1)
+    expect(spyRepositoryListAll).toHaveBeenCalledWith(db)
     expect(spyFetchNarouApi).toHaveBeenCalledTimes(1)
     expect(spyFetchNarouApi).toHaveBeenCalledWith('n0000zz-n1111zz', 'userAgent')
   })
@@ -66,42 +66,42 @@ describe.skip('listNarouNovel', () => {
 describe('addNarouNovel', () => {
   test('新規に追加する小説ではなくページが同じ場合、処理をスキップする', async () => {
     const spyRepositoryGetOne = vi
-      .spyOn(narouRepository, 'getOne')
+      .spyOn(narouRepository, 'find')
       .mockResolvedValue({ ncode: 'n0000zz', currentPage: 1 })
 
-    expect(await addNarouNovel(d1, 'https://ncode.syosetu.com/n0000zz/1')).toBe(
+    expect(await addNarouNovel(db, 'https://ncode.syosetu.com/n0000zz/1')).toBe(
       'n0000zz/1は重複のためスキップしました',
     )
     expect(spyRepositoryGetOne).toHaveBeenCalledTimes(1)
-    expect(spyRepositoryGetOne).toHaveBeenCalledWith(d1, { ncode: 'n0000zz' })
+    expect(spyRepositoryGetOne).toHaveBeenCalledWith(db, 'n0000zz')
   })
 
   test('新規に追加する小説ではなくページが異なる場合、ページを更新する', async () => {
     const spyRepositoryGetOne = vi
-      .spyOn(narouRepository, 'getOne')
+      .spyOn(narouRepository, 'find')
       .mockResolvedValue({ ncode: 'n0000zz', currentPage: 1 })
     const spyRepositoryUpdate = vi.spyOn(narouRepository, 'update').mockResolvedValue()
 
-    expect(await addNarouNovel(d1, 'https://ncode.syosetu.com/n0000zz/2')).toBe(
+    expect(await addNarouNovel(db, 'https://ncode.syosetu.com/n0000zz/2')).toBe(
       'n0000zzはページを2で更新しました',
     )
     expect(spyRepositoryGetOne).toHaveBeenCalledTimes(1)
-    expect(spyRepositoryGetOne).toHaveBeenCalledWith(d1, { ncode: 'n0000zz' })
+    expect(spyRepositoryGetOne).toHaveBeenCalledWith(db, 'n0000zz')
     expect(spyRepositoryUpdate).toHaveBeenCalledTimes(1)
-    expect(spyRepositoryUpdate).toHaveBeenCalledWith(d1, { ncode: 'n0000zz', currentPage: 2 })
+    expect(spyRepositoryUpdate).toHaveBeenCalledWith(db, 'n0000zz', 2)
   })
 
   test('新規に追加する小説の場合', async () => {
-    const spyRepositoryGetOne = vi.spyOn(narouRepository, 'getOne').mockResolvedValue(undefined)
-    const spyRepositoryInsert = vi.spyOn(narouRepository, 'insert').mockResolvedValue()
+    const spyRepositoryGetOne = vi.spyOn(narouRepository, 'find').mockResolvedValue(undefined)
+    const spyRepositoryInsert = vi.spyOn(narouRepository, 'create').mockResolvedValue()
 
-    expect(await addNarouNovel(d1, 'https://ncode.syosetu.com/n0000zz/1')).toBe(
+    expect(await addNarouNovel(db, 'https://ncode.syosetu.com/n0000zz/1')).toBe(
       'n0000zz/1が新しく追加されました',
     )
     expect(spyRepositoryGetOne).toHaveBeenCalledTimes(1)
-    expect(spyRepositoryGetOne).toHaveBeenCalledWith(d1, { ncode: 'n0000zz' })
+    expect(spyRepositoryGetOne).toHaveBeenCalledWith(db, 'n0000zz')
     expect(spyRepositoryInsert).toHaveBeenCalledTimes(1)
-    expect(spyRepositoryInsert).toHaveBeenCalledWith(d1, { ncode: 'n0000zz', currentPage: 1 })
+    expect(spyRepositoryInsert).toHaveBeenCalledWith(db, 'n0000zz', 1)
   })
 })
 
@@ -109,9 +109,9 @@ describe('removeNarouNovel', () => {
   test('なろう小説が削除されること', async () => {
     const spyRepositoryRemove = vi.spyOn(narouRepository, 'remove').mockResolvedValue()
 
-    expect(await removeNarouNovel(d1, 'n0000zz')).toBeUndefined()
+    expect(await removeNarouNovel(db, 'n0000zz')).toBeUndefined()
     expect(spyRepositoryRemove).toHaveBeenCalledTimes(1)
-    expect(spyRepositoryRemove).toHaveBeenCalledWith(d1, { ncode: 'n0000zz' })
+    expect(spyRepositoryRemove).toHaveBeenCalledWith(db, 'n0000zz')
   })
 })
 
@@ -119,8 +119,8 @@ describe('updateNarouNovel', () => {
   test('なろう小説が更新されること', async () => {
     const spyRepositoryUpdate = vi.spyOn(narouRepository, 'update').mockResolvedValue()
 
-    expect(await updateNarouNovel(d1, 'n0000zz', 0)).toBeUndefined()
+    expect(await updateNarouNovel(db, 'n0000zz', 0)).toBeUndefined()
     expect(spyRepositoryUpdate).toHaveBeenCalledTimes(1)
-    expect(spyRepositoryUpdate).toHaveBeenCalledWith(d1, { ncode: 'n0000zz', currentPage: 0 })
+    expect(spyRepositoryUpdate).toHaveBeenCalledWith(db, 'n0000zz', 0)
   })
 })
