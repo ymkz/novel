@@ -139,10 +139,12 @@ body {
 .view-action--close {
   font-weight: 400;
   font-size: 11px;
+  cursor: pointer;
 }
 
 .view-action--remove {
+  color: var(--color-danger);
   font-weight: 400;
   font-size: 11px;
-  color: var(--color-danger);
+  cursor: pointer;
 }
