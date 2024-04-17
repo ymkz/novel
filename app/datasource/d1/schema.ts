@@ -4,3 +4,7 @@ export const narou = sqliteTable('narou', {
   ncode: text('ncode').primaryKey(),
   currentPage: integer('current_page', { mode: 'number' }).notNull(),
 })
+
+export const schema = {
+  narou,
+}
