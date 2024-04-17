@@ -15,7 +15,7 @@ export const parseNcodeAndPage = (
   const regex = /\/(?<ncode>n[a-zA-Z0-9]+)\/?(?<page>\d*).*$/
   const matches = regex.exec(url)
   if (!matches) {
-    console.error(`invalid url for narou novel : url=${url}`)
+    console.error({ url, msg: 'invalid url for narou novel' })
     throw new Error(`invalid url for narou novel : url=${url}`)
   }
   const { ncode, page } = matches.groups as {

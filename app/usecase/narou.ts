@@ -8,14 +8,14 @@ export const listNarouNovel = async (d1: D1Database, userAgent = ''): Promise<Na
 
   // データがない場合は空配列で早期リターンする
   if (novels.length === 0) {
-    console.info('get novels : empty')
+    console.info({ msg: 'empty list novels' })
     return []
   }
 
   // なろうAPIから一括取得のためncodeをつなげる（フォーマット: `ncode-ncode`）
   const ncodeChain = novels.map((novel) => novel.ncode).join('-')
   const [, ...data] = await fetchNarouApi(ncodeChain, userAgent)
-  console.info(`fetch from narou api : ncode=${ncodeChain}`)
+  console.info({ count: data.length, ncode: ncodeChain, msg: 'fetch from narou api' })
 
   const narouNovelList = data
     // なろうAPIのレスポンスから必要な情報のみ抽出
@@ -39,8 +39,6 @@ export const listNarouNovel = async (d1: D1Database, userAgent = ''): Promise<Na
       currentPage: novels.find((record) => record.ncode === narouInfo.ncode)?.currentPage ?? 0,
     }))
 
-  console.info(`get novels : count=${narouNovelList.length}`)
-
   return narouNovelList
 }
 
@@ -54,25 +52,25 @@ export const addNarouNovel = async (d1: D1Database, url: string): Promise<string
   if (exist) {
     // pageが一致する場合は処理をスキップする
     if (exist.currentPage === page) {
-      console.info(`skip by duplicate : ncode=${ncode} page=${page}`)
+      console.info({ ncode, page, msg: 'skip by duplicate' })
       return `${ncode}/${page}は重複のためスキップしました`
     }
 
     // pageが一致しない場合はそのページを現在のページとして更新
     await narouRepository.update(d1, { ncode, currentPage: page })
-    console.info(`update by add : ncode=${ncode} page=${page}`)
+    console.info({ ncode, page, msg: 'update by add' })
     return `${ncode}はページを${page}で更新しました`
   }
 
   // DBに存在しない小説の場合は新規追加する
   await narouRepository.insert(d1, { ncode, currentPage: page })
-  console.info(`insert new : ncode=${ncode} page=${page}`)
+  console.info({ ncode, page, msg: 'insert new' })
   return `${ncode}/${page}が新しく追加されました`
 }
 
 export const removeNarouNovel = async (d1: D1Database, ncode: string): Promise<void> => {
   await narouRepository.remove(d1, { ncode })
-  console.info(`remove : ncode=${ncode} ncode=${ncode}`)
+  console.info({ ncode, msg: 'remove' })
 }
 
 export const updateNarouNovel = async (
@@ -81,5 +79,5 @@ export const updateNarouNovel = async (
   page: number,
 ): Promise<void> => {
   await narouRepository.update(d1, { ncode, currentPage: page })
-  console.info(`update : ncode=${ncode} page=${page}`)
+  console.info({ ncode, page, msg: 'update' })
 }

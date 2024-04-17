@@ -10,11 +10,9 @@ export const accessLogger = () => {
     const start = performance.now()
 
     const requestInfo = { url: ctx.req.url, method: ctx.req.method }
-    console.info({ access: { ...requestInfo } }, 'request incoming')
-    // console.info(`request incoming : method=${method} url=${url}`)
+    console.info({ access: { ...requestInfo }, msg: 'request incoming' })
     await next()
     const responseInfo = { status: ctx.res.status, durationMs: duration(start) }
-    console.info({ access: { ...requestInfo, ...responseInfo } }, 'request completed')
-    // console.info(`request completed : method=${method} url=${url} status=${ctx.res.status}`)
+    console.info({ access: { ...requestInfo, ...responseInfo }, msg: 'request completed' })
   })
 }
