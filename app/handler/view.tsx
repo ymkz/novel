@@ -3,7 +3,7 @@ import { z } from 'zod'
 import { ViewAction } from '~/component/view-action'
 import { ViewContent } from '~/component/view-content'
 import { getProxyNarouUrl } from '~/domain/narou'
-import { factory } from '~/handler/_factory'
+import { factory } from '~/factory'
 
 export const viewHandlers = factory.createHandlers(
   zValidator(

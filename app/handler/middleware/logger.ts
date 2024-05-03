@@ -1,4 +1,4 @@
-import { createMiddleware } from 'hono/factory'
+import { factory } from '~/factory'
 
 const duration = (start: number) => {
   const delta = performance.now() - start
@@ -6,12 +6,14 @@ const duration = (start: number) => {
 }
 
 export const accessLogger = () => {
-  return createMiddleware(async (ctx, next) => {
+  return factory.createMiddleware(async (ctx, next) => {
     const start = performance.now()
 
     const requestInfo = { url: ctx.req.url, method: ctx.req.method }
     console.info({ access: { ...requestInfo }, msg: 'request incoming' })
+
     await next()
+
     const responseInfo = { status: ctx.res.status, durationMs: duration(start) }
     console.info({ access: { ...requestInfo, ...responseInfo }, msg: 'request completed' })
   })

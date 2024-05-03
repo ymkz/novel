@@ -3,7 +3,7 @@ import { z } from 'zod'
 import { AddForm } from '~/component/add-form'
 import { Message } from '~/component/message'
 import { NovelList } from '~/component/novel-list'
-import { factory } from '~/handler/_factory'
+import { factory } from '~/factory'
 import * as narouUsecase from '~/usecase/narou'
 
 export const addHandlers = factory.createHandlers(

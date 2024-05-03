@@ -1,7 +1,7 @@
 import { zValidator } from '@hono/zod-validator'
 import { z } from 'zod'
 import { getOriginalNarouUrl, getProxyNarouUrl, parseNcodeAndPage } from '~/domain/narou'
-import { factory } from '~/handler/_factory'
+import { factory } from '~/factory'
 import * as narouUsecase from '~/usecase/narou'
 
 const narouLinkReplacer: HTMLRewriterElementContentHandlers = {

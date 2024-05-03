@@ -1,6 +1,6 @@
 import { AddForm } from '~/component/add-form'
 import { NovelList } from '~/component/novel-list'
-import { factory } from '~/handler/_factory'
+import { factory } from '~/factory'
 import * as narouUsecase from '~/usecase/narou'
 
 export const indexHandlers = factory.createHandlers(async (ctx) => {

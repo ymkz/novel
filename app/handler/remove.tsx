@@ -1,6 +1,6 @@
 import { zValidator } from '@hono/zod-validator'
 import { z } from 'zod'
-import { factory } from '~/handler/_factory'
+import { factory } from '~/factory'
 import * as narouUsecase from '~/usecase/narou'
 
 export const removeHandlers = factory.createHandlers(
