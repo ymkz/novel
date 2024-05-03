@@ -1,7 +1,7 @@
 import { secureHeaders } from 'hono/secure-headers'
 import { factory } from '~/factory'
 import { addHandlers } from '~/handler/add'
-import { indexHandlers } from '~/handler/index'
+import { listHandlers } from '~/handler/list'
 import { accessLogger } from '~/handler/middleware/logger'
 import { renderer } from '~/handler/middleware/renderer'
 import { proxyHandlers } from '~/handler/proxy'
@@ -14,7 +14,7 @@ app.use(secureHeaders())
 app.use(accessLogger())
 app.use(renderer())
 
-app.get('/', ...indexHandlers)
+app.get('/', ...listHandlers)
 app.post('/', ...addHandlers)
 app.post('/:ncode', ...removeHandlers)
 app.get('/view/:ncode/:page?', ...viewHandlers)
