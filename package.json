@@ -3,11 +3,16 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@9.1.4",
+  "engines": {
+    "node": "22.2.0"
+  },
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "lint": "tsc && biome check app",
-    "lint:fix": "tsc && biome check app --apply",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check app",
+    "lint:fix": "biome check app --apply",
     "test": "vitest run"
   },
   "dependencies": {
