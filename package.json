@@ -11,8 +11,8 @@
     "dev": "vite dev",
     "build": "vite build",
     "typecheck": "tsc --noEmit",
-    "lint": "biome check app",
-    "lint:fix": "biome check app --apply",
+    "lint": "biome check",
+    "lint:fix": "biome check --write",
     "test": "vitest run"
   },
   "dependencies": {

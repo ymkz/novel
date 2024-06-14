@@ -5,18 +5,18 @@ import devServerCloudflare from '@hono/vite-dev-server/cloudflare'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  plugins: [
-    cloudflarePages(), // break line for formater
-    devServer({ adapter: devServerCloudflare, entry: 'app/server.ts' }),
-  ],
-  resolve: {
-    alias: {
-      '~': resolve(__dirname, 'app'),
-    },
-  },
-  server: {
-    port: 3000,
-    open: false,
-  },
-  clearScreen: false,
+	plugins: [
+		cloudflarePages(), // break line for formater
+		devServer({ adapter: devServerCloudflare, entry: 'app/server.ts' }),
+	],
+	resolve: {
+		alias: {
+			'~': resolve(__dirname, 'app'),
+		},
+	},
+	server: {
+		port: 3000,
+		open: false,
+	},
+	clearScreen: false,
 })
