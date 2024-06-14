@@ -1,0 +1,26 @@
+version: "3"
+
+tasks:
+  init:
+    cmds:
+      - cp apps/api/.env.example apps/api/.env.local
+  clean:
+    cmds:
+      - find . -name '.wrangler' -type d -prune -exec rm -rf '{}' +
+      - find . -name 'coverage' -type d -prune -exec rm -rf '{}' +
+      - find . -name 'dist' -type d -prune -exec rm -rf '{}' +
+      - find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
+      - find . -name 'pnpm-lock.yaml' -type f -prune -exec rm -rf '{}' +
+      - find . -name 'tsconfig.tsbuildinfo' -type f -prune -exec rm -rf '{}' +
+  update-deps:
+    cmds:
+      - pnpm update --recursive --latest --workspace
+  update-deps-interactive:
+    cmds:
+      - pnpm update --recursive --latest --workspace --interactive
+  generate:
+    cmds:
+      - pnpm exec drizzle-kit generate:sqlite
+      - mkdir -p .wrangler/state/v3/d1/DB
+      - sqlite3 .wrangler/state/v3/d1/DB/db.sqlite < db/migration/0000_broken_mystique.sql
+      - sqlite3 .wrangler/state/v3/d1/DB/db.sqlite < db/seed/0000_insert_for_local.sql
