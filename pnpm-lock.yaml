@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: 0.2.2
-        version: 0.2.2(hono@4.4.4)(zod@3.23.8)
+        version: 0.2.2(hono@4.4.6)(zod@3.23.8)
       drizzle-orm:
-        specifier: 0.31.1
-        version: 0.31.1(@cloudflare/workers-types@4.20240605.0)
+        specifier: 0.31.2
+        version: 0.31.2(@cloudflare/workers-types@4.20240605.0)
       hono:
-        specifier: 4.4.4
-        version: 4.4.4
+        specifier: 4.4.6
+        version: 4.4.6
       zod:
         specifier: 3.23.8
         version: 3.23.8
@@ -29,10 +29,10 @@ importers:
         version: 4.20240605.0
       '@hono/vite-cloudflare-pages':
         specifier: 0.4.0
-        version: 0.4.0(hono@4.4.4)
+        version: 0.4.0(hono@4.4.6)
       '@hono/vite-dev-server':
         specifier: 0.12.1
-        version: 0.12.1(hono@4.4.4)
+        version: 0.12.1(hono@4.4.6)
       drizzle-kit:
         specifier: 0.22.7
         version: 0.22.7
@@ -981,8 +981,8 @@ packages:
     resolution: {integrity: sha512-9THPCb2l1GPt7wxhws9LvTR0YG565ZlVgTuqGMwjs590Kch1pXu4GyjEArVijSF5m0OBj3qgdeKmuJXhKXgWFw==}
     hasBin: true
 
-  drizzle-orm@0.31.1:
-    resolution: {integrity: sha512-hTbYne2XX3y6sV7WSxcPH6/vNSiQSUG9VZsFI27jBMCN0OT3Ok7ao3pIT5OMAqWkzJCRFgGjAaUeTAZWPgOKag==}
+  drizzle-orm@0.31.2:
+    resolution: {integrity: sha512-QnenevbnnAzmbNzQwbhklvIYrDE8YER8K7kSrAWQSV1YvFCdSQPzj+jzqRdTSsV2cDqSpQ0NXGyL1G9I43LDLg==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
@@ -992,6 +992,7 @@ packages:
       '@op-engineering/op-sqlite': '>=2'
       '@opentelemetry/api': ^1.4.1
       '@planetscale/database': '>=1'
+      '@tidbcloud/serverless': '*'
       '@types/better-sqlite3': '*'
       '@types/pg': '*'
       '@types/react': '>=18'
@@ -1025,6 +1026,8 @@ packages:
       '@opentelemetry/api':
         optional: true
       '@planetscale/database':
+        optional: true
+      '@tidbcloud/serverless':
         optional: true
       '@types/better-sqlite3':
         optional: true
@@ -1140,8 +1143,8 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  hono@4.4.4:
-    resolution: {integrity: sha512-zO5+4K8yf1iuKhBZhwmpZ/0LzPMr8Zt1RugEGM1xvOqgh9DyLb7tslOtoBks4bmm5bIcLtzLCXUpYpXOkwpABA==}
+  hono@4.4.6:
+    resolution: {integrity: sha512-XGRnoH8WONv60+PPvP9Sn067A9r/8JdHDJ5bgon0DVEHeR1cJPkWjv2aT+DBfMH9/mEkYa1+VEVFp1DT1lIwjw==}
     engines: {node: '>=16.0.0'}
 
   human-signals@5.0.0:
@@ -1910,14 +1913,14 @@ snapshots:
 
   '@hono/node-server@1.11.2': {}
 
-  '@hono/vite-cloudflare-pages@0.4.0(hono@4.4.4)':
+  '@hono/vite-cloudflare-pages@0.4.0(hono@4.4.6)':
     dependencies:
-      hono: 4.4.4
+      hono: 4.4.6
 
-  '@hono/vite-dev-server@0.12.1(hono@4.4.4)':
+  '@hono/vite-dev-server@0.12.1(hono@4.4.6)':
     dependencies:
       '@hono/node-server': 1.11.2
-      hono: 4.4.4
+      hono: 4.4.6
       miniflare: 3.20240524.1
       minimatch: 9.0.4
     transitivePeerDependencies:
@@ -1925,9 +1928,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@hono/zod-validator@0.2.2(hono@4.4.4)(zod@3.23.8)':
+  '@hono/zod-validator@0.2.2(hono@4.4.6)(zod@3.23.8)':
     dependencies:
-      hono: 4.4.4
+      hono: 4.4.6
       zod: 3.23.8
 
   '@jest/schemas@29.6.3':
@@ -2134,7 +2137,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.31.1(@cloudflare/workers-types@4.20240605.0):
+  drizzle-orm@0.31.2(@cloudflare/workers-types@4.20240605.0):
     optionalDependencies:
       '@cloudflare/workers-types': 4.20240605.0
 
@@ -2301,7 +2304,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.4.4: {}
+  hono@4.4.6: {}
 
   human-signals@5.0.0: {}
 
