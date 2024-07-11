@@ -24,12 +24,12 @@
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
     "@cloudflare/workers-types": "4.20240620.0",
-    "@hono/vite-cloudflare-pages": "0.4.1",
-    "@hono/vite-dev-server": "0.12.2",
-    "drizzle-kit": "0.22.8",
+    "@hono/vite-cloudflare-pages": "0.4.2",
+    "@hono/vite-dev-server": "0.13.0",
+    "drizzle-kit": "0.23.0",
     "typescript": "5.5.3",
     "vite": "5.3.3",
     "vitest": "1.6.0",
-    "wrangler": "3.63.0"
+    "wrangler": "3.64.0"
   }
 }
