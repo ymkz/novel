@@ -28,14 +28,14 @@ importers:
         specifier: 4.20240620.0
         version: 4.20240620.0
       '@hono/vite-cloudflare-pages':
-        specifier: 0.4.1
-        version: 0.4.1(hono@4.4.11)
+        specifier: 0.4.2
+        version: 0.4.2(hono@4.4.11)
       '@hono/vite-dev-server':
-        specifier: 0.12.2
-        version: 0.12.2(hono@4.4.11)
+        specifier: 0.13.0
+        version: 0.13.0(hono@4.4.11)
       drizzle-kit:
-        specifier: 0.22.8
-        version: 0.22.8
+        specifier: 0.23.0
+        version: 0.23.0
       typescript:
         specifier: 5.5.3
         version: 5.5.3
@@ -46,8 +46,8 @@ importers:
         specifier: 1.6.0
         version: 1.6.0(@types/node@20.14.9)
       wrangler:
-        specifier: 3.63.0
-        version: 3.63.0(@cloudflare/workers-types@4.20240620.0)
+        specifier: 3.64.0
+        version: 3.64.0(@cloudflare/workers-types@4.20240620.0)
 
 packages:
 
@@ -709,14 +709,14 @@ packages:
     resolution: {integrity: sha512-e6oHjNiErRxsZRZBmc2KucuvY3btlO/XPncIpP2X75bRdTilF9GLjm3NHvKKunpJbbJJj31/FoPTksTf8djAVw==}
     engines: {node: '>=18.14.1'}
 
-  '@hono/vite-cloudflare-pages@0.4.1':
-    resolution: {integrity: sha512-B0M0Hy6JW4WMtnRmac/dqA0ooIKfspAY+2z+nKNvcDxvK8Ib0Imb90mbBYATn0+XBYis7L6ClxLAUvwfgCYdFQ==}
+  '@hono/vite-cloudflare-pages@0.4.2':
+    resolution: {integrity: sha512-fvSmWNtL7rMTa6tfj0dJNu0UStp8veb2r1BfutoKtJ6GaTzO1sR5ElQw9jIYo46oTBcx8+i/9+NzyGR56awtrQ==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '*'
 
-  '@hono/vite-dev-server@0.12.2':
-    resolution: {integrity: sha512-aq09IUi/+Ut/EXR8t1lCjsV/OEnSQoO4F6RmV7Ufvy3x0tE2TIYLs6YL0kZ7+gLIbmVg6V2MppHGQaLMNs7G8Q==}
+  '@hono/vite-dev-server@0.13.0':
+    resolution: {integrity: sha512-Qy+wEMFb6sphFsOoCSVsgt0tM4rXdNs/9Y9OJSu5kjs+xqNoKzCTXahFQJQYXkQQ1RAOOZxJaPZfdomD14zmwA==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '*'
@@ -950,8 +950,8 @@ packages:
     resolution: {integrity: sha512-EjePK1srD3P08o2j4f0ExnylqRs5B9tJjcp9t1krH2qRi8CCdsYfwe9JgSLurFBWwq4uOlipzfk5fHNvwFKr8Q==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
 
-  drizzle-kit@0.22.8:
-    resolution: {integrity: sha512-VjI4wsJjk3hSqHSa3TwBf+uvH6M6pRHyxyoVbt935GUzP9tUR/BRZ+MhEJNgryqbzN2Za1KP0eJMTgKEPsalYQ==}
+  drizzle-kit@0.23.0:
+    resolution: {integrity: sha512-w9jE97z193dd4jzAyj4Uv2SOh8Ydue70Ki6W0awy4bGM1aPXan6zD6Yv+nNTA6oGgNTDl2MJFxutjHG4fden5g==}
     hasBin: true
 
   drizzle-orm@0.31.2:
@@ -1471,8 +1471,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@3.63.0:
-    resolution: {integrity: sha512-FMIGorXhYN161S1qotoIlg9EqpfRsPqtB/fd9J+qXTJ5xpctq4meaQAmRKfLI87cQDdkjUXpQBJyNgBXw4i81Q==}
+  wrangler@3.64.0:
+    resolution: {integrity: sha512-q2VQADJXzuOkXs9KIfPSx7UCZHBoxsqSNbJDLkc2pHpGmsyNQXsJRqjMoTg/Kls7O3K9A7EGnzGr7+Io2vE6AQ==}
     engines: {node: '>=16.17.0'}
     hasBin: true
     peerDependencies:
@@ -1862,11 +1862,11 @@ snapshots:
 
   '@hono/node-server@1.12.0': {}
 
-  '@hono/vite-cloudflare-pages@0.4.1(hono@4.4.11)':
+  '@hono/vite-cloudflare-pages@0.4.2(hono@4.4.11)':
     dependencies:
       hono: 4.4.11
 
-  '@hono/vite-dev-server@0.12.2(hono@4.4.11)':
+  '@hono/vite-dev-server@0.13.0(hono@4.4.11)':
     dependencies:
       '@hono/node-server': 1.12.0
       hono: 4.4.11
@@ -2082,7 +2082,7 @@ snapshots:
 
   diff-sequences@29.6.3: {}
 
-  drizzle-kit@0.22.8:
+  drizzle-kit@0.23.0:
     dependencies:
       '@esbuild-kit/esm-loader': 2.6.5
       esbuild: 0.19.12
@@ -2602,7 +2602,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20240701.0
       '@cloudflare/workerd-windows-64': 1.20240701.0
 
-  wrangler@3.63.0(@cloudflare/workers-types@4.20240620.0):
+  wrangler@3.64.0(@cloudflare/workers-types@4.20240620.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@esbuild-plugins/node-globals-polyfill': 0.2.3(esbuild@0.17.19)
