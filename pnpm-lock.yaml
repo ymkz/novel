@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: 0.2.2
-        version: 0.2.2(hono@4.4.11)(zod@3.23.8)
+        version: 0.2.2(hono@4.4.13)(zod@3.23.8)
       drizzle-orm:
-        specifier: 0.31.2
-        version: 0.31.2(@cloudflare/workers-types@4.20240620.0)
+        specifier: 0.32.0
+        version: 0.32.0(@cloudflare/workers-types@4.20240620.0)
       hono:
-        specifier: 4.4.11
-        version: 4.4.11
+        specifier: 4.4.13
+        version: 4.4.13
       zod:
         specifier: 3.23.8
         version: 3.23.8
@@ -29,10 +29,10 @@ importers:
         version: 4.20240620.0
       '@hono/vite-cloudflare-pages':
         specifier: 0.4.2
-        version: 0.4.2(hono@4.4.11)
+        version: 0.4.2(hono@4.4.13)
       '@hono/vite-dev-server':
         specifier: 0.13.0
-        version: 0.13.0(hono@4.4.11)
+        version: 0.13.0(hono@4.4.13)
       drizzle-kit:
         specifier: 0.23.0
         version: 0.23.0
@@ -954,8 +954,8 @@ packages:
     resolution: {integrity: sha512-w9jE97z193dd4jzAyj4Uv2SOh8Ydue70Ki6W0awy4bGM1aPXan6zD6Yv+nNTA6oGgNTDl2MJFxutjHG4fden5g==}
     hasBin: true
 
-  drizzle-orm@0.31.2:
-    resolution: {integrity: sha512-QnenevbnnAzmbNzQwbhklvIYrDE8YER8K7kSrAWQSV1YvFCdSQPzj+jzqRdTSsV2cDqSpQ0NXGyL1G9I43LDLg==}
+  drizzle-orm@0.32.0:
+    resolution: {integrity: sha512-99IlfVGPNHzOFEXo9Phyu5At5TALLsY2t6WxFFy68rYd9Ej4cHX/7WjdPOn7JNRW69MNeNtP8XrDQg43SppuAA==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
@@ -965,6 +965,7 @@ packages:
       '@op-engineering/op-sqlite': '>=2'
       '@opentelemetry/api': ^1.4.1
       '@planetscale/database': '>=1'
+      '@prisma/client': '*'
       '@tidbcloud/serverless': '*'
       '@types/better-sqlite3': '*'
       '@types/pg': '*'
@@ -980,6 +981,7 @@ packages:
       mysql2: '>=2'
       pg: '>=8'
       postgres: '>=3'
+      prisma: '*'
       react: '>=18'
       sql.js: '>=1'
       sqlite3: '>=5'
@@ -999,6 +1001,8 @@ packages:
       '@opentelemetry/api':
         optional: true
       '@planetscale/database':
+        optional: true
+      '@prisma/client':
         optional: true
       '@tidbcloud/serverless':
         optional: true
@@ -1029,6 +1033,8 @@ packages:
       pg:
         optional: true
       postgres:
+        optional: true
+      prisma:
         optional: true
       react:
         optional: true
@@ -1116,8 +1122,8 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  hono@4.4.11:
-    resolution: {integrity: sha512-R5RADpjoRsR3/VsnFovpsYNLPnC1f+FgdfsePk3qIgjb4D41Sg7uW5QCj41kzEOwXCjBg0sVvOZMvUNZ0DKB7g==}
+  hono@4.4.13:
+    resolution: {integrity: sha512-c6qqenclmQ6wpXzqiElMa2jt423PVCmgBreDfC5s2lPPpGk7d0lOymd8QTzFZyYC5mSSs6imiTMPip+gLwuW/g==}
     engines: {node: '>=16.0.0'}
 
   human-signals@5.0.0:
@@ -1862,14 +1868,14 @@ snapshots:
 
   '@hono/node-server@1.12.0': {}
 
-  '@hono/vite-cloudflare-pages@0.4.2(hono@4.4.11)':
+  '@hono/vite-cloudflare-pages@0.4.2(hono@4.4.13)':
     dependencies:
-      hono: 4.4.11
+      hono: 4.4.13
 
-  '@hono/vite-dev-server@0.13.0(hono@4.4.11)':
+  '@hono/vite-dev-server@0.13.0(hono@4.4.13)':
     dependencies:
       '@hono/node-server': 1.12.0
-      hono: 4.4.11
+      hono: 4.4.13
       miniflare: 3.20240701.0
       minimatch: 9.0.5
     transitivePeerDependencies:
@@ -1877,9 +1883,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@hono/zod-validator@0.2.2(hono@4.4.11)(zod@3.23.8)':
+  '@hono/zod-validator@0.2.2(hono@4.4.13)(zod@3.23.8)':
     dependencies:
-      hono: 4.4.11
+      hono: 4.4.13
       zod: 3.23.8
 
   '@jest/schemas@29.6.3':
@@ -2090,7 +2096,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.31.2(@cloudflare/workers-types@4.20240620.0):
+  drizzle-orm@0.32.0(@cloudflare/workers-types@4.20240620.0):
     optionalDependencies:
       '@cloudflare/workers-types': 4.20240620.0
 
@@ -2257,7 +2263,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.4.11: {}
+  hono@4.4.13: {}
 
   human-signals@5.0.0: {}
 
