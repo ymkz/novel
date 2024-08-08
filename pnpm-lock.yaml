@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: 0.2.2
-        version: 0.2.2(hono@4.5.3)(zod@3.23.8)
+        version: 0.2.2(hono@4.5.4)(zod@3.23.8)
       drizzle-orm:
-        specifier: 0.32.1
-        version: 0.32.1(@cloudflare/workers-types@4.20240806.0)
+        specifier: 0.33.0
+        version: 0.33.0(@cloudflare/workers-types@4.20240806.0)
       hono:
-        specifier: 4.5.3
-        version: 4.5.3
+        specifier: 4.5.4
+        version: 4.5.4
       zod:
         specifier: 3.23.8
         version: 3.23.8
@@ -29,10 +29,10 @@ importers:
         version: 4.20240806.0
       '@hono/vite-cloudflare-pages':
         specifier: 0.4.2
-        version: 0.4.2(hono@4.5.3)
+        version: 0.4.2(hono@4.5.4)
       '@hono/vite-dev-server':
         specifier: 0.13.1
-        version: 0.13.1(hono@4.5.3)
+        version: 0.13.1(hono@4.5.4)
       drizzle-kit:
         specifier: 0.24.0
         version: 0.24.0
@@ -992,8 +992,8 @@ packages:
     resolution: {integrity: sha512-rUl5Rf5HLOVkAwHEVEi8xgulIRWzoys0q77RHGCxv5e9v8AI3JGFg7Ug5K1kn513RwNZbuNJMUKOXo0j8kPRgg==}
     hasBin: true
 
-  drizzle-orm@0.32.1:
-    resolution: {integrity: sha512-Wq1J+lL8PzwR5K3a1FfoWsbs8powjr3pGA4+5+2ueN1VTLDNFYEolUyUWFtqy8DVRvYbL2n7sXZkgVmK9dQkng==}
+  drizzle-orm@0.33.0:
+    resolution: {integrity: sha512-SHy72R2Rdkz0LEq0PSG/IdvnT3nGiWuRk+2tXZQ90GVq/XQhpCzu/EFT3V2rox+w8MlkBQxifF8pCStNYnERfA==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
@@ -1160,8 +1160,8 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  hono@4.5.3:
-    resolution: {integrity: sha512-r26WwwbKD3BAYdfB294knNnegNda7VfV1tVn66D9Kvl9WQTdrR+5eKdoeaQNHQcC3Gr0KBikzAtjd6VsRGVSaw==}
+  hono@4.5.4:
+    resolution: {integrity: sha512-k2IguJfRgNCpDbAfpxk+o+fZBLFHl4+eIZUpjc1ItZWHeZ37SmT3efA1UpkIaC0hSf1NJg0E79/wWn6g9LQ4Cw==}
     engines: {node: '>=16.0.0'}
 
   human-signals@5.0.0:
@@ -1913,14 +1913,14 @@ snapshots:
 
   '@hono/node-server@1.12.0': {}
 
-  '@hono/vite-cloudflare-pages@0.4.2(hono@4.5.3)':
+  '@hono/vite-cloudflare-pages@0.4.2(hono@4.5.4)':
     dependencies:
-      hono: 4.5.3
+      hono: 4.5.4
 
-  '@hono/vite-dev-server@0.13.1(hono@4.5.3)':
+  '@hono/vite-dev-server@0.13.1(hono@4.5.4)':
     dependencies:
       '@hono/node-server': 1.12.0
-      hono: 4.5.3
+      hono: 4.5.4
       miniflare: 3.20240718.1
       minimatch: 9.0.5
     transitivePeerDependencies:
@@ -1928,9 +1928,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@hono/zod-validator@0.2.2(hono@4.5.3)(zod@3.23.8)':
+  '@hono/zod-validator@0.2.2(hono@4.5.4)(zod@3.23.8)':
     dependencies:
-      hono: 4.5.3
+      hono: 4.5.4
       zod: 3.23.8
 
   '@jridgewell/gen-mapping@0.3.5':
@@ -2141,7 +2141,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.32.1(@cloudflare/workers-types@4.20240806.0):
+  drizzle-orm@0.33.0(@cloudflare/workers-types@4.20240806.0):
     optionalDependencies:
       '@cloudflare/workers-types': 4.20240806.0
 
@@ -2308,7 +2308,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.5.3: {}
+  hono@4.5.4: {}
 
   human-signals@5.0.0: {}
 
