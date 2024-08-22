@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: 0.2.2
-        version: 0.2.2(hono@4.5.5)(zod@3.23.8)
+        version: 0.2.2(hono@4.5.8)(zod@3.23.8)
       drizzle-orm:
         specifier: 0.33.0
         version: 0.33.0(@cloudflare/workers-types@4.20240806.0)
       hono:
-        specifier: 4.5.5
-        version: 4.5.5
+        specifier: 4.5.8
+        version: 4.5.8
       zod:
         specifier: 3.23.8
         version: 3.23.8
@@ -29,10 +29,10 @@ importers:
         version: 4.20240806.0
       '@hono/vite-cloudflare-pages':
         specifier: 0.4.2
-        version: 0.4.2(hono@4.5.5)
+        version: 0.4.2(hono@4.5.8)
       '@hono/vite-dev-server':
         specifier: 0.14.0
-        version: 0.14.0(hono@4.5.5)
+        version: 0.14.0(hono@4.5.8)
       drizzle-kit:
         specifier: 0.24.0
         version: 0.24.0
@@ -1130,8 +1130,8 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  hono@4.5.5:
-    resolution: {integrity: sha512-fXBXHqaVfimWofbelLXci8pZyIwBMkDIwCa4OwZvK+xVbEyYLELVP4DfbGaj1aEM6ZY3hHgs4qLvCO2ChkhgQw==}
+  hono@4.5.8:
+    resolution: {integrity: sha512-pqpSlcdqGkpTTRpLYU1PnCz52gVr0zVR9H5GzMyJWuKQLLEBQxh96q45QizJ2PPX8NATtz2mu31/PKW/Jt+90Q==}
     engines: {node: '>=16.0.0'}
 
   human-signals@5.0.0:
@@ -1863,14 +1863,14 @@ snapshots:
 
   '@hono/node-server@1.12.0': {}
 
-  '@hono/vite-cloudflare-pages@0.4.2(hono@4.5.5)':
+  '@hono/vite-cloudflare-pages@0.4.2(hono@4.5.8)':
     dependencies:
-      hono: 4.5.5
+      hono: 4.5.8
 
-  '@hono/vite-dev-server@0.14.0(hono@4.5.5)':
+  '@hono/vite-dev-server@0.14.0(hono@4.5.8)':
     dependencies:
       '@hono/node-server': 1.12.0
-      hono: 4.5.5
+      hono: 4.5.8
       miniflare: 3.20240806.1
       minimatch: 9.0.5
     transitivePeerDependencies:
@@ -1878,9 +1878,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@hono/zod-validator@0.2.2(hono@4.5.5)(zod@3.23.8)':
+  '@hono/zod-validator@0.2.2(hono@4.5.8)(zod@3.23.8)':
     dependencies:
-      hono: 4.5.5
+      hono: 4.5.8
       zod: 3.23.8
 
   '@jridgewell/gen-mapping@0.3.5':
@@ -2258,7 +2258,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.5.5: {}
+  hono@4.5.8: {}
 
   human-signals@5.0.0: {}
 
