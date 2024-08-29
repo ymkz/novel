@@ -31,11 +31,11 @@ importers:
         specifier: 0.4.2
         version: 0.4.2(hono@4.5.9)
       '@hono/vite-dev-server':
-        specifier: 0.14.0
-        version: 0.14.0(hono@4.5.9)
+        specifier: 0.15.1
+        version: 0.15.1(hono@4.5.9)(miniflare@3.20240821.0)(wrangler@3.72.3(@cloudflare/workers-types@4.20240821.1))
       drizzle-kit:
-        specifier: 0.24.1
-        version: 0.24.1
+        specifier: 0.24.2
+        version: 0.24.2
       typescript:
         specifier: 5.5.4
         version: 5.5.4
@@ -46,8 +46,8 @@ importers:
         specifier: 2.0.5
         version: 2.0.5(@types/node@22.5.0)
       wrangler:
-        specifier: 3.72.2
-        version: 3.72.2(@cloudflare/workers-types@4.20240821.1)
+        specifier: 3.72.3
+        version: 3.72.3(@cloudflare/workers-types@4.20240821.1)
 
 packages:
 
@@ -142,8 +142,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@cloudflare/workers-shared@0.3.0':
-    resolution: {integrity: sha512-cqtLW1QiBC/ABaZIhAdyGCsnHHY6pAb6hsVUZg82Co2gQtf/faxRYV1FgpCwUYroTdk6A66xUMSTmFqreKCJow==}
+  '@cloudflare/workers-shared@0.4.0':
+    resolution: {integrity: sha512-XAFOldVQsbxQ7mjbqX2q1dNIgcLbKSytk41pwuZTn9e0p7OeTpFTosJef8uwosL6CcOAHqcW1f1HJxyjwmtGxw==}
     engines: {node: '>=16.7.0'}
 
   '@cloudflare/workers-types@4.20240821.1':
@@ -726,11 +726,18 @@ packages:
     peerDependencies:
       hono: '*'
 
-  '@hono/vite-dev-server@0.14.0':
-    resolution: {integrity: sha512-rhd+hxIIG6wSS73WQxXF7/CiOHBlxdynrRUihSwEszpysB0HWOMN2Q7QprnPHsZSNmGohoTXZxwo7iM4hukGzw==}
+  '@hono/vite-dev-server@0.15.1':
+    resolution: {integrity: sha512-9o4Up7zDlBuYLsfz1rN2EdiOxDWgSHoMM248JIZVgZ5mlrdGASBj+gyNWAlQ7pgE/A8UBoLYaXgnbJsW9nxesw==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '*'
+      miniflare: '*'
+      wrangler: '*'
+    peerDependenciesMeta:
+      miniflare:
+        optional: true
+      wrangler:
+        optional: true
 
   '@hono/zod-validator@0.2.2':
     resolution: {integrity: sha512-dSDxaPV70Py8wuIU2QNpoVEIOSzSXZ/6/B/h4xA7eOMz7+AarKTSGV8E6QwrdcCbBLkpqfJ4Q2TmBO0eP1tCBQ==}
@@ -959,8 +966,8 @@ packages:
   defu@6.1.4:
     resolution: {integrity: sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==}
 
-  drizzle-kit@0.24.1:
-    resolution: {integrity: sha512-y47ZuFpy3ZEz5v2P4Q4m7CZpC9infdmFAVP8klfl92hyBBvgWlyFnriDkycK2HXqB1PrYWNTck2p5TfFY5+EWw==}
+  drizzle-kit@0.24.2:
+    resolution: {integrity: sha512-nXOaTSFiuIaTMhS8WJC2d4EBeIcN9OSt2A2cyFbQYBAZbi7lRsVGJNqDpEwPqYfJz38yxbY/UtbvBBahBfnExQ==}
     hasBin: true
 
   drizzle-orm@0.33.0:
@@ -1463,8 +1470,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@3.72.2:
-    resolution: {integrity: sha512-7nxkJ4md+KtESNJ/0DwTM7bHZP+uNRpJT5gMDT9WllP9UVzYdtXCTF+p4CHtxIReUpe6pOi7tb05hK9/Q6WaiA==}
+  wrangler@3.72.3:
+    resolution: {integrity: sha512-EBlJGOcwanbzFkiJkRB47WKhvevh1AZK0ty0MyD0gptsgWnAxBfmFGiBuzOuRXbvH45ZrFrTqgi8c67EwcV1nA==}
     engines: {node: '>=16.17.0'}
     hasBin: true
     peerDependencies:
@@ -1555,7 +1562,7 @@ snapshots:
   '@cloudflare/workerd-windows-64@1.20240821.1':
     optional: true
 
-  '@cloudflare/workers-shared@0.3.0': {}
+  '@cloudflare/workers-shared@0.4.0': {}
 
   '@cloudflare/workers-types@4.20240821.1': {}
 
@@ -1863,16 +1870,14 @@ snapshots:
     dependencies:
       hono: 4.5.9
 
-  '@hono/vite-dev-server@0.14.0(hono@4.5.9)':
+  '@hono/vite-dev-server@0.15.1(hono@4.5.9)(miniflare@3.20240821.0)(wrangler@3.72.3(@cloudflare/workers-types@4.20240821.1))':
     dependencies:
       '@hono/node-server': 1.12.1
       hono: 4.5.9
-      miniflare: 3.20240821.0
       minimatch: 9.0.5
-    transitivePeerDependencies:
-      - bufferutil
-      - supports-color
-      - utf-8-validate
+    optionalDependencies:
+      miniflare: 3.20240821.0
+      wrangler: 3.72.3(@cloudflare/workers-types@4.20240821.1)
 
   '@hono/zod-validator@0.2.2(hono@4.5.9)(zod@3.23.8)':
     dependencies:
@@ -2078,7 +2083,7 @@ snapshots:
 
   defu@6.1.4: {}
 
-  drizzle-kit@0.24.1:
+  drizzle-kit@0.24.2:
     dependencies:
       '@drizzle-team/brocli': 0.10.1
       '@esbuild-kit/esm-loader': 2.6.5
@@ -2564,10 +2569,10 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20240821.1
       '@cloudflare/workerd-windows-64': 1.20240821.1
 
-  wrangler@3.72.2(@cloudflare/workers-types@4.20240821.1):
+  wrangler@3.72.3(@cloudflare/workers-types@4.20240821.1):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
-      '@cloudflare/workers-shared': 0.3.0
+      '@cloudflare/workers-shared': 0.4.0
       '@esbuild-plugins/node-globals-polyfill': 0.2.3(esbuild@0.17.19)
       '@esbuild-plugins/node-modules-polyfill': 0.2.2(esbuild@0.17.19)
       blake3-wasm: 2.1.5
