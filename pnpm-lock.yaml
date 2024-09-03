@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: 0.2.2
-        version: 0.2.2(hono@4.5.9)(zod@3.23.8)
+        version: 0.2.2(hono@4.5.11)(zod@3.23.8)
       drizzle-orm:
         specifier: 0.33.0
         version: 0.33.0(@cloudflare/workers-types@4.20240821.1)
       hono:
-        specifier: 4.5.9
-        version: 4.5.9
+        specifier: 4.5.11
+        version: 4.5.11
       zod:
         specifier: 3.23.8
         version: 3.23.8
@@ -29,10 +29,10 @@ importers:
         version: 4.20240821.1
       '@hono/vite-cloudflare-pages':
         specifier: 0.4.2
-        version: 0.4.2(hono@4.5.9)
+        version: 0.4.2(hono@4.5.11)
       '@hono/vite-dev-server':
         specifier: 0.15.1
-        version: 0.15.1(hono@4.5.9)(miniflare@3.20240821.0)(wrangler@3.72.3(@cloudflare/workers-types@4.20240821.1))
+        version: 0.15.1(hono@4.5.11)(miniflare@3.20240821.0)(wrangler@3.72.3(@cloudflare/workers-types@4.20240821.1))
       drizzle-kit:
         specifier: 0.24.2
         version: 0.24.2
@@ -1138,8 +1138,8 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  hono@4.5.9:
-    resolution: {integrity: sha512-zz8ktqMDRrZETjxBrv8C5PQRFbrTRCLNVAjD1SNQyOzv4VjmX68Uxw83xQ6oxdAB60HiWnGEatiKA8V3SZLDkQ==}
+  hono@4.5.11:
+    resolution: {integrity: sha512-62FcjLPtjAFwISVBUshryl+vbHOjg8rE4uIK/dxyR8GpLztunZpwFmfEvmJCUI7xoGh/Sr3CGCDPCmYxVw7wUQ==}
     engines: {node: '>=16.0.0'}
 
   human-signals@5.0.0:
@@ -1866,22 +1866,22 @@ snapshots:
 
   '@hono/node-server@1.12.1': {}
 
-  '@hono/vite-cloudflare-pages@0.4.2(hono@4.5.9)':
+  '@hono/vite-cloudflare-pages@0.4.2(hono@4.5.11)':
     dependencies:
-      hono: 4.5.9
+      hono: 4.5.11
 
-  '@hono/vite-dev-server@0.15.1(hono@4.5.9)(miniflare@3.20240821.0)(wrangler@3.72.3(@cloudflare/workers-types@4.20240821.1))':
+  '@hono/vite-dev-server@0.15.1(hono@4.5.11)(miniflare@3.20240821.0)(wrangler@3.72.3(@cloudflare/workers-types@4.20240821.1))':
     dependencies:
       '@hono/node-server': 1.12.1
-      hono: 4.5.9
+      hono: 4.5.11
       minimatch: 9.0.5
     optionalDependencies:
       miniflare: 3.20240821.0
       wrangler: 3.72.3(@cloudflare/workers-types@4.20240821.1)
 
-  '@hono/zod-validator@0.2.2(hono@4.5.9)(zod@3.23.8)':
+  '@hono/zod-validator@0.2.2(hono@4.5.11)(zod@3.23.8)':
     dependencies:
-      hono: 4.5.9
+      hono: 4.5.11
       zod: 3.23.8
 
   '@jridgewell/gen-mapping@0.3.5':
@@ -2259,7 +2259,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.5.9: {}
+  hono@4.5.11: {}
 
   human-signals@5.0.0: {}
 
