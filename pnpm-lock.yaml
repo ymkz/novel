@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: 0.2.2
-        version: 0.2.2(hono@4.6.2)(zod@3.23.8)
+        version: 0.2.2(hono@4.6.5)(zod@3.23.8)
       drizzle-orm:
         specifier: 0.33.0
         version: 0.33.0(@cloudflare/workers-types@4.20240909.0)
       hono:
-        specifier: 4.6.2
-        version: 4.6.2
+        specifier: 4.6.5
+        version: 4.6.5
       zod:
         specifier: 3.23.8
         version: 3.23.8
@@ -29,10 +29,10 @@ importers:
         version: 4.20240909.0
       '@hono/vite-cloudflare-pages':
         specifier: 0.4.2
-        version: 0.4.2(hono@4.6.2)
+        version: 0.4.2(hono@4.6.5)
       '@hono/vite-dev-server':
         specifier: 0.16.0
-        version: 0.16.0(hono@4.6.2)(miniflare@3.20240909.2)(wrangler@3.78.4(@cloudflare/workers-types@4.20240909.0))
+        version: 0.16.0(hono@4.6.5)(miniflare@3.20240909.2)(wrangler@3.78.4(@cloudflare/workers-types@4.20240909.0))
       drizzle-kit:
         specifier: 0.24.2
         version: 0.24.2
@@ -154,9 +154,11 @@ packages:
 
   '@esbuild-kit/core-utils@3.3.2':
     resolution: {integrity: sha512-sPRAnw9CdSsRmEtnsl2WXWdyquogVpB3yZ3dgwJfe8zrOzTsV7cJvmwrKVa+0ma5BoiGJ+BoqkMvawbayKUsqQ==}
+    deprecated: 'Merged into tsx: https://tsx.is'
 
   '@esbuild-kit/esm-loader@2.6.5':
     resolution: {integrity: sha512-FxEMIkJKnodyA1OaCUoEvbYRkoZlLZ4d/eXFu9Fh8CbBBgP5EmZxrfTRyN0qpXZ4vOvqnE5YdRdcrmUUXuU+dA==}
+    deprecated: 'Merged into tsx: https://tsx.is'
 
   '@esbuild-plugins/node-globals-polyfill@0.2.3':
     resolution: {integrity: sha512-r3MIryXDeXDOZh7ih1l/yE9ZLORCd5e8vWg02azWRGj5SPTuoh69A2AIyn0Z31V/kHBfZ4HgWJ+OK3GTTwLmnw==}
@@ -1121,8 +1123,8 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  hono@4.6.2:
-    resolution: {integrity: sha512-v+39817TgAhetmHUEli8O0uHDmxp2Up3DnhS4oUZXOl5IQ9np9tYtldd42e5zgdLVS0wsOoXQNZ6mx+BGmEvCA==}
+  hono@4.6.5:
+    resolution: {integrity: sha512-qsmN3V5fgtwdKARGLgwwHvcdLKursMd+YOt69eGpl1dUCJb8mCd7hZfyZnBYjxCegBG7qkJRQRUy2oO25yHcyQ==}
     engines: {node: '>=16.9.0'}
 
   is-binary-path@2.1.0:
@@ -1793,26 +1795,26 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
-  '@hono/node-server@1.13.0(hono@4.6.2)':
+  '@hono/node-server@1.13.0(hono@4.6.5)':
     dependencies:
-      hono: 4.6.2
+      hono: 4.6.5
 
-  '@hono/vite-cloudflare-pages@0.4.2(hono@4.6.2)':
+  '@hono/vite-cloudflare-pages@0.4.2(hono@4.6.5)':
     dependencies:
-      hono: 4.6.2
+      hono: 4.6.5
 
-  '@hono/vite-dev-server@0.16.0(hono@4.6.2)(miniflare@3.20240909.2)(wrangler@3.78.4(@cloudflare/workers-types@4.20240909.0))':
+  '@hono/vite-dev-server@0.16.0(hono@4.6.5)(miniflare@3.20240909.2)(wrangler@3.78.4(@cloudflare/workers-types@4.20240909.0))':
     dependencies:
-      '@hono/node-server': 1.13.0(hono@4.6.2)
-      hono: 4.6.2
+      '@hono/node-server': 1.13.0(hono@4.6.5)
+      hono: 4.6.5
       minimatch: 9.0.5
     optionalDependencies:
       miniflare: 3.20240909.2
       wrangler: 3.78.4(@cloudflare/workers-types@4.20240909.0)
 
-  '@hono/zod-validator@0.2.2(hono@4.6.2)(zod@3.23.8)':
+  '@hono/zod-validator@0.2.2(hono@4.6.5)(zod@3.23.8)':
     dependencies:
-      hono: 4.6.2
+      hono: 4.6.5
       zod: 3.23.8
 
   '@jridgewell/resolve-uri@3.1.2': {}
@@ -2162,7 +2164,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.6.2: {}
+  hono@4.6.5: {}
 
   is-binary-path@2.1.0:
     dependencies:
