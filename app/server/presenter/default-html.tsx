@@ -12,7 +12,7 @@ export const defaultHtmlHandlers = factory.createHandlers((ctx) => {
 					{import.meta.env.PROD ? (
 						<script type="module" src="/static/client.js" />
 					) : (
-						<script type="module" src="/src/client.tsx" />
+						<script type="module" src="/app/client.tsx" />
 					)}
 					<link rel="stylesheet" href="/static/global.css" />
 					<link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
