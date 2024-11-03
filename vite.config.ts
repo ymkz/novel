@@ -8,8 +8,8 @@ export default defineConfig(({ mode }) => {
 		return {
 			build: {
 				rollupOptions: {
-					input: 'src/client/index.tsx',
-					output: { entryFileNames: 'static/client/index.js' },
+					input: 'src/client.tsx',
+					output: { entryFileNames: 'static/client.js' },
 				},
 			},
 		}
@@ -19,6 +19,6 @@ export default defineConfig(({ mode }) => {
 		clearScreen: false,
 		server: { port: 3000 },
 		ssr: { external: ['react', 'react-dom'] },
-		plugins: [pages(), devServer({ adapter, entry: 'src/server/index.ts' })],
+		plugins: [pages(), devServer({ adapter, entry: 'src/server.ts' })],
 	}
 })

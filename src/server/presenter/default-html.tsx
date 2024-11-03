@@ -10,9 +10,9 @@ export const defaultHtmlHandlers = factory.createHandlers((ctx) => {
 					<meta name="robots" content="noindex" />
 					<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 					{import.meta.env.PROD ? (
-						<script type="module" src="/static/client/index.js" />
+						<script type="module" src="/static/client.js" />
 					) : (
-						<script type="module" src="/src/client/index.tsx" />
+						<script type="module" src="/src/client.tsx" />
 					)}
 					<link rel="stylesheet" href="/static/global.css" />
 					<link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
