@@ -1,5 +1,8 @@
+name = "narou-reader"
+pages_build_output_dir = "dist"
+compatibility_flags = ["nodejs_compat"]
+
 [[d1_databases]]
 binding = "DB"
 database_name = "novels"
-database_id = ""
-preview_database_id = "DB"
+database_id = "1"

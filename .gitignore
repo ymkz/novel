@@ -1,5 +1,4 @@
 .wrangler
-coverage
 dist
 node_modules
 tsconfig.tsbuildinfo
