@@ -1,6 +1,4 @@
-name = "narou-reader"
-pages_build_output_dir = "dist"
-compatibility_flags = ["nodejs_compat"]
+name = "novel"
 
 [[d1_databases]]
 binding = "DB"
