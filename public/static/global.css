@@ -121,8 +121,33 @@ body {
 	flex-direction: column;
 }
 
+.view-overlay {
+	background-color: rgba(0, 0, 0, 0.4);
+	position: fixed;
+	inset: 0;
+}
+
 .view-content {
-	flex-grow: 1;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 95dvh;
+	background-color: var(--color-background);
+	display: flex;
+	flex-direction: column;
+}
+
+.view-handle {
+	margin-block: 8px;
+}
+
+.view-body {
+	height: 100%;
+}
+
+.view-iframe {
+	border: 0;
 }
 
 .view-action {

@@ -7,16 +7,18 @@ export const NovelViewer = () => {
 
 	return (
 		<Drawer.Portal>
-			<Drawer.Overlay />
-			<Drawer.Content>
-				<Drawer.Handle />
-				<Drawer.Title>{novel?.title}</Drawer.Title>
+			<Drawer.Overlay className="view-overlay" />
+			<Drawer.Content className="view-content">
+				<Drawer.Handle className="view-handle" />
+				<Drawer.Title />
 				<Drawer.Description />
-				<div className="view-content">
+				<div className="view-body">
 					{novel ? (
 						<iframe
 							title="iframe"
-							style={{ width: '100%', height: '100%', border: 0 }}
+							style={{ width: '100%', height: '100%' }}
+							className="view-iframe"
+							// src="https://ja.wikipedia.org/wiki"
 							src={getProxyNarouUrl(novel.ncode, novel.currentPage)}
 						/>
 					) : null}
