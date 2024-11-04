@@ -5,7 +5,13 @@ import { NovelList } from './component/novel-list'
 import { NovelViewer } from './component/novel-viewer'
 import { useNovelStore } from './store/novel'
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+	defaultOptions: {
+		queries: {
+			retry: false,
+		},
+	},
+})
 
 export function App() {
 	const closeNovelViewer = useNovelStore((state) => state.closeNovelViewer)

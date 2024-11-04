@@ -6,7 +6,6 @@ import { IconSend } from './icon-send'
 export const NovelInput = () => {
 	const formRef = useRef<HTMLFormElement>(null)
 	const queryClient = useQueryClient()
-
 	const mutation = useMutation({
 		mutationFn: addNovel,
 		onSuccess: () => {
