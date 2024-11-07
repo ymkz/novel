@@ -9,14 +9,14 @@ importers:
   .:
     dependencies:
       '@hono/zod-validator':
-        specifier: 0.2.2
-        version: 0.2.2(hono@4.6.5)(zod@3.23.8)
+        specifier: 0.4.1
+        version: 0.4.1(hono@4.6.9)(zod@3.23.8)
       drizzle-orm:
-        specifier: 0.33.0
-        version: 0.33.0(@cloudflare/workers-types@4.20241106.0)
+        specifier: 0.36.1
+        version: 0.36.1(@cloudflare/workers-types@4.20241106.0)
       hono:
-        specifier: 4.6.5
-        version: 4.6.5
+        specifier: 4.6.9
+        version: 4.6.9
       zod:
         specifier: 3.23.8
         version: 3.23.8
@@ -29,10 +29,10 @@ importers:
         version: 4.20241106.0
       '@hono/vite-cloudflare-pages':
         specifier: 0.4.2
-        version: 0.4.2(hono@4.6.5)
+        version: 0.4.2(hono@4.6.9)
       '@hono/vite-dev-server':
         specifier: 0.16.0
-        version: 0.16.0(hono@4.6.5)(miniflare@3.20241022.0)(wrangler@3.85.0(@cloudflare/workers-types@4.20241106.0))
+        version: 0.16.0(hono@4.6.9)(miniflare@3.20241022.0)(wrangler@3.85.0(@cloudflare/workers-types@4.20241106.0))
       drizzle-kit:
         specifier: 0.28.0
         version: 0.28.0
@@ -739,8 +739,8 @@ packages:
       wrangler:
         optional: true
 
-  '@hono/zod-validator@0.2.2':
-    resolution: {integrity: sha512-dSDxaPV70Py8wuIU2QNpoVEIOSzSXZ/6/B/h4xA7eOMz7+AarKTSGV8E6QwrdcCbBLkpqfJ4Q2TmBO0eP1tCBQ==}
+  '@hono/zod-validator@0.4.1':
+    resolution: {integrity: sha512-I8LyfeJfvVmC5hPjZ2Iij7RjexlgSBT7QJudZ4JvNPLxn0JQ3sqclz2zydlwISAnw21D2n4LQ0nfZdoiv9fQQA==}
     peerDependencies:
       hono: '>=3.9.0'
       zod: ^3.19.1
@@ -965,13 +965,14 @@ packages:
     resolution: {integrity: sha512-KqI+CS2Ga9GYIrXpxpCDUJJrH/AT/k4UY0Pb4oRgQEGkgN1EdCnqp664cXgwPWjDr5RBtTsjZipw8+8C//K63A==}
     hasBin: true
 
-  drizzle-orm@0.33.0:
-    resolution: {integrity: sha512-SHy72R2Rdkz0LEq0PSG/IdvnT3nGiWuRk+2tXZQ90GVq/XQhpCzu/EFT3V2rox+w8MlkBQxifF8pCStNYnERfA==}
+  drizzle-orm@0.36.1:
+    resolution: {integrity: sha512-F4hbimnMEhyWzDowQB4xEuVJJWXLHZYD7FYwvo8RImY+N7pStGqsbfmT95jDbec1s4qKmQbiuxEDZY90LRrfIw==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
-      '@electric-sql/pglite': '>=0.1.1'
-      '@libsql/client': '*'
+      '@electric-sql/pglite': '>=0.2.0'
+      '@libsql/client': '>=0.10.0'
+      '@libsql/client-wasm': '>=0.10.0'
       '@neondatabase/serverless': '>=0.1'
       '@op-engineering/op-sqlite': '>=2'
       '@opentelemetry/api': ^1.4.1
@@ -1004,6 +1005,8 @@ packages:
       '@electric-sql/pglite':
         optional: true
       '@libsql/client':
+        optional: true
+      '@libsql/client-wasm':
         optional: true
       '@neondatabase/serverless':
         optional: true
@@ -1129,8 +1132,8 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  hono@4.6.5:
-    resolution: {integrity: sha512-qsmN3V5fgtwdKARGLgwwHvcdLKursMd+YOt69eGpl1dUCJb8mCd7hZfyZnBYjxCegBG7qkJRQRUy2oO25yHcyQ==}
+  hono@4.6.9:
+    resolution: {integrity: sha512-p/pN5yZLuZaHzyAOT2nw2/Ud6HhJHYmDNGH6Ck1OWBhPMVeM1r74jbCRwNi0gyFRjjbsGgoHbOyj7mT1PDNbTw==}
     engines: {node: '>=16.9.0'}
 
   is-binary-path@2.1.0:
@@ -1807,26 +1810,26 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
-  '@hono/node-server@1.13.1(hono@4.6.5)':
+  '@hono/node-server@1.13.1(hono@4.6.9)':
     dependencies:
-      hono: 4.6.5
+      hono: 4.6.9
 
-  '@hono/vite-cloudflare-pages@0.4.2(hono@4.6.5)':
+  '@hono/vite-cloudflare-pages@0.4.2(hono@4.6.9)':
     dependencies:
-      hono: 4.6.5
+      hono: 4.6.9
 
-  '@hono/vite-dev-server@0.16.0(hono@4.6.5)(miniflare@3.20241022.0)(wrangler@3.85.0(@cloudflare/workers-types@4.20241106.0))':
+  '@hono/vite-dev-server@0.16.0(hono@4.6.9)(miniflare@3.20241022.0)(wrangler@3.85.0(@cloudflare/workers-types@4.20241106.0))':
     dependencies:
-      '@hono/node-server': 1.13.1(hono@4.6.5)
-      hono: 4.6.5
+      '@hono/node-server': 1.13.1(hono@4.6.9)
+      hono: 4.6.9
       minimatch: 9.0.5
     optionalDependencies:
       miniflare: 3.20241022.0
       wrangler: 3.85.0(@cloudflare/workers-types@4.20241106.0)
 
-  '@hono/zod-validator@0.2.2(hono@4.6.5)(zod@3.23.8)':
+  '@hono/zod-validator@0.4.1(hono@4.6.9)(zod@3.23.8)':
     dependencies:
-      hono: 4.6.5
+      hono: 4.6.9
       zod: 3.23.8
 
   '@jridgewell/resolve-uri@3.1.2': {}
@@ -2025,7 +2028,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.33.0(@cloudflare/workers-types@4.20241106.0):
+  drizzle-orm@0.36.1(@cloudflare/workers-types@4.20241106.0):
     optionalDependencies:
       '@cloudflare/workers-types': 4.20241106.0
 
@@ -2180,7 +2183,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.6.5: {}
+  hono@4.6.9: {}
 
   is-binary-path@2.1.0:
     dependencies:
