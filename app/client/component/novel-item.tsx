@@ -1,29 +1,26 @@
-import { Drawer } from 'vaul'
-import { getOriginalNarouUrl, getPageInfo } from '../../server/domain/narou/helper'
+import { Link } from 'wouter'
+import { getOriginalNarouUrl, getPageInfo, getProxyNarouUrl } from '../../server/domain/narou/helper'
 import type { NarouNovel } from '../../server/domain/narou/model'
-import { useNovelStore } from '../store/novel'
 
 type Props = {
 	novel: NarouNovel
 }
 
 export const NovelItem = ({ novel }: Props) => {
-	const openNovelViewer = useNovelStore((state) => state.openNovelViewer)
-
-	const handleClick = () => {
-		openNovelViewer(novel)
-	}
-
 	return (
-		<Drawer.Trigger onClick={handleClick}>
-			<div className="list-item">
-				<p className="title">{novel.title}</p>
-				<div>
-					<p className="text">{getPageInfo(novel.currentPage, novel.totalPage)}</p>
-					<p className="text">{novel.lastPublishedAt}</p>
-					<p className="text">{getOriginalNarouUrl(novel.ncode, novel.currentPage)}</p>
+		<Link href={getProxyNarouUrl(novel.ncode, novel.currentPage)}>
+			<div className="flex flex-col gap-2 cursor-pointer">
+				<p className="font-bold text-base leading-snug">{novel.title}</p>
+				<div className="flex flex-col gap-1">
+					<p className="font-normal leading-none text-xs text-gray-600">
+						{getPageInfo(novel.currentPage, novel.totalPage)}
+					</p>
+					<p className="font-normal leading-none text-xs text-gray-600">{novel.lastPublishedAt}</p>
+					<p className="font-normal leading-none text-xs text-gray-600">
+						{getOriginalNarouUrl(novel.ncode, novel.currentPage)}
+					</p>
 				</div>
 			</div>
-		</Drawer.Trigger>
+		</Link>
 	)
 }

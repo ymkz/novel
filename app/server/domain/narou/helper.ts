@@ -37,5 +37,5 @@ export const getOriginalNarouUrl = (ncode: string, page: number) => {
 }
 
 export const getProxyNarouUrl = (ncode: string, page: number) => {
-	return `/narou/${ncode}/${page}`
+	return `/proxy/narou/${ncode}/${page}`
 }

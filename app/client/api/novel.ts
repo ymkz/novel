@@ -4,17 +4,17 @@ import type { NovelsApi } from '../../server/app'
 const client = hc<NovelsApi>('')
 
 export const listNovels = async () => {
-	const response = await client.novels.$get()
+	const response = await client.api.novels.$get()
 	const json = await response.json()
 	return json
 }
 
 export const addNovel = async (url: string) => {
-	const response = await client.novels.$post({ json: { url } })
+	const response = await client.api.novels.$post({ json: { url } })
 	console.log(response)
 }
 
 export const removeNovel = async (ncode: string) => {
-	const response = await client.novels[':ncode'].$delete({ param: { ncode } })
+	const response = await client.api.novels[':ncode'].$delete({ param: { ncode } })
 	console.log(response)
 }

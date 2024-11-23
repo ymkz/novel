@@ -1,27 +1,24 @@
-import { secureHeaders } from 'hono/secure-headers'
 import { factory } from './factory'
-import { errorHandler } from './presenter/_error'
-import { notFoundHandler } from './presenter/_notfound'
-import { defaultHtmlHandlers } from './presenter/default-html'
-import { healthCheckHandlers } from './presenter/health-check'
-import { narouProxyHandlers } from './presenter/narou-proxy'
-import { novelAddHandlers } from './presenter/novels/add'
-import { novelListHandlers } from './presenter/novels/list'
-import { novelRemoveHandlers } from './presenter/novels/remove'
+import { healthCheckHandlers } from './presenter/controller/health-check'
+import { htmlRendererHandlers } from './presenter/controller/html-renderer'
+import { narouProxyHandlers } from './presenter/controller/narou-proxy'
+import { novelAddHandlers } from './presenter/controller/novel-add'
+import { novelListHandlers } from './presenter/controller/novel-list'
+import { novelRemoveHandlers } from './presenter/controller/novel-remove'
+import { errorHandler } from './presenter/handler/error'
+import { notFoundHandler } from './presenter/handler/notfound'
 
 const app = factory.createApp()
 
-app.use(secureHeaders())
-
 const novelsApi = app
-	.get('/novels', ...novelListHandlers)
-	.post('/novels', ...novelAddHandlers)
-	.delete('/novels/:ncode', ...novelRemoveHandlers)
+	.get('/api/novels', ...novelListHandlers)
+	.post('/api/novels', ...novelAddHandlers)
+	.delete('/api/novels/:ncode', ...novelRemoveHandlers)
 
-app.get('/narou/:ncode/:page?', ...narouProxyHandlers)
+app.get('/proxy/narou/:ncode/:page?', ...narouProxyHandlers)
 
 app.get('/healthz', ...healthCheckHandlers)
-app.get('*', ...defaultHtmlHandlers)
+app.get('*', ...htmlRendererHandlers)
 
 app.notFound(notFoundHandler)
 app.onError(errorHandler)

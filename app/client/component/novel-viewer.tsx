@@ -1,30 +1,26 @@
-import { Drawer } from 'vaul'
+import { useRoute } from 'wouter'
 import { getProxyNarouUrl } from '../../server/domain/narou/helper'
-import { useNovelStore } from '../store/novel'
+import { IconClose } from './icon-close'
 
 export const NovelViewer = () => {
-	const novel = useNovelStore((state) => state.novel)
+	const [match, params] = useRoute('/narou/:ncode/:page?')
+
+	if (!match) {
+		return <div>404</div>
+	}
 
 	return (
-		<Drawer.Portal>
-			<Drawer.Overlay className="view-overlay" />
-			<Drawer.Content className="view-content">
-				<Drawer.Handle className="view-handle" />
-				<Drawer.Title />
-				<Drawer.Description />
-				<div className="view-body">
-					{novel ? (
-						<iframe
-							title="iframe"
-							style={{ width: '100%', height: '100%' }}
-							className="view-iframe"
-							// src="https://ja.wikipedia.org/wiki"
-							src={getProxyNarouUrl(novel.ncode, novel.currentPage)}
-						/>
-					) : null}
-				</div>
-			</Drawer.Content>
-			<Drawer.Overlay />
-		</Drawer.Portal>
+		<div className="flex flex-col h-dvh w-[720px] mx-auto">
+			<div className="flex flex-row">
+				<IconClose />
+			</div>
+			<iframe
+				title="narou-reader"
+				style={{ width: '100%', height: '100%' }}
+				className="border-0"
+				src={getProxyNarouUrl(params.ncode, Number(params.page) || 0)}
+			/>
+			<div className="flex">footer</div>
+		</div>
 	)
 }

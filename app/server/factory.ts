@@ -1,4 +1,5 @@
 import { createFactory } from 'hono/factory'
+import { accessLogger } from './presenter/middleware/access-logger'
 
 export type AppEnv = {
 	Bindings: {
@@ -6,4 +7,8 @@ export type AppEnv = {
 	}
 }
 
-export const factory = createFactory<AppEnv>()
+export const factory = createFactory<AppEnv>({
+	initApp: (app) => {
+		app.use(accessLogger())
+	},
+})

@@ -1,9 +1,9 @@
 import { vValidator } from '@hono/valibot-validator'
 import * as v from 'valibot'
-import { getOriginalNarouUrl, getProxyNarouUrl, parseNcodeAndPage } from '../domain/narou/helper'
-import { narouNcodeSchema, narouNovelPageSchema } from '../domain/narou/schema'
-import { factory } from '../factory'
-import { updateNovelUsecase } from '../usecase/update-novel'
+import { getOriginalNarouUrl, getProxyNarouUrl, parseNcodeAndPage } from '../../domain/narou/helper'
+import { narouNcodeSchema, narouNovelPageSchema } from '../../domain/narou/schema'
+import { factory } from '../../factory'
+import { updateNovelUsecase } from '../../usecase/update-novel'
 
 const narouLinkReplacer: HTMLRewriterElementContentHandlers = {
 	element: (element) => {

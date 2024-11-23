@@ -17,21 +17,21 @@ export const NovelInput = () => {
 	const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
 		event.preventDefault()
 		const url = new FormData(event.currentTarget).get('url')
-		if (!url) throw new Error('invalid formData input `url`')
+		if (!url) throw new Error('invalid formdata input `url`')
 		mutation.mutate(url.toString())
 	}
 
 	return (
-		<form className="add-form" ref={formRef} onSubmit={handleSubmit}>
+		<form className="h-10 flex items-center gap-3 bg-gray-100 rounded px-3" ref={formRef} onSubmit={handleSubmit}>
 			<input
 				autoComplete="url"
-				className="add-form-input"
+				className="flex-grow outline-0 border-0 font-normal placeholder-gray-400"
 				name="url"
 				type="url"
 				placeholder="https://ncode.syosetu.com"
 				required={true}
 			/>
-			<button className="add-form-button" type="submit">
+			<button className="w-10 h-10 grid place-items-center text-gray-600 cursor-pointer" type="submit">
 				<IconSend />
 			</button>
 		</form>

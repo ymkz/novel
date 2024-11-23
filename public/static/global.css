@@ -80,13 +80,6 @@ body {
 	gap: var(--space-extended);
 }
 
-.list-item {
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
-	cursor: pointer;
-}
-
 .title {
 	font-weight: 700;
 	font-size: 17px;

@@ -2,6 +2,7 @@
   "biome.enabled": true,
   "typescript.preferences.importModuleSpecifier": "shortest",
   "typescript.tsdk": "./node_modules/typescript/lib",
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "editor.codeActionsOnSave": {
     "quickfix.biome": "explicit",
     "source.organizeImports.biome": "explicit"

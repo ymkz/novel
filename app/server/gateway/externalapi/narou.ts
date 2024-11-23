@@ -57,18 +57,18 @@ export const fetchNarouApi = async (ncode: string, userAgent: string): Promise<N
 	}).catch((err) => {
 		throw new Error('なろうAPIとの通信に失敗しました', { cause: err })
 	})
+	const responseContentType = response.headers.get('content-type')
 
 	if (!response.ok) {
+		const err = await response.text()
+		console.error(responseContentType, err)
 		throw new Error('なろうAPIからエラーがレスポンスされました')
 	}
 
 	const json = (await response.json().catch((err) => {
-		throw new Error(
-			`なろうAPIからJSONと異なるフォーマットでレスポンスされました content-type=${response.headers.get(
-				'content-type',
-			)}`,
-			{ cause: err },
-		)
+		throw new Error(`なろうAPIからJSONと異なるフォーマットでレスポンスされました content-type=${responseContentType}`, {
+			cause: err,
+		})
 	})) as NarouApiResponse
 
 	return json
