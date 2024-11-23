@@ -7,6 +7,7 @@ import { defineConfig } from 'vite'
 export default defineConfig(({ mode }) => {
 	if (mode === 'client') {
 		return {
+			plugins: [tailwindcss()],
 			build: {
 				rollupOptions: {
 					input: 'app/client.tsx',

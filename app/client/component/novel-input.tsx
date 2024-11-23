@@ -22,7 +22,7 @@ export const NovelInput = () => {
 	}
 
 	return (
-		<form className="h-10 flex items-center gap-3 bg-gray-100 rounded px-3" ref={formRef} onSubmit={handleSubmit}>
+		<form className="h-10 flex items-center gap-3 bg-gray-100 rounded pl-3" ref={formRef} onSubmit={handleSubmit}>
 			<input
 				autoComplete="url"
 				className="flex-grow outline-0 border-0 font-normal placeholder-gray-400"

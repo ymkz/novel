@@ -1,5 +1,5 @@
 import { Link } from 'wouter'
-import { getOriginalNarouUrl, getPageInfo, getProxyNarouUrl } from '../../server/domain/narou/helper'
+import { getNarouViewerUrl, getOriginalNarouUrl, getPageInfo } from '../../server/domain/narou/helper'
 import type { NarouNovel } from '../../server/domain/narou/model'
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 
 export const NovelItem = ({ novel }: Props) => {
 	return (
-		<Link href={getProxyNarouUrl(novel.ncode, novel.currentPage)}>
+		<Link href={getNarouViewerUrl(novel.ncode, novel.currentPage)}>
 			<div className="flex flex-col gap-2 cursor-pointer">
 				<p className="font-bold text-base leading-snug">{novel.title}</p>
 				<div className="flex flex-col gap-1">

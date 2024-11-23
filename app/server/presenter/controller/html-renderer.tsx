@@ -9,15 +9,15 @@ export const htmlRendererHandlers = factory.createHandlers((ctx) => {
 					<meta charSet="utf-8" />
 					<meta name="robots" content="noindex" />
 					<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-					<link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
-					<link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />
-					<link rel="manifest" href="/static/manifest.json" crossOrigin="use-credentials" />
-					<title>NarouReader</title>
 					{import.meta.env.PROD ? (
 						<script type="module" src="/static/client.js" />
 					) : (
 						<script type="module" src="/app/client.tsx" />
 					)}
+					<link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+					<link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />
+					<link rel="manifest" href="/static/manifest.json" crossOrigin="use-credentials" />
+					<title>NarouReader</title>
 				</head>
 				<body>
 					<div id="root" />

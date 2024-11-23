@@ -36,6 +36,10 @@ export const getOriginalNarouUrl = (ncode: string, page: number) => {
 	return `https://ncode.syosetu.com/${ncode}/${page}`
 }
 
+export const getNarouViewerUrl = (ncode: string, page: number) => {
+	return `/narou/${ncode}/${page}`
+}
+
 export const getProxyNarouUrl = (ncode: string, page: number) => {
 	return `/proxy/narou/${ncode}/${page}`
 }
