@@ -3,7 +3,6 @@ import { useRef } from 'react'
 import { toast } from 'sonner'
 import { addNovel } from '../../api/novel'
 import { IconSend } from '../icon/send'
-import style from './style.module.css'
 
 export const NovelInput = () => {
 	const formRef = useRef<HTMLFormElement>(null)
@@ -28,16 +27,16 @@ export const NovelInput = () => {
 	}
 
 	return (
-		<form className={style.form} ref={formRef} onSubmit={handleSubmit}>
+		<form className="input-container" ref={formRef} onSubmit={handleSubmit}>
 			<input
 				autoComplete="url"
-				className={style.input}
+				className="input-text"
 				name="url"
 				type="url"
 				placeholder="https://ncode.syosetu.com"
 				required={true}
 			/>
-			<button className={style.button} type="submit">
+			<button className="input-submit" type="submit">
 				<IconSend />
 			</button>
 		</form>
