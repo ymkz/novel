@@ -1,0 +1,38 @@
+:root {
+	--color-background: #ffffff;
+	--color-text: #24262d;
+	--color-text-secondary: #4c515f;
+	--color-text-placeholder: #c3c6cf;
+	--color-neutral: #f3f6f9;
+	--color-info: #00a0e8;
+	--color-danger: #d11a1e;
+
+	--container-width: 720px;
+	--space-base: 16px;
+	--space-narrow: 12px;
+	--space-extended: 24px;
+}
+
+*:where(:not(html, iframe, img, svg):not(svg *)) {
+	all: unset;
+	display: revert;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	-moz-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+body {
+	min-height: 100dvh;
+	font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+	background-color: var(--color-background);
+	color: var(--color-text);
+}

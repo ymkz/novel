@@ -1,6 +1,7 @@
 import { Link, useRoute } from 'wouter'
-import { getProxyNarouUrl } from '../../server/domain/narou/helper'
-import { IconClose } from './icon-close'
+import { getProxyNarouUrl } from '../../../server/domain/narou/helper'
+import { IconClose } from '../icon/close'
+import style from './style.module.css'
 
 export const NovelViewer = () => {
 	const [match, params] = useRoute('/narou/:ncode/:page?')
@@ -10,8 +11,8 @@ export const NovelViewer = () => {
 	}
 
 	return (
-		<div className="flex flex-col h-dvh max-w-[720px] mx-auto">
-			<div className="flex flex-row justify-end items-center h-10 pr-2">
+		<div className={style.container}>
+			<div className={style.header}>
 				<Link href="/">
 					<IconClose />
 				</Link>
@@ -19,7 +20,7 @@ export const NovelViewer = () => {
 			<iframe
 				title="narou-reader"
 				style={{ width: '100%', height: '100%' }}
-				className="border-0"
+				className={style.iframe}
 				src="https://wikipedia.org"
 				// src={getProxyNarouUrl(params.ncode, Number(params.page) || 0)}
 			/>
