@@ -27,8 +27,8 @@ export const NovelViewer = () => {
 			<iframe
 				title="narou-reader"
 				style={{ width: '100%', height: '100%', border: 0 }}
-				// src="https://wikipedia.org" // for debug
 				src={getProxyNarouUrl(params.ncode, Number(params.page) || 0)}
+				// src="https://wikipedia.org" // for debug
 			/>
 		</div>
 	)
