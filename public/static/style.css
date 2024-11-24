@@ -125,8 +125,10 @@ body {
 
 .viewer-icon__remove {
 	color: var(--color-danger);
+	cursor: pointer;
 }
 
 .viewer-icon__close {
 	color: var(--color-text-secondary);
+	cursor: pointer;
 }
