@@ -1,7 +1,7 @@
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import { toast } from 'sonner'
 import { getProxyNarouUrl } from '../../../server/domain/narou/helper'
-import { removeNovel } from '../../api/novel'
+import { getNovel, removeNovel } from '../../api/novel'
 import { IconClose } from '../icon/close'
 import { IconRemove } from '../icon/remove'
 
@@ -11,6 +11,11 @@ type Props = {
 }
 
 export const NovelViewer = ({ ncode, page = 0 }: Props) => {
+	const query = useQuery({
+		queryFn: () => getNovel(ncode),
+		queryKey: ['novels', ncode],
+	})
+
 	const mutation = useMutation({
 		mutationFn: removeNovel,
 		onSuccess: () => {
@@ -32,8 +37,16 @@ export const NovelViewer = ({ ncode, page = 0 }: Props) => {
 	return (
 		<div className="viewer-container">
 			<div className="viewer-header">
-				<IconRemove className="viewer-icon__remove" onClick={handleClickRemove} />
-				<IconClose className="viewer-icon__close" onClick={handleClickClose} />
+				<button className="viewer-icon__remove" type="button" onClick={handleClickRemove}>
+					<IconRemove />
+				</button>
+				<div className="viewer-info">
+					<p className="viewer-info__title">{query.data?.novel.title}</p>
+					<p className="viewer-info__caption">{query.data?.novel.ncode}</p>
+				</div>
+				<button className="viewer-icon__close" type="button" onClick={handleClickClose}>
+					<IconClose />
+				</button>
 			</div>
 			<iframe
 				title="narou-reader"

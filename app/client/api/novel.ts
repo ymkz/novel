@@ -9,12 +9,16 @@ export const listNovels = async () => {
 	return json
 }
 
+export const getNovel = async (ncode: string) => {
+	const response = await client.api.novels[':ncode'].$get({ param: { ncode } })
+	const json = await response.json()
+	return json
+}
+
 export const addNovel = async (url: string) => {
-	const response = await client.api.novels.$post({ json: { url } })
-	console.log(response)
+	await client.api.novels.$post({ json: { url } })
 }
 
 export const removeNovel = async (ncode: string) => {
-	const response = await client.api.novels[':ncode'].$delete({ param: { ncode } })
-	console.log(response)
+	await client.api.novels[':ncode'].$delete({ param: { ncode } })
 }

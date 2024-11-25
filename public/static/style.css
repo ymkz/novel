@@ -119,17 +119,42 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	gap: var(--space-narrow);
-	height: 40px;
+	height: 60px;
 	padding-inline: var(--space-narrow);
 	border-bottom: 1px solid var(--color-neutral);
 }
 
 .viewer-icon__remove {
+	width: 40px;
+	height: 40px;
+	display: grid;
+	place-items: center;
 	color: var(--color-danger);
 	cursor: pointer;
 }
 
 .viewer-icon__close {
+	width: 40px;
+	height: 40px;
+	display: grid;
+	place-items: center;
 	color: var(--color-text-secondary);
 	cursor: pointer;
+}
+
+.viewer-info {
+	flex-grow: 1;
+}
+
+.viewer-info__title {
+	font-size: 12px;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	display: -webkit-box;
+	overflow: hidden;
+}
+
+.viewer-info__caption {
+	font-size: 11px;
+	color: var(--color-text-secondary);
 }
