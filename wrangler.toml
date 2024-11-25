@@ -1,5 +1,4 @@
 [[d1_databases]]
 binding = "DB"
 database_name = "novels"
-database_id = ""
-preview_database_id = "DB"
+database_id = "1"
