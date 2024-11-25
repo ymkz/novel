@@ -6,12 +6,15 @@ import { IconSend } from '../icon/send'
 
 export const NovelInput = () => {
 	const formRef = useRef<HTMLFormElement>(null)
+
 	const queryClient = useQueryClient()
+
 	const mutation = useMutation({
 		mutationFn: addNovel,
 		onSuccess: () => {
 			queryClient.invalidateQueries({ queryKey: ['novels'] })
 			formRef.current?.reset()
+			toast.success('小説を追加しました')
 		},
 	})
 
@@ -19,11 +22,7 @@ export const NovelInput = () => {
 		event.preventDefault()
 		const url = new FormData(event.currentTarget).get('url')
 		if (!url) throw new Error('invalid formdata input `url`')
-		mutation.mutate(url.toString(), {
-			onSuccess: () => {
-				toast.success('Novel added')
-			},
-		})
+		mutation.mutate(url.toString())
 	}
 
 	return (

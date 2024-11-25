@@ -17,8 +17,12 @@ export function App() {
 		<QueryClientProvider client={queryClient}>
 			<Toaster />
 			<Switch>
-				<Route path="/" component={NovelList} />
-				<Route path="/narou/:ncode/:page?" component={NovelViewer} />
+				<Route path="/">
+					<NovelList />
+				</Route>
+				<Route path="/narou/:ncode/:page?">
+					{(params) => <NovelViewer ncode={params.ncode} page={Number(params.page)} />}
+				</Route>
 			</Switch>
 		</QueryClientProvider>
 	)
