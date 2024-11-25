@@ -23,13 +23,13 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@cloudflare/workers-types": "4.20241106.0",
+    "@cloudflare/workers-types": "4.20241112.0",
     "@hono/vite-cloudflare-pages": "0.4.2",
-    "@hono/vite-dev-server": "0.16.0",
-    "drizzle-kit": "0.28.0",
-    "typescript": "5.6.3",
-    "vite": "5.4.10",
-    "vitest": "2.1.4",
-    "wrangler": "3.85.0"
+    "@hono/vite-dev-server": "0.17.0",
+    "drizzle-kit": "0.28.1",
+    "typescript": "5.7.2",
+    "vite": "5.4.11",
+    "vitest": "2.1.5",
+    "wrangler": "3.90.0"
   }
 }
