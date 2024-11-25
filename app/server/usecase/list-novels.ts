@@ -25,6 +25,7 @@ export const listNovelsUsecase = async (ctx: Context<AppEnv>): Promise<NarouNove
 		.map((item) => ({
 			ncode: item.ncode,
 			title: item.title,
+			author: item.writer,
 			totalPage: item.general_all_no,
 			lastPublishedAt: item.general_lastup,
 		}))
