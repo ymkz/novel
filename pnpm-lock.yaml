@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: 0.4.1
-        version: 0.4.1(hono@4.6.9)(zod@3.23.8)
+        version: 0.4.1(hono@4.6.12)(zod@3.23.8)
       drizzle-orm:
-        specifier: 0.36.1
-        version: 0.36.1(@cloudflare/workers-types@4.20241106.0)
+        specifier: 0.36.4
+        version: 0.36.4(@cloudflare/workers-types@4.20241106.0)
       hono:
-        specifier: 4.6.9
-        version: 4.6.9
+        specifier: 4.6.12
+        version: 4.6.12
       zod:
         specifier: 3.23.8
         version: 3.23.8
@@ -29,10 +29,10 @@ importers:
         version: 4.20241106.0
       '@hono/vite-cloudflare-pages':
         specifier: 0.4.2
-        version: 0.4.2(hono@4.6.9)
+        version: 0.4.2(hono@4.6.12)
       '@hono/vite-dev-server':
         specifier: 0.16.0
-        version: 0.16.0(hono@4.6.9)(miniflare@3.20241022.0)(wrangler@3.85.0(@cloudflare/workers-types@4.20241106.0))
+        version: 0.16.0(hono@4.6.12)(miniflare@3.20241022.0)(wrangler@3.85.0(@cloudflare/workers-types@4.20241106.0))
       drizzle-kit:
         specifier: 0.28.0
         version: 0.28.0
@@ -965,15 +965,15 @@ packages:
     resolution: {integrity: sha512-KqI+CS2Ga9GYIrXpxpCDUJJrH/AT/k4UY0Pb4oRgQEGkgN1EdCnqp664cXgwPWjDr5RBtTsjZipw8+8C//K63A==}
     hasBin: true
 
-  drizzle-orm@0.36.1:
-    resolution: {integrity: sha512-F4hbimnMEhyWzDowQB4xEuVJJWXLHZYD7FYwvo8RImY+N7pStGqsbfmT95jDbec1s4qKmQbiuxEDZY90LRrfIw==}
+  drizzle-orm@0.36.4:
+    resolution: {integrity: sha512-1OZY3PXD7BR00Gl61UUOFihslDldfH4NFRH2MbP54Yxi0G/PKn4HfO65JYZ7c16DeP3SpM3Aw+VXVG9j6CRSXA==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
       '@electric-sql/pglite': '>=0.2.0'
       '@libsql/client': '>=0.10.0'
       '@libsql/client-wasm': '>=0.10.0'
-      '@neondatabase/serverless': '>=0.1'
+      '@neondatabase/serverless': '>=0.10.0'
       '@op-engineering/op-sqlite': '>=2'
       '@opentelemetry/api': ^1.4.1
       '@planetscale/database': '>=1'
@@ -987,7 +987,7 @@ packages:
       '@xata.io/client': '*'
       better-sqlite3: '>=7'
       bun-types: '*'
-      expo-sqlite: '>=13.2.0'
+      expo-sqlite: '>=14.0.0'
       knex: '*'
       kysely: '*'
       mysql2: '>=2'
@@ -1132,8 +1132,8 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  hono@4.6.9:
-    resolution: {integrity: sha512-p/pN5yZLuZaHzyAOT2nw2/Ud6HhJHYmDNGH6Ck1OWBhPMVeM1r74jbCRwNi0gyFRjjbsGgoHbOyj7mT1PDNbTw==}
+  hono@4.6.12:
+    resolution: {integrity: sha512-eHtf4kSDNw6VVrdbd5IQi16r22m3s7mWPLd7xOMhg1a/Yyb1A0qpUFq8xYMX4FMuDe1nTKeMX5rTx7Nmw+a+Ag==}
     engines: {node: '>=16.9.0'}
 
   is-binary-path@2.1.0:
@@ -1810,26 +1810,26 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
-  '@hono/node-server@1.13.1(hono@4.6.9)':
+  '@hono/node-server@1.13.1(hono@4.6.12)':
     dependencies:
-      hono: 4.6.9
+      hono: 4.6.12
 
-  '@hono/vite-cloudflare-pages@0.4.2(hono@4.6.9)':
+  '@hono/vite-cloudflare-pages@0.4.2(hono@4.6.12)':
     dependencies:
-      hono: 4.6.9
+      hono: 4.6.12
 
-  '@hono/vite-dev-server@0.16.0(hono@4.6.9)(miniflare@3.20241022.0)(wrangler@3.85.0(@cloudflare/workers-types@4.20241106.0))':
+  '@hono/vite-dev-server@0.16.0(hono@4.6.12)(miniflare@3.20241022.0)(wrangler@3.85.0(@cloudflare/workers-types@4.20241106.0))':
     dependencies:
-      '@hono/node-server': 1.13.1(hono@4.6.9)
-      hono: 4.6.9
+      '@hono/node-server': 1.13.1(hono@4.6.12)
+      hono: 4.6.12
       minimatch: 9.0.5
     optionalDependencies:
       miniflare: 3.20241022.0
       wrangler: 3.85.0(@cloudflare/workers-types@4.20241106.0)
 
-  '@hono/zod-validator@0.4.1(hono@4.6.9)(zod@3.23.8)':
+  '@hono/zod-validator@0.4.1(hono@4.6.12)(zod@3.23.8)':
     dependencies:
-      hono: 4.6.9
+      hono: 4.6.12
       zod: 3.23.8
 
   '@jridgewell/resolve-uri@3.1.2': {}
@@ -2028,7 +2028,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.36.1(@cloudflare/workers-types@4.20241106.0):
+  drizzle-orm@0.36.4(@cloudflare/workers-types@4.20241106.0):
     optionalDependencies:
       '@cloudflare/workers-types': 4.20241106.0
 
@@ -2183,7 +2183,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.6.9: {}
+  hono@4.6.12: {}
 
   is-binary-path@2.1.0:
     dependencies:
