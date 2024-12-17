@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@hono/valibot-validator':
         specifier: 0.5.1
-        version: 0.5.1(hono@4.6.13)(valibot@1.0.0-beta.9(typescript@5.7.2))
+        version: 0.5.1(hono@4.6.14)(valibot@1.0.0-beta.9(typescript@5.7.2))
       '@tanstack/react-query':
-        specifier: 5.62.7
-        version: 5.62.7(react@18.3.1)
+        specifier: 5.62.8
+        version: 5.62.8(react@18.3.1)
       hono:
-        specifier: 4.6.13
-        version: 4.6.13
+        specifier: 4.6.14
+        version: 4.6.14
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -41,10 +41,10 @@ importers:
         version: 4.20241205.0
       '@hono/vite-cloudflare-pages':
         specifier: 0.4.2
-        version: 0.4.2(hono@4.6.13)
+        version: 0.4.2(hono@4.6.14)
       '@hono/vite-dev-server':
         specifier: 0.17.0
-        version: 0.17.0(hono@4.6.13)(miniflare@3.20241205.0)(wrangler@3.95.0(@cloudflare/workers-types@4.20241205.0))
+        version: 0.17.0(hono@4.6.14)(miniflare@3.20241205.0)(wrangler@3.95.0(@cloudflare/workers-types@4.20241205.0))
       '@types/react':
         specifier: 18.3.16
         version: 18.3.16
@@ -584,11 +584,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@tanstack/query-core@5.62.7':
-    resolution: {integrity: sha512-fgpfmwatsrUal6V+8EC2cxZIQVl9xvL7qYa03gsdsCy985UTUlS4N+/3hCzwR0PclYDqisca2AqR1BVgJGpUDA==}
+  '@tanstack/query-core@5.62.8':
+    resolution: {integrity: sha512-4fV31vDsUyvNGrKIOUNPrZztoyL187bThnoQOvAXEVlZbSiuPONpfx53634MKKdvsDir5NyOGm80ShFaoHS/mw==}
 
-  '@tanstack/react-query@5.62.7':
-    resolution: {integrity: sha512-+xCtP4UAFDTlRTYyEjLx0sRtWyr5GIk7TZjZwBu4YaNahi3Rt2oMyRqfpfVrtwsqY2sayP4iXVCwmC+ZqqFmuw==}
+  '@tanstack/react-query@5.62.8':
+    resolution: {integrity: sha512-8TUstKxF/fysHonZsWg/hnlDVgasTdHx6Q+f1/s/oPKJBJbKUWPZEHwLTMOZgrZuroLMiqYKJ9w69Abm8mWP0Q==}
     peerDependencies:
       react: ^18 || ^19
 
@@ -763,8 +763,8 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  hono@4.6.13:
-    resolution: {integrity: sha512-haV0gaMdSjy9URCRN9hxBPlqHa7fMm/T72kAImIxvw4eQLbNz1rgjN4hHElLJSieDiNuiIAXC//cC6YGz2KCbg==}
+  hono@4.6.14:
+    resolution: {integrity: sha512-j4VkyUp2xazGJ8eCCLN1Vm/bxdvm/j5ZuU9AIjLu9vapn2M44p9L3Ktr9Vnb2RN2QtcR/wVjZVMlT5k7GJQgPw==}
     engines: {node: '>=16.9.0'}
 
   is-core-module@2.15.1:
@@ -1303,23 +1303,23 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
-  '@hono/node-server@1.13.7(hono@4.6.13)':
+  '@hono/node-server@1.13.7(hono@4.6.14)':
     dependencies:
-      hono: 4.6.13
+      hono: 4.6.14
 
-  '@hono/valibot-validator@0.5.1(hono@4.6.13)(valibot@1.0.0-beta.9(typescript@5.7.2))':
+  '@hono/valibot-validator@0.5.1(hono@4.6.14)(valibot@1.0.0-beta.9(typescript@5.7.2))':
     dependencies:
-      hono: 4.6.13
+      hono: 4.6.14
       valibot: 1.0.0-beta.9(typescript@5.7.2)
 
-  '@hono/vite-cloudflare-pages@0.4.2(hono@4.6.13)':
+  '@hono/vite-cloudflare-pages@0.4.2(hono@4.6.14)':
     dependencies:
-      hono: 4.6.13
+      hono: 4.6.14
 
-  '@hono/vite-dev-server@0.17.0(hono@4.6.13)(miniflare@3.20241205.0)(wrangler@3.95.0(@cloudflare/workers-types@4.20241205.0))':
+  '@hono/vite-dev-server@0.17.0(hono@4.6.14)(miniflare@3.20241205.0)(wrangler@3.95.0(@cloudflare/workers-types@4.20241205.0))':
     dependencies:
-      '@hono/node-server': 1.13.7(hono@4.6.13)
-      hono: 4.6.13
+      '@hono/node-server': 1.13.7(hono@4.6.14)
+      hono: 4.6.14
       minimatch: 9.0.5
     optionalDependencies:
       miniflare: 3.20241205.0
@@ -1391,11 +1391,11 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.28.1':
     optional: true
 
-  '@tanstack/query-core@5.62.7': {}
+  '@tanstack/query-core@5.62.8': {}
 
-  '@tanstack/react-query@5.62.7(react@18.3.1)':
+  '@tanstack/react-query@5.62.8(react@18.3.1)':
     dependencies:
-      '@tanstack/query-core': 5.62.7
+      '@tanstack/query-core': 5.62.8
       react: 18.3.1
 
   '@types/estree@1.0.6': {}
@@ -1599,7 +1599,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.6.13: {}
+  hono@4.6.14: {}
 
   is-core-module@2.15.1:
     dependencies:
