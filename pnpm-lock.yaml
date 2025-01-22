@@ -44,7 +44,7 @@ importers:
         version: 0.4.2(hono@4.6.17)
       '@hono/vite-dev-server':
         specifier: 0.18.1
-        version: 0.18.1(hono@4.6.17)(miniflare@3.20241230.2)(wrangler@3.103.2(@cloudflare/workers-types@4.20250121.0))
+        version: 0.18.1(hono@4.6.17)(miniflare@3.20241230.2)(wrangler@3.104.0(@cloudflare/workers-types@4.20250121.0))
       '@types/react':
         specifier: 18.3.18
         version: 18.3.18
@@ -61,8 +61,8 @@ importers:
         specifier: 2.1.8
         version: 2.1.8
       wrangler:
-        specifier: 3.103.2
-        version: 3.103.2(@cloudflare/workers-types@4.20250121.0)
+        specifier: 3.104.0
+        version: 3.104.0(@cloudflare/workers-types@4.20250121.0)
 
 packages:
 
@@ -921,8 +921,8 @@ packages:
     resolution: {integrity: sha512-zICwjrDrcrUE0pyyJc1I2QzBkLM8FINsgOrt6WjA+BgajVq9Nxu2PbFFXUrAggLfDXlZGZBVZYw7WNV5KiBiBA==}
     engines: {node: '>=14.0'}
 
-  unenv-nightly@2.0.0-20250109-100802-88ad671:
-    resolution: {integrity: sha512-Uij6gODNNNNsNBoDlnaMvZI99I6YlVJLRfYH8AOLMlbFrW7k2w872v9VLuIdch2vF8QBeSC4EftIh5sG4ibzdA==}
+  unenv@2.0.0-rc.0:
+    resolution: {integrity: sha512-H0kl2w8jFL/FAk0xvjVing4bS3jd//mbg1QChDnn58l9Sc5RtduaKmLAL8n+eBw5jJo8ZjYV7CrEGage5LAOZQ==}
 
   use-sync-external-store@1.4.0:
     resolution: {integrity: sha512-9WXSPC5fMv61vaupRkCKCxsPxBocVnwakBEkMIHHpkTTg6icbJtg6jzgtLDm4bl3cSHAca52rYWih0k4K3PfHw==}
@@ -1013,8 +1013,8 @@ packages:
     peerDependencies:
       react: '>=16.8.0'
 
-  wrangler@3.103.2:
-    resolution: {integrity: sha512-eYcnubPhPBU1QMZYTam+vfCLpaQx+x1EWA6nFbLhid1eqNDAk1dNwNlbo+ZryrOHDEX3XlOxn2Z3Fx8vVv3hKw==}
+  wrangler@3.104.0:
+    resolution: {integrity: sha512-txxgkKZwPQrX1PDgY+ATWnnx4GSeNxUrnBumudWPRmXG0JdLzCf09R+723slMMT1m+CKQXU1KvuUHc/GxTnTyA==}
     engines: {node: '>=16.17.0'}
     hasBin: true
     peerDependencies:
@@ -1263,14 +1263,14 @@ snapshots:
     dependencies:
       hono: 4.6.17
 
-  '@hono/vite-dev-server@0.18.1(hono@4.6.17)(miniflare@3.20241230.2)(wrangler@3.103.2(@cloudflare/workers-types@4.20250121.0))':
+  '@hono/vite-dev-server@0.18.1(hono@4.6.17)(miniflare@3.20241230.2)(wrangler@3.104.0(@cloudflare/workers-types@4.20250121.0))':
     dependencies:
       '@hono/node-server': 1.13.7(hono@4.6.17)
       hono: 4.6.17
       minimatch: 9.0.5
     optionalDependencies:
       miniflare: 3.20241230.2
-      wrangler: 3.103.2(@cloudflare/workers-types@4.20250121.0)
+      wrangler: 3.104.0(@cloudflare/workers-types@4.20250121.0)
 
   '@jridgewell/resolve-uri@3.1.2': {}
 
@@ -1711,7 +1711,7 @@ snapshots:
     dependencies:
       '@fastify/busboy': 2.1.1
 
-  unenv-nightly@2.0.0-20250109-100802-88ad671:
+  unenv@2.0.0-rc.0:
     dependencies:
       defu: 6.1.4
       mlly: 1.7.4
@@ -1806,7 +1806,7 @@ snapshots:
       regexparam: 3.0.0
       use-sync-external-store: 1.4.0(react@18.3.1)
 
-  wrangler@3.103.2(@cloudflare/workers-types@4.20250121.0):
+  wrangler@3.104.0(@cloudflare/workers-types@4.20250121.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@esbuild-plugins/node-globals-polyfill': 0.2.3(esbuild@0.17.19)
@@ -1815,7 +1815,7 @@ snapshots:
       esbuild: 0.17.19
       miniflare: 3.20241230.2
       path-to-regexp: 6.3.0
-      unenv: unenv-nightly@2.0.0-20250109-100802-88ad671
+      unenv: 2.0.0-rc.0
       workerd: 1.20241230.0
     optionalDependencies:
       '@cloudflare/workers-types': 4.20250121.0
