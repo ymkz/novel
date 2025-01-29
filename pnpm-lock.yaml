@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@hono/valibot-validator':
         specifier: 0.5.2
-        version: 0.5.2(hono@4.6.17)(valibot@1.0.0-beta.13(typescript@5.7.3))
+        version: 0.5.2(hono@4.6.19)(valibot@1.0.0-beta.14(typescript@5.7.3))
       '@tanstack/react-query':
-        specifier: 5.64.2
-        version: 5.64.2(react@18.3.1)
+        specifier: 5.65.1
+        version: 5.65.1(react@18.3.1)
       hono:
-        specifier: 4.6.17
-        version: 4.6.17
+        specifier: 4.6.19
+        version: 4.6.19
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -24,14 +24,14 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
       sonner:
-        specifier: 1.7.2
-        version: 1.7.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 1.7.3
+        version: 1.7.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       valibot:
-        specifier: 1.0.0-beta.13
-        version: 1.0.0-beta.13(typescript@5.7.3)
+        specifier: 1.0.0-beta.14
+        version: 1.0.0-beta.14(typescript@5.7.3)
       wouter:
-        specifier: 3.3.5
-        version: 3.3.5(react@18.3.1)
+        specifier: 3.5.0
+        version: 3.5.0(react@18.3.1)
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
@@ -41,10 +41,10 @@ importers:
         version: 4.20250121.0
       '@hono/vite-cloudflare-pages':
         specifier: 0.4.2
-        version: 0.4.2(hono@4.6.17)
+        version: 0.4.2(hono@4.6.19)
       '@hono/vite-dev-server':
         specifier: 0.18.1
-        version: 0.18.1(hono@4.6.17)(miniflare@3.20241230.2)(wrangler@3.103.2(@cloudflare/workers-types@4.20250121.0))
+        version: 0.18.1(hono@4.6.19)(miniflare@3.20241230.2)(wrangler@3.103.2(@cloudflare/workers-types@4.20250121.0))
       '@types/react':
         specifier: 18.3.18
         version: 18.3.18
@@ -580,11 +580,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@tanstack/query-core@5.64.2':
-    resolution: {integrity: sha512-hdO8SZpWXoADNTWXV9We8CwTkXU88OVWRBcsiFrk7xJQnhm6WRlweDzMD+uH+GnuieTBVSML6xFa17C2cNV8+g==}
+  '@tanstack/query-core@5.65.0':
+    resolution: {integrity: sha512-Bnnq/1axf00r2grRT6gUyIkZRKzhHs+p4DijrCQ3wMlA3D3TTT71gtaSLtqnzGddj73/7X5JDGyjiSLdjvQN4w==}
 
-  '@tanstack/react-query@5.64.2':
-    resolution: {integrity: sha512-3pakNscZNm8KJkxmovvtZ4RaXLyiYYobwleTMvpIGUoKRa8j8VlrQKNl5W8VUEfVfZKkikvXVddLuWMbcSCA1Q==}
+  '@tanstack/react-query@5.65.1':
+    resolution: {integrity: sha512-BSpjo4RQdJ75Mw3pqM1AJYNhanNxJE3ct7RmCZUAv9cUJg/Qmonzc/Xy2kKXeQA1InuKATSuc6pOZciWOF8TYQ==}
     peerDependencies:
       react: ^18 || ^19
 
@@ -742,8 +742,8 @@ packages:
   glob-to-regexp@0.4.1:
     resolution: {integrity: sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw==}
 
-  hono@4.6.17:
-    resolution: {integrity: sha512-Kbh4M0so2RzLiIg6iP33DoTU68TdvP2O/kb1Hhhdwa37fazuf402ig8ZRfjkz2dqXwiWl2dAgh0f++TuKAdOtQ==}
+  hono@4.6.19:
+    resolution: {integrity: sha512-Xw5DwU2cewEsQ1DkDCdy6aBJkEBARl5loovoL1gL3/gw81RdaPbXrNJYp3LoQpzpJ7ECC/1OFi/vn3UZTLHFEw==}
     engines: {node: '>=16.9.0'}
 
   js-tokens@4.0.0:
@@ -857,8 +857,8 @@ packages:
   siginfo@2.0.0:
     resolution: {integrity: sha512-ybx0WO1/8bSBLEWXZvEd7gMW3Sn3JFlW3TvX1nREbDLRNQNaeNN8WK0meBwPdAaOI7TtRRRJn/Es1zhrrCHu7g==}
 
-  sonner@1.7.2:
-    resolution: {integrity: sha512-zMbseqjrOzQD1a93lxahm+qMGxWovdMxBlkTbbnZdNqVLt4j+amF9PQxUCL32WfztOFt9t9ADYkejAL3jF9iNA==}
+  sonner@1.7.3:
+    resolution: {integrity: sha512-KXLWQfyR6AHpYZuQk8eO8fCbZSJY3JOpgsu/tbGc++jgPjj8JsR1ZpO8vFhqR/OxvWMQCSAmnSShY0gr4FPqHg==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
       react-dom: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
@@ -929,8 +929,8 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  valibot@1.0.0-beta.13:
-    resolution: {integrity: sha512-WCAqfG126/nadCrK36lOgVHrYWeWJfxb52PYE48gqg/8clLTy9sWjE6v/W43cVtgR+rSt30J1IAswk6ovT48pQ==}
+  valibot@1.0.0-beta.14:
+    resolution: {integrity: sha512-tLyV2rE5QL6U29MFy3xt4AqMrn+/HErcp2ZThASnQvPMwfSozjV1uBGKIGiegtZIGjinJqn0SlBdannf18wENA==}
     peerDependencies:
       typescript: '>=5'
     peerDependenciesMeta:
@@ -1008,8 +1008,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wouter@3.3.5:
-    resolution: {integrity: sha512-bx3fLQAMn+EhYbBdY3W1gw9ZfO/uchudxYMwOIBzF3HVgqNEEIT199vEoh7FLTC0Vz5+rpMO6NdFsOkGX1QQCw==}
+  wouter@3.5.0:
+    resolution: {integrity: sha512-cCA3IbliS1CZKVkKYgy88UHR7WG/8R/hiJEcMeWDgiI/ziNxuTJe+NU05UTRh9GCsk9G/uOL0kcagtVnsA0zWA==}
     peerDependencies:
       react: '>=16.8.0'
 
@@ -1250,23 +1250,23 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
-  '@hono/node-server@1.13.7(hono@4.6.17)':
+  '@hono/node-server@1.13.7(hono@4.6.19)':
     dependencies:
-      hono: 4.6.17
+      hono: 4.6.19
 
-  '@hono/valibot-validator@0.5.2(hono@4.6.17)(valibot@1.0.0-beta.13(typescript@5.7.3))':
+  '@hono/valibot-validator@0.5.2(hono@4.6.19)(valibot@1.0.0-beta.14(typescript@5.7.3))':
     dependencies:
-      hono: 4.6.17
-      valibot: 1.0.0-beta.13(typescript@5.7.3)
+      hono: 4.6.19
+      valibot: 1.0.0-beta.14(typescript@5.7.3)
 
-  '@hono/vite-cloudflare-pages@0.4.2(hono@4.6.17)':
+  '@hono/vite-cloudflare-pages@0.4.2(hono@4.6.19)':
     dependencies:
-      hono: 4.6.17
+      hono: 4.6.19
 
-  '@hono/vite-dev-server@0.18.1(hono@4.6.17)(miniflare@3.20241230.2)(wrangler@3.103.2(@cloudflare/workers-types@4.20250121.0))':
+  '@hono/vite-dev-server@0.18.1(hono@4.6.19)(miniflare@3.20241230.2)(wrangler@3.103.2(@cloudflare/workers-types@4.20250121.0))':
     dependencies:
-      '@hono/node-server': 1.13.7(hono@4.6.17)
-      hono: 4.6.17
+      '@hono/node-server': 1.13.7(hono@4.6.19)
+      hono: 4.6.19
       minimatch: 9.0.5
     optionalDependencies:
       miniflare: 3.20241230.2
@@ -1338,11 +1338,11 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.32.0':
     optional: true
 
-  '@tanstack/query-core@5.64.2': {}
+  '@tanstack/query-core@5.65.0': {}
 
-  '@tanstack/react-query@5.64.2(react@18.3.1)':
+  '@tanstack/react-query@5.65.1(react@18.3.1)':
     dependencies:
-      '@tanstack/query-core': 5.64.2
+      '@tanstack/query-core': 5.65.0
       react: 18.3.1
 
   '@types/estree@1.0.6': {}
@@ -1528,7 +1528,7 @@ snapshots:
 
   glob-to-regexp@0.4.1: {}
 
-  hono@4.6.17: {}
+  hono@4.6.19: {}
 
   js-tokens@4.0.0: {}
 
@@ -1669,7 +1669,7 @@ snapshots:
 
   siginfo@2.0.0: {}
 
-  sonner@1.7.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  sonner@1.7.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -1723,7 +1723,7 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  valibot@1.0.0-beta.13(typescript@5.7.3):
+  valibot@1.0.0-beta.14(typescript@5.7.3):
     optionalDependencies:
       typescript: 5.7.3
 
@@ -1799,7 +1799,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20241230.0
       '@cloudflare/workerd-windows-64': 1.20241230.0
 
-  wouter@3.3.5(react@18.3.1):
+  wouter@3.5.0(react@18.3.1):
     dependencies:
       mitt: 3.0.1
       react: 18.3.1
