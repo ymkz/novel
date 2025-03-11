@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@hono/valibot-validator": "0.5.2",
-    "@tanstack/react-query": "5.67.1",
+    "@tanstack/react-query": "5.67.3",
     "hono": "4.7.4",
     "react": "18.3.1",
     "react-dom": "18.3.1",
