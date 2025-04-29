@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "22.14.0"
+    "node": "22.15.0"
   },
   "scripts": {
     "dev": "vite dev",
@@ -23,11 +23,11 @@
     "react-dom": "18.3.1",
     "sonner": "1.7.4",
     "valibot": "1.0.0",
-    "wouter": "3.6.0"
+    "wouter": "3.7.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@cloudflare/workers-types": "4.20250317.0",
+    "@cloudflare/workers-types": "4.20250422.0",
     "@hono/vite-cloudflare-pages": "0.4.2",
     "@hono/vite-dev-server": "0.19.0",
     "@types/react": "18.3.18",
