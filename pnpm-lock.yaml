@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@hono/valibot-validator':
         specifier: 0.5.2
-        version: 0.5.2(hono@4.7.10)(valibot@1.1.0(typescript@5.8.3))
+        version: 0.5.2(hono@4.8.2)(valibot@1.1.0(typescript@5.8.3))
       '@tanstack/react-query':
-        specifier: 5.76.1
-        version: 5.76.1(react@18.3.1)
+        specifier: 5.79.0
+        version: 5.79.0(react@18.3.1)
       hono:
-        specifier: 4.7.10
-        version: 4.7.10
+        specifier: 4.8.2
+        version: 4.8.2
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -30,27 +30,27 @@ importers:
         specifier: 1.1.0
         version: 1.1.0(typescript@5.8.3)
       wouter:
-        specifier: 3.7.0
-        version: 3.7.0(react@18.3.1)
+        specifier: 3.7.1
+        version: 3.7.1(react@18.3.1)
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
         version: 1.9.4
       '@cloudflare/workers-types':
-        specifier: 4.20250520.0
-        version: 4.20250520.0
+        specifier: 4.20250620.0
+        version: 4.20250620.0
       '@hono/vite-cloudflare-pages':
         specifier: 0.4.2
-        version: 0.4.2(hono@4.7.10)
+        version: 0.4.2(hono@4.8.2)
       '@hono/vite-dev-server':
-        specifier: 0.19.0
-        version: 0.19.0(hono@4.7.10)(miniflare@3.20250408.1)(wrangler@3.114.8(@cloudflare/workers-types@4.20250520.0))
+        specifier: 0.19.1
+        version: 0.19.1(hono@4.8.2)(miniflare@3.20250408.2)(wrangler@3.114.9(@cloudflare/workers-types@4.20250620.0))
       '@types/react':
-        specifier: 18.3.21
-        version: 18.3.21
+        specifier: 18.3.23
+        version: 18.3.23
       '@types/react-dom':
         specifier: 18.3.7
-        version: 18.3.7(@types/react@18.3.21)
+        version: 18.3.7(@types/react@18.3.23)
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -61,8 +61,8 @@ importers:
         specifier: 2.1.9
         version: 2.1.9
       wrangler:
-        specifier: 3.114.8
-        version: 3.114.8(@cloudflare/workers-types@4.20250520.0)
+        specifier: 3.114.9
+        version: 3.114.9(@cloudflare/workers-types@4.20250620.0)
 
 packages:
 
@@ -162,8 +162,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@cloudflare/workers-types@4.20250520.0':
-    resolution: {integrity: sha512-bMPrpZREctlSaKtqIp3mdRjgyRSgioPQDUlhOeCUYRIo9DzWUACvw/u5kq3GQMmE4V1/nVCGHb7a1Ie8f5wG5g==}
+  '@cloudflare/workers-types@4.20250620.0':
+    resolution: {integrity: sha512-EVvRB/DJEm6jhdKg+A4Qm4y/ry1cIvylSgSO3/f/Bv161vldDRxaXM2YoQQWFhLOJOw0qtrHsKOD51KYxV1XCw==}
 
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -456,8 +456,8 @@ packages:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
 
-  '@hono/node-server@1.13.8':
-    resolution: {integrity: sha512-fsn8ucecsAXUoVxrUil0m13kOEq4mkX4/4QozCqmY+HpGfKl74OYSn8JcMA8GnG0ClfdRI4/ZSeG7zhFaVg+wg==}
+  '@hono/node-server@1.14.4':
+    resolution: {integrity: sha512-DnxpshhYewr2q9ZN8ez/M5mmc3sucr8CT1sIgIy1bkeUXut9XWDkqHoFHRhWIQgkYnKpVRxunyhK7WzpJeJ6qQ==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: ^4
@@ -474,8 +474,8 @@ packages:
     peerDependencies:
       hono: '*'
 
-  '@hono/vite-dev-server@0.19.0':
-    resolution: {integrity: sha512-myMc4Nm0nFQSPaeE6I/a1ODyDR5KpQ4EHodX4Tu/7qlB31GfUemhUH/WsO91HJjDEpRRpsT4Zbg+PleMlpTljw==}
+  '@hono/vite-dev-server@0.19.1':
+    resolution: {integrity: sha512-hh+0u3IxHErEyj4YwHk/U+2f+qAHEQZ9EIQtadG9jeHfxEXH6r/ZecjnpyEkQbDK7JtgEEoVAq/JGOkd3Dvqww==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '*'
@@ -697,11 +697,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@tanstack/query-core@5.76.0':
-    resolution: {integrity: sha512-FN375hb8ctzfNAlex5gHI6+WDXTNpe0nbxp/d2YJtnP+IBM6OUm7zcaoCW6T63BawGOYZBbKC0iPvr41TteNVg==}
+  '@tanstack/query-core@5.79.0':
+    resolution: {integrity: sha512-s+epTqqLM0/TbJzMAK7OEhZIzh63P9sWz5HEFc5XHL4FvKQXQkcjI8F3nee+H/xVVn7mrP610nVXwOytTSYd0w==}
 
-  '@tanstack/react-query@5.76.1':
-    resolution: {integrity: sha512-YxdLZVGN4QkT5YT1HKZQWiIlcgauIXEIsMOTSjvyD5wLYK8YVvKZUPAysMqossFJJfDpJW3pFn7WNZuPOqq+fw==}
+  '@tanstack/react-query@5.79.0':
+    resolution: {integrity: sha512-DjC4JIYZnYzxaTzbg3osOU63VNLP67dOrWet2cZvXgmgwAXNxfS52AMq86M5++ILuzW+BqTUEVMTjhrZ7/XBuA==}
     peerDependencies:
       react: ^18 || ^19
 
@@ -716,8 +716,8 @@ packages:
     peerDependencies:
       '@types/react': ^18.0.0
 
-  '@types/react@18.3.21':
-    resolution: {integrity: sha512-gXLBtmlcRJeT09/sI4PxVwyrku6SaNUj/6cMubjE6T6XdY1fDmBL7r0nX0jbSZPU/Xr0KuwLLZh6aOYY5d91Xw==}
+  '@types/react@18.3.23':
+    resolution: {integrity: sha512-/LDXMQh55EzZQ0uVAZmKKhfENivEvWz6E+EYzh+/MCjMhNsotd+ZHhBGIjFDTi6+fz0OhQQQLbTgdQIxxCsC0w==}
 
   '@vitest/expect@2.1.9':
     resolution: {integrity: sha512-UJCIkTBenHeKT1TTlKMJWy1laZewsRIzYighyYiJKZreqtdxSos/S1t+ktRMQWu2CKqaarrkeszJx1cgC5tGZw==}
@@ -874,8 +874,8 @@ packages:
   glob-to-regexp@0.4.1:
     resolution: {integrity: sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw==}
 
-  hono@4.7.10:
-    resolution: {integrity: sha512-QkACju9MiN59CKSY5JsGZCYmPZkA6sIW6OFCUp7qDjZu6S6KHtJHhAc9Uy9mV9F8PJ1/HQ3ybZF2yjCa/73fvQ==}
+  hono@4.8.2:
+    resolution: {integrity: sha512-hM+1RIn9PK1I6SiTNS6/y7O1mvg88awYLFEuEtoiMtRyT3SD2iu9pSFgbBXT3b1Ua4IwzvSTLvwO0SEhDxCi4w==}
     engines: {node: '>=16.9.0'}
 
   is-arrayish@0.3.2:
@@ -902,8 +902,8 @@ packages:
     engines: {node: '>=10.0.0'}
     hasBin: true
 
-  miniflare@3.20250408.1:
-    resolution: {integrity: sha512-0EHBNcd1yZSdTC/7GSe/kI1ge4+YuO/6QbEXDLtnVgUExKiMS5brfWsza1+Ps0/WCywKkER08lJwu6tFh7kF7g==}
+  miniflare@3.20250408.2:
+    resolution: {integrity: sha512-uTs7cGWFErgJTKtBdmtctwhuoxniuCQqDT8+xaEiJdEC8d+HsaZVYfZwIX2NuSmdAiHMe7NtbdZYjFMbIXtJsQ==}
     engines: {node: '>=16.13'}
     hasBin: true
 
@@ -1149,13 +1149,13 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wouter@3.7.0:
-    resolution: {integrity: sha512-ElkqESy10WgRRbdd22uQkSSO6LmG6vxI50pxPKry2TLebbdXvgtp7rJ48KafjUvsKcQQmIewxgRCGixPfk58tw==}
+  wouter@3.7.1:
+    resolution: {integrity: sha512-od5LGmndSUzntZkE2R5CHhoiJ7YMuTIbiXsa0Anytc2RATekgv4sfWRAxLEULBrp7ADzinWQw8g470lkT8+fOw==}
     peerDependencies:
       react: '>=16.8.0'
 
-  wrangler@3.114.8:
-    resolution: {integrity: sha512-4qLxkXnviQDhFiQe2xIgZGEaDkNHdVKyX7dsQ70PO3blXxYwQof34yRH9oZOyT8c8g/BeIM+f9a6qmegeJX5ZA==}
+  wrangler@3.114.9:
+    resolution: {integrity: sha512-1e0gL+rxLF04kM9bW4sxoDGLXpJ1x53Rx1t18JuUm6F67qadKKPISyUAXuBeIQudWrCWEBXaTVnSdLHz0yBXbA==}
     engines: {node: '>=16.17.0'}
     hasBin: true
     peerDependencies:
@@ -1244,7 +1244,7 @@ snapshots:
   '@cloudflare/workerd-windows-64@1.20250408.0':
     optional: true
 
-  '@cloudflare/workers-types@4.20250520.0': {}
+  '@cloudflare/workers-types@4.20250620.0': {}
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
@@ -1402,27 +1402,27 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
-  '@hono/node-server@1.13.8(hono@4.7.10)':
+  '@hono/node-server@1.14.4(hono@4.8.2)':
     dependencies:
-      hono: 4.7.10
+      hono: 4.8.2
 
-  '@hono/valibot-validator@0.5.2(hono@4.7.10)(valibot@1.1.0(typescript@5.8.3))':
+  '@hono/valibot-validator@0.5.2(hono@4.8.2)(valibot@1.1.0(typescript@5.8.3))':
     dependencies:
-      hono: 4.7.10
+      hono: 4.8.2
       valibot: 1.1.0(typescript@5.8.3)
 
-  '@hono/vite-cloudflare-pages@0.4.2(hono@4.7.10)':
+  '@hono/vite-cloudflare-pages@0.4.2(hono@4.8.2)':
     dependencies:
-      hono: 4.7.10
+      hono: 4.8.2
 
-  '@hono/vite-dev-server@0.19.0(hono@4.7.10)(miniflare@3.20250408.1)(wrangler@3.114.8(@cloudflare/workers-types@4.20250520.0))':
+  '@hono/vite-dev-server@0.19.1(hono@4.8.2)(miniflare@3.20250408.2)(wrangler@3.114.9(@cloudflare/workers-types@4.20250620.0))':
     dependencies:
-      '@hono/node-server': 1.13.8(hono@4.7.10)
-      hono: 4.7.10
+      '@hono/node-server': 1.14.4(hono@4.8.2)
+      hono: 4.8.2
       minimatch: 9.0.5
     optionalDependencies:
-      miniflare: 3.20250408.1
-      wrangler: 3.114.8(@cloudflare/workers-types@4.20250520.0)
+      miniflare: 3.20250408.2
+      wrangler: 3.114.9(@cloudflare/workers-types@4.20250620.0)
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
@@ -1565,22 +1565,22 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.35.0':
     optional: true
 
-  '@tanstack/query-core@5.76.0': {}
+  '@tanstack/query-core@5.79.0': {}
 
-  '@tanstack/react-query@5.76.1(react@18.3.1)':
+  '@tanstack/react-query@5.79.0(react@18.3.1)':
     dependencies:
-      '@tanstack/query-core': 5.76.0
+      '@tanstack/query-core': 5.79.0
       react: 18.3.1
 
   '@types/estree@1.0.6': {}
 
   '@types/prop-types@15.7.14': {}
 
-  '@types/react-dom@18.3.7(@types/react@18.3.21)':
+  '@types/react-dom@18.3.7(@types/react@18.3.23)':
     dependencies:
-      '@types/react': 18.3.21
+      '@types/react': 18.3.23
 
-  '@types/react@18.3.21':
+  '@types/react@18.3.23':
     dependencies:
       '@types/prop-types': 15.7.14
       csstype: 3.1.3
@@ -1769,7 +1769,7 @@ snapshots:
 
   glob-to-regexp@0.4.1: {}
 
-  hono@4.7.10: {}
+  hono@4.8.2: {}
 
   is-arrayish@0.3.2:
     optional: true
@@ -1792,7 +1792,7 @@ snapshots:
 
   mime@3.0.0: {}
 
-  miniflare@3.20250408.1:
+  miniflare@3.20250408.2:
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       acorn: 8.14.0
@@ -2064,14 +2064,14 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20250408.0
       '@cloudflare/workerd-windows-64': 1.20250408.0
 
-  wouter@3.7.0(react@18.3.1):
+  wouter@3.7.1(react@18.3.1):
     dependencies:
       mitt: 3.0.1
       react: 18.3.1
       regexparam: 3.0.0
       use-sync-external-store: 1.4.0(react@18.3.1)
 
-  wrangler@3.114.8(@cloudflare/workers-types@4.20250520.0):
+  wrangler@3.114.9(@cloudflare/workers-types@4.20250620.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@cloudflare/unenv-preset': 2.0.2(unenv@2.0.0-rc.14)(workerd@1.20250408.0)
@@ -2079,12 +2079,12 @@ snapshots:
       '@esbuild-plugins/node-modules-polyfill': 0.2.2(esbuild@0.17.19)
       blake3-wasm: 2.1.5
       esbuild: 0.17.19
-      miniflare: 3.20250408.1
+      miniflare: 3.20250408.2
       path-to-regexp: 6.3.0
       unenv: 2.0.0-rc.14
       workerd: 1.20250408.0
     optionalDependencies:
-      '@cloudflare/workers-types': 4.20250520.0
+      '@cloudflare/workers-types': 4.20250620.0
       fsevents: 2.3.3
       sharp: 0.33.5
     transitivePeerDependencies:
