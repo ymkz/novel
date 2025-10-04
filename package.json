@@ -19,22 +19,22 @@
     "@hono/valibot-validator": "0.5.3",
     "@tanstack/react-query": "5.90.2",
     "hono": "4.9.7",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "sonner": "1.7.4",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "sonner": "2.0.7",
     "valibot": "1.1.0",
     "wouter": "3.7.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.2.4",
     "@cloudflare/workers-types": "4.20250924.0",
     "@hono/vite-cloudflare-pages": "0.4.2",
     "@hono/vite-dev-server": "0.21.1",
-    "@types/react": "18.3.24",
-    "@types/react-dom": "18.3.7",
+    "@types/react": "19.1.17",
+    "@types/react-dom": "19.1.10",
     "typescript": "5.9.2",
-    "vite": "5.4.20",
-    "vitest": "2.1.9",
-    "wrangler": "3.114.14"
+    "vite": "7.1.7",
+    "vitest": "3.2.4",
+    "wrangler": "4.40.3"
   }
 }
