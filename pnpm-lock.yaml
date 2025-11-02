@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@hono/valibot-validator':
         specifier: 0.5.3
-        version: 0.5.3(hono@4.10.3)(valibot@1.1.0(typescript@5.9.3))
+        version: 0.5.3(hono@4.10.4)(valibot@1.1.0(typescript@5.9.3))
       '@tanstack/react-query':
         specifier: 5.90.5
         version: 5.90.5(react@18.3.1)
       hono:
-        specifier: 4.10.3
-        version: 4.10.3
+        specifier: 4.10.4
+        version: 4.10.4
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -41,10 +41,10 @@ importers:
         version: 4.20251014.0
       '@hono/vite-cloudflare-pages':
         specifier: 0.4.2
-        version: 0.4.2(hono@4.10.3)
+        version: 0.4.2(hono@4.10.4)
       '@hono/vite-dev-server':
         specifier: 0.23.0
-        version: 0.23.0(hono@4.10.3)(miniflare@3.20250718.2)(wrangler@3.114.15(@cloudflare/workers-types@4.20251014.0))
+        version: 0.23.0(hono@4.10.4)(miniflare@3.20250718.2)(wrangler@3.114.15(@cloudflare/workers-types@4.20251014.0))
       '@types/react':
         specifier: 18.3.26
         version: 18.3.26
@@ -877,8 +877,8 @@ packages:
   glob-to-regexp@0.4.1:
     resolution: {integrity: sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw==}
 
-  hono@4.10.3:
-    resolution: {integrity: sha512-2LOYWUbnhdxdL8MNbNg9XZig6k+cZXm5IjHn2Aviv7honhBMOHb+jxrKIeJRZJRmn+htUCKhaicxwXuUDlchRA==}
+  hono@4.10.4:
+    resolution: {integrity: sha512-YG/fo7zlU3KwrBL5vDpWKisLYiM+nVstBQqfr7gCPbSYURnNEP9BDxEMz8KfsDR9JX0lJWDRNc6nXX31v7ZEyg==}
     engines: {node: '>=16.9.0'}
 
   is-arrayish@0.3.4:
@@ -1405,23 +1405,23 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
-  '@hono/node-server@1.18.1(hono@4.10.3)':
+  '@hono/node-server@1.18.1(hono@4.10.4)':
     dependencies:
-      hono: 4.10.3
+      hono: 4.10.4
 
-  '@hono/valibot-validator@0.5.3(hono@4.10.3)(valibot@1.1.0(typescript@5.9.3))':
+  '@hono/valibot-validator@0.5.3(hono@4.10.4)(valibot@1.1.0(typescript@5.9.3))':
     dependencies:
-      hono: 4.10.3
+      hono: 4.10.4
       valibot: 1.1.0(typescript@5.9.3)
 
-  '@hono/vite-cloudflare-pages@0.4.2(hono@4.10.3)':
+  '@hono/vite-cloudflare-pages@0.4.2(hono@4.10.4)':
     dependencies:
-      hono: 4.10.3
+      hono: 4.10.4
 
-  '@hono/vite-dev-server@0.23.0(hono@4.10.3)(miniflare@3.20250718.2)(wrangler@3.114.15(@cloudflare/workers-types@4.20251014.0))':
+  '@hono/vite-dev-server@0.23.0(hono@4.10.4)(miniflare@3.20250718.2)(wrangler@3.114.15(@cloudflare/workers-types@4.20251014.0))':
     dependencies:
-      '@hono/node-server': 1.18.1(hono@4.10.3)
-      hono: 4.10.3
+      '@hono/node-server': 1.18.1(hono@4.10.4)
+      hono: 4.10.4
       minimatch: 9.0.5
     optionalDependencies:
       miniflare: 3.20250718.2
@@ -1774,7 +1774,7 @@ snapshots:
 
   glob-to-regexp@0.4.1: {}
 
-  hono@4.10.3: {}
+  hono@4.10.4: {}
 
   is-arrayish@0.3.4:
     optional: true
