@@ -16,18 +16,18 @@
     "update": "pnpm update --latest --interactive"
   },
   "dependencies": {
-    "@hono/valibot-validator": "0.6.0",
+    "@hono/valibot-validator": "0.6.1",
     "@tanstack/react-query": "5.90.12",
-    "hono": "4.10.8",
+    "hono": "4.11.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "sonner": "1.7.4",
     "valibot": "1.2.0",
-    "wouter": "3.8.1"
+    "wouter": "3.9.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@cloudflare/workers-types": "4.20251211.0",
+    "@cloudflare/workers-types": "4.20251217.0",
     "@hono/vite-cloudflare-pages": "0.4.3",
     "@hono/vite-dev-server": "0.23.0",
     "@types/react": "18.3.27",
